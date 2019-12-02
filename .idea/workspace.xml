@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfbb8a2d-a4ff-4040-a7fd-74054ab33ad3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/MAP-G.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Music.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/PileChoosing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Ques.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Ques2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Ques3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-    </list>
+    <list default="true" id="dfbb8a2d-a4ff-4040-a7fd-74054ab33ad3" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -185,12 +166,12 @@
       <workItem from="1572673247483" duration="872000" />
       <workItem from="1575182790976" duration="19737000" />
       <workItem from="1575263580500" duration="17644000" />
-      <workItem from="1575285486156" duration="262000" />
+      <workItem from="1575285486156" duration="515000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59181000" />
+    <option name="totallyTimeSpent" value="59434000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
