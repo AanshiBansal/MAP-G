@@ -10,6 +10,7 @@ class Emotion5 extends Component {
         super(props);
         this.state = {
             showComponent: false,
+            redirectstate: false,
         };
         this._onButtonClick = this._onButtonClick.bind(this);
     }
@@ -19,6 +20,15 @@ class Emotion5 extends Component {
             showComponent: true,
         });
     }
+    handleClick = (event)=>{
+        const timestamp = Date.now(); // This would be the timestamp you want to format
+        console.log("Emotion detected for picture 5" + event.target.id + " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
+        this.setState({
+            redirectstate: true,
+
+        });
+
+    };
     render() {
         return (
             <div>
@@ -42,16 +52,17 @@ class Emotion5 extends Component {
                 <img src={require('./pic5.jpg')} />
                 <p>
                     What kind of emotion is it displaying? <br />
-                    <Button><Link to="/emotion6">Anger</Link></Button>
-                    <Button><Link to="/emotion6">Determination</Link></Button>
-                    <Button><Link to="/emotion6">Disgust</Link></Button>
-                    <Button><Link to="/emotion6">Happiness</Link></Button>
-                    <Button><Link to="/emotion6">Hope</Link></Button>
-                    <Button><Link to="/emotion6">Fear</Link></Button>
-                    <Button><Link to="/emotion6">Sadness</Link></Button>
-                    <Button><Link to="/emotion6">Pain</Link></Button>
-                    <Button><Link to="/emotion6">Surprise</Link></Button>
-                    <Button><Link to="/emotion6">Puzzle element</Link></Button>
+                    <Button id='Anger' onClick={this.handleClick}>Anger</Button>
+                    <Button id='Determination' onClick={this.handleClick}>Determination</Button>
+                    <Button id='Disgust' onClick={this.handleClick}>Disgust</Button>
+                    <Button id='Happiness' onClick={this.handleClick}>Happiness</Button>
+                    <Button id='Hope' onClick={this.handleClick}>Hope</Button>
+                    <Button id='Fear' onClick={this.handleClick}>Fear</Button>
+                    <Button id='Sadness' onClick={this.handleClick}>Sadness</Button>
+                    <Button id='Pain' onClick={this.handleClick}>Pain</Button>
+                    <Button id='Surprise' onClick={this.handleClick}>Surprise></Button>
+                    <Button id='Puzzle' onClick={this.handleClick}>Puzzle element</Button>
+                    { (this.state.redirectstate) ? <Redirect to="/emotion6"/> : null }
                 </p>
             </div>
         )
