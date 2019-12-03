@@ -1,22 +1,33 @@
 import React, { Component } from 'react';
-import {Card, Image} from "semantic-ui-react";
+import {Card, Header, Icon, Image, Modal} from "semantic-ui-react";
 import ReactStopwatch from 'react-stopwatch';
 import Button from "semantic-ui-react/dist/es/elements/Button/Button";
+import {Redirect} from "react-router-dom";
 
 class Emotion14 extends Component {
     constructor(props) {
         super(props);
         this.state = {
             showComponent: false,
+            modalOpen: false,
+            redirecthome:false,
         };
         this._onButtonClick = this._onButtonClick.bind(this);
     }
+    handleOpen = () => this.setState({ modalOpen: true });
+    handleClose = (event) => {
+        const timestamp = Date.now(); // This would be the timestamp you want to format
+        console.log("Emotion detected for picture 14 " + event.target.id + " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
+        this.setState({ redirecthome: true });
+    };
+
 
     _onButtonClick() {
         this.setState({
             showComponent: true,
         });
     }
+
     render() {
         return (
             <div>
@@ -24,10 +35,10 @@ class Emotion14 extends Component {
                     seconds={0}
                     minutes={0}
                     hours={0}
-                    limit="00:00:30"
+                    limit="00:00:05"
                     onChange={({hours, minutes, seconds}) => {
                     }}
-                    onCallback={() => this._onButtonClick()}
+                    onCallback={() => this.handleOpen()}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
                             <div >
@@ -51,17 +62,36 @@ number 7 is going to take the lead.
                 </p>
                 <p>
                     What kind of emotion is it displaying? <br />
-                    <Button>Anger</Button>
-                    <Button>Determination</Button>
-                    <Button>Disgust</Button>
-                    <Button>Happiness</Button>
-                    <Button>Hope</Button>
-                    <Button>Fear</Button>
-                    <Button>Sadness</Button>
-                    <Button>Pain</Button>
-                    <Button>Surprise</Button>
-                    <Button>Puzzle element</Button>
+                    <Button id='Anger'onClick={this.handleClose}>Anger</Button>
+                    <Button id='Determination' onClick={this.handleClose}>Determination</Button>
+                    <Button id='Disgust' onClick={this.handleClose}>Disgust</Button>
+                    <Button id='Happiness' onClick={this.handleClose}>Happiness</Button>
+                    <Button id='Hope' onClick={this.handleClose}>Hope</Button>
+                    <Button id='Fear' onClick={this.handleClose}>Fear</Button>
+                    <Button id='Sadness' onClick={this.handleClose}>Sadness</Button>
+                    <Button id='Pain' onClick={this.handleClose}>Pain</Button>
+                    <Button id='Surprise' onClick={this.handleClose}>Surprise</Button>
+                    <Button id='Puzzle' onClick={this.handleClose}>Puzzle element</Button>
                 </p>
+                <Modal
+                    open={this.state.modalOpen}
+                    onClose={this.handleClose}
+                    basic
+                    size='small'
+                >
+                    <Header icon='browser' content='Instructions'/>
+                    <Modal.Content>
+                        <h3>
+                            <p> Game complete. </p>
+                        </h3>
+                    </Modal.Content>
+                    <Modal.Actions>
+                        <Button color='green' onClick={this.handleClose} inverted>
+                            <Icon name='checkmark'/> Got it
+                        </Button>
+                    </Modal.Actions>
+                </Modal>
+                { (this.state.redirecthome) ? <Redirect to="/"/> : null }
             </div>
         )
     }
