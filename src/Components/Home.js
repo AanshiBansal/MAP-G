@@ -7,7 +7,7 @@ class Home extends Component {
         return (
             <div>
                 <div style={{textAlign: 'center', justifyContent:'center'}}>
-                    <h1><b> MAP-G </b> </h1>
+                    <h1><b><br /> MAP-G <br /><br /></b> </h1>
                 </div>
                 <div class="container">
                     <nav>
@@ -25,6 +25,11 @@ class Home extends Component {
                             <Card>
                                 <Card.Content>
                                     <Link to="/pile-choosing">Earn Maximum</Link>
+                                </Card.Content>
+                            </Card>
+                            <Card>
+                                <Card.Content>
+                                    <Link to="/emotion-sensing">Emotion Predictor</Link>
                                 </Card.Content>
                             </Card>
                         </Card.Group>
