@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import {Button, Card, Image} from "semantic-ui-react";
 import { connect } from 'react-redux';
-import blue from '../Content/blue.png'
-import blueblast from '../Content/blueblast.png'
-import red from '../Content/red.png'
-import redblast from '../Content/redblast.png'
-import yellow from '../Content/yellow.png'
-import yelloBlst from '../Content/yellowBlst.png'
+import blue from '../Content/blue.png';
+import blueblast from '../Content/blueblast.png';
+import red from '../Content/red.png';
+import redblast from '../Content/redblast.png';
+import yellow from '../Content/yellow.png';
+import yelloBlst from '../Content/yellowBlst.png';
+import balloonPump from '../Content/balloonPump.jpg';
 class Balloon extends Component{
     state = {
         size:0,
@@ -75,10 +76,15 @@ class Balloon extends Component{
             <div>
 
                 <Card header = 'Money collected' description = {this.state.total}/>
-                <Image src={this.state.src} id ='balloon' size = {this.imgsize[this.state.size]} onClick={this.handleClick}/>
-                <div>
+                <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
                     <Button onClick={this.handleBlow}>Pump</Button>
                     <Button onClick={this.handleCollect}>Collect</Button>
+                </div>
+                <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
+                    <Image src={this.state.src} id ='balloon' size = {this.imgsize[this.state.size]} onClick={this.handleClick}/>
+                </div><div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
+                    <Image src={balloonPump} size='small'/>
+
                 </div>
             </div>
         )

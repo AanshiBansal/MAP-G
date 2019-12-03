@@ -52,7 +52,7 @@ export default class ListeningGame extends Component{
                     onCallback={() => console.log('Finish')}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
-                            <div style={{align:'right'}}>
+                            <div style={{float:'right'}}>
                                 <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 60 seconds' />
                             </div>
                         );
