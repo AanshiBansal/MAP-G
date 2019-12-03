@@ -37,7 +37,8 @@ class Game2 extends React.Component{
                  print the string prettily
                 {time.toLocaleTimeString()}
             </h2>*/}
-            <h1 style={{textAlign: 'center', color: 'orange'}}> GAME 1 </h1>
+            {//<h1 style={{textAlign: 'center', color: 'orange'}}> GAME 1 </h1>
+            }
             <AudioPlayer ref={c => (this.player = c)}
                          autoPlay = {false}
                          src={soundfile}

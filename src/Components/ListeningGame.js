@@ -34,7 +34,7 @@ export default class ListeningGame extends Component{
                 >
                     <Header icon='browser' content='Instructions'/>
                     <Modal.Content>
-                        <h3>The goal of this game is to win as much money as possible by drawing cards. Some cards will earn you a reward, but some cards will have penality and you will loose money. You will start with a $2000 loan. Click on any of the four piles to draw a card from that pile. You are free to switch from one pile to another at any time, and as often as you wish. Continue drawing cards until the game is over.</h3>
+                        <h3></h3>
                     </Modal.Content>
                     <Modal.Actions>
                         <Button color='green' onClick={this.handleClose} inverted>
@@ -52,8 +52,8 @@ export default class ListeningGame extends Component{
                     onCallback={() => console.log('Finish')}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
-                            <div >
-                                <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 60 seconds'/>
+                            <div style={{align:'right'}}>
+                                <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 60 seconds' />
                             </div>
                         );
                     }}

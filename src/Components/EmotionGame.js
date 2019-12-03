@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Header,Icon, Modal, Card} from 'semantic-ui-react'
 import ReactStopwatch from 'react-stopwatch';
-import ScoreBoard from './ScoreBoard';
 import Emotion1 from './EmotionQues/Emotion1'
 
 export default class EmotionGame extends Component{
@@ -18,10 +17,6 @@ export default class EmotionGame extends Component{
         this.handleOpen=this.handleOpen.bind(this);
         this.handleClose=this.handleClose.bind(this);
         this.handleOpen();
-    }
-
-    componentWillUnmount() {
-
     }
 
     render() {
