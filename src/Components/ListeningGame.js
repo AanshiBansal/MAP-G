@@ -34,7 +34,9 @@ export default class ListeningGame extends Component{
                 >
                     <Header icon='browser' content='Instructions'/>
                     <Modal.Content>
-                        <h3></h3>
+                        <h3>
+                            An audio will be played and certain questions will be displayed. You have to answer those questions in accordance with the audio. The audio can be the played, paused and restated. You have 2 minutes to answer the questions.
+                        </h3>
                     </Modal.Content>
                     <Modal.Actions>
                         <Button color='green' onClick={this.handleClose} inverted>
@@ -46,14 +48,15 @@ export default class ListeningGame extends Component{
                     seconds={0}
                     minutes={0}
                     hours={0}
-                    limit="00:00:60"
+                    limit="00:02:00"
                     onChange={({hours, minutes, seconds}) => {
                     }}
                     onCallback={() => console.log('Finish')}
                     render={({formatted, hours, minutes, seconds}) => {
+                        const sec = 60*minutes + seconds;
                         return (
                             <div style={{float:'right'}}>
-                                <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 60 seconds' />
+                                <Card header = {'Time spent : '+ sec + ' seconds'} meta ='Total time : 120 seconds' />
                             </div>
                         );
                     }}
