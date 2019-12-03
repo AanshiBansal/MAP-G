@@ -3,9 +3,22 @@ import {Card, Image} from "semantic-ui-react";
 import Button from "semantic-ui-react/dist/es/elements/Button/Button";
 import ReactStopwatch from 'react-stopwatch';
 import Emotion2 from "./Emotion2";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class Emotion4 extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showComponent: false,
+        };
+        this._onButtonClick = this._onButtonClick.bind(this);
+    }
+
+    _onButtonClick() {
+        this.setState({
+            showComponent: true,
+        });
+    }
     render() {
         return (
             <div>
@@ -13,18 +26,19 @@ class Emotion4 extends Component {
                     seconds={0}
                     minutes={0}
                     hours={0}
-                    limit="00:00:30"
+                    limit="00:00:07"
                     onChange={({hours, minutes, seconds}) => {
                     }}
-                    onCallback={() => console.log('Finish')}
+                    onCallback={() => this._onButtonClick()}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
                             <div >
-                                <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 60 seconds'/>
+                                <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 07 seconds'/>
                             </div>
                         );
                     }}
                 />
+                { (this.state.showComponent) ? <Redirect to="/emotion5"/> : null }
                 <img src={require('./pic4.jpg')} />
                 <p>
                     What kind of emotion is it displaying? <br />

@@ -2,10 +2,24 @@ import React, { Component } from 'react';
 import {Card, Image} from "semantic-ui-react";
 import ReactStopwatch from 'react-stopwatch';
 import Button from "semantic-ui-react/dist/es/elements/Button/Button";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import Emotion3 from "./Emotion3";
 
 class Emotion1 extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showComponent: false,
+        };
+        this._onButtonClick = this._onButtonClick.bind(this);
+    }
+
+    _onButtonClick() {
+        this.setState({
+            showComponent: true,
+        });
+    }
+
     render() {
         return (
             <div>
@@ -13,20 +27,22 @@ class Emotion1 extends Component {
                     seconds={0}
                     minutes={0}
                     hours={0}
-                    limit="00:00:5"
+                    limit="00:00:30"
                     onChange={({hours, minutes, seconds}) => {
                     }}
-                    onCallback={() => console.log("finish") }
+                    onCallback={() => this._onButtonClick()}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
                             <div >
-                                <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 05 seconds'/>
+                                <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 30 seconds'/>
                             </div>
                         );
                     }}
                 />
+                { (this.state.showComponent) ? <Redirect to="/emotion3"/> : null }
                 <img src={require('./pic2.jpg')} />
                 <p>
+
                     <span>
                         This is a story of a man who is going to a McDonalds for the first time. While
                         waiting in line, he stares up at the menu. Several people are served and without
@@ -47,7 +63,6 @@ class Emotion1 extends Component {
                     <Button><Link to="/emotion3">Surprise</Link></Button>
                     <Button><Link to="/emotion3">Puzzke element</Link></Button>
                 </p>
-
             </div>
         )
     }

@@ -4,6 +4,19 @@ import ReactStopwatch from 'react-stopwatch';
 import Button from "semantic-ui-react/dist/es/elements/Button/Button";
 
 class Emotion14 extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showComponent: false,
+        };
+        this._onButtonClick = this._onButtonClick.bind(this);
+    }
+
+    _onButtonClick() {
+        this.setState({
+            showComponent: true,
+        });
+    }
     render() {
         return (
             <div>
@@ -14,11 +27,11 @@ class Emotion14 extends Component {
                     limit="00:00:30"
                     onChange={({hours, minutes, seconds}) => {
                     }}
-                    onCallback={() => console.log('Finish')}
+                    onCallback={() => this._onButtonClick()}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
                             <div >
-                                <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 60 seconds'/>
+                                <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 30 seconds'/>
                             </div>
                         );
                     }}

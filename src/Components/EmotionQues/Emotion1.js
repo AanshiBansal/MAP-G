@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
 import {Card, Image} from "semantic-ui-react";
 import Button from "semantic-ui-react/dist/es/elements/Button/Button";
-import Emotion2 from "./Emotion2";
 import {Link} from "react-router-dom";
 
 class Emotion1 extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showComponent: false,
+        };
+        this._onButtonClick = this._onButtonClick.bind(this);
+    }
+
+    _onButtonClick() {
+        this.setState({
+            showComponent: true,
+        });
+    }
+
     render() {
         return (
             <div>
@@ -19,6 +32,7 @@ class Emotion1 extends Component {
                 </p>
                 <p>
                     What kind of emotion is it displaying? <br />
+
                     <Button><Link to="/emotion2">Anger</Link></Button>
                     <Button><Link to="/emotion2">Determination</Link></Button>
                     <Button><Link to="/emotion2">Disgust</Link></Button>
@@ -28,6 +42,7 @@ class Emotion1 extends Component {
                     <Button><Link to="/emotion2">Sadness</Link></Button>
                     <Button><Link to="/emotion2">Pain</Link></Button>
                     <Button><Link to="/emotion2">Surprise</Link></Button>
+                    <Button><Link to="/emotion2">Puzzke element</Link></Button>
                 </p>
             </div>
         )

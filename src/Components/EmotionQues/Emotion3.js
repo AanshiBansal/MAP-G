@@ -3,10 +3,24 @@ import {Card, Image} from "semantic-ui-react";
 import ReactStopwatch from 'react-stopwatch';
 import Button from "semantic-ui-react/dist/es/elements/Button/Button";
 import Emotion2 from "./Emotion2";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class Emotion3 extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showComponent: false,
+        };
+        this._onButtonClick = this._onButtonClick.bind(this);
+    }
+
+    _onButtonClick() {
+        this.setState({
+            showComponent: true,
+        });
+    }
     render() {
+
         return (
             <div>
                 <ReactStopwatch
@@ -16,7 +30,7 @@ class Emotion3 extends Component {
                     limit="00:00:30"
                     onChange={({hours, minutes, seconds}) => {
                     }}
-                    onCallback={() => console.log('Finish')}
+                    onCallback={() => this._onButtonClick()}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
                             <div >
@@ -25,6 +39,7 @@ class Emotion3 extends Component {
                         );
                     }}
                 />
+                { (this.state.showComponent) ? <Redirect to="/emotion4"/> : null }
                 <img src={require('./pic3.jpg')} />
                 <p>
                     <span>
@@ -34,7 +49,6 @@ is now waiting in line to see a movie. As
 another movie ends, the crowd is asked
 to step back to let them through.
 Someone accidentally steps on her toe.
-
                     </span>
                 </p>
                 <p>
