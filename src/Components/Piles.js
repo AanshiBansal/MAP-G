@@ -6,7 +6,6 @@ import src1 from "../Content/One.jpg";
 import src2 from "../Content/Two.jpg";
 import src3 from "../Content/Three.jpg";
 import src4 from "../Content/Four.jpg";
-import ScoreBoard from "./ScoreBoard";
 class Piles extends Component{
     state = {
         count:0,
@@ -22,9 +21,8 @@ class Piles extends Component{
         [10,5,7,12,6,4,8,11,6,9,10,5,7,12,6,4,8,11,6,9,10,5,7,12,6,4,8,11,6,9]];
 //add timestamp
     handleClick = (event)=>{
-        console.log(this.state.Piles);
         const id = event.target.id;
-        console.log(id);
+        console.log(id+" Pile was choosen with net change of "+ this.val[id][this.state.countPiles[id]]);
         const counter =[];
         const data = [];
         for(let i=0;i<this.state.Piles.length;i++)
@@ -48,10 +46,8 @@ class Piles extends Component{
 
 
     render() {
-        console.log(this.state.countPiles);
         return(
             <div>
-
                 <Card header = 'Money collected' description = {this.state.total}/>
                 <Image.Group size='small'>
                     <Image src={src1} id ='1' onClick={this.handleClick}/>

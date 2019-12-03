@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import {Button, Header,Icon, Modal, Card} from 'semantic-ui-react'
 import ReactStopwatch from 'react-stopwatch';
 import Piles from './Piles'
+import Game2 from "./Game2";
 
-export default class PileChoosing extends Component{
+export default class ListeningGame extends Component{
     state = {
-            modalOpen: false,
-            stopWatch:false
+        modalOpen: false,
+        stopWatch:false
     };
 
     handleOpen = () => this.setState({ modalOpen: true });
@@ -31,7 +32,7 @@ export default class PileChoosing extends Component{
                     onClose={this.handleClose}
                     basic
                     size='small'
-                    >
+                >
                     <Header icon='browser' content='Instructions'/>
                     <Modal.Content>
                         <h3>The goal of this game is to win as much money as possible by drawing cards. Some cards will earn you a reward, but some cards will have penality and you will loose money. You will start with a $2000 loan. Click on any of the four piles to draw a card from that pile. You are free to switch from one pile to another at any time, and as often as you wish. Continue drawing cards until the game is over.</h3>
@@ -59,7 +60,7 @@ export default class PileChoosing extends Component{
                     }}
                 />
 
-                <Piles />
+                <Game2 />
             </div>
         )
     }

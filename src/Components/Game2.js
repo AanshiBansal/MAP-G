@@ -12,8 +12,6 @@ class Game2 extends React.Component{
         this.state = { time: new Date() }; // initialise the state
     }
 
-
-
     componentDidMount() { // create the interval once component is mounted
         this.update = setInterval(() => {
             this.setState({ time: new Date() });

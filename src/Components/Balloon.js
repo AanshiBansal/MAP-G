@@ -7,7 +7,6 @@ import red from '../Content/red.png'
 import redblast from '../Content/redblast.png'
 import yellow from '../Content/yellow.png'
 import yelloBlst from '../Content/yellowBlst.png'
-import ScoreBoard from "./ScoreBoard";
 class Balloon extends Component{
     state = {
         size:0,
@@ -29,6 +28,7 @@ class Balloon extends Component{
         this.setState({size:this.state.size+1});
         if(this.clickCount===this.clickLimit){
             //display blast for 2 secs
+            console.log("Balloon bursted after "+this.clickCount +" clicks without collecting the potential amount");
             const balloonColour=(this.state.balloonColour+1)%3;
             const data = [];
             for(let i=0;i<this.state.Balloon.length;i++)
@@ -50,6 +50,7 @@ class Balloon extends Component{
         }
     };
     handleCollect=()=>{
+        console.log("After "+this.clickCount +" clicks the potential amount was collected");
         const balloonColour=(this.state.balloonColour+1)%3;
         const data = [];
         for(let i=0;i<this.state.Balloon.length;i++)
@@ -70,7 +71,6 @@ class Balloon extends Component{
 
 
     render() {
-        console.log(this.state.countBalloon);
         return(
             <div>
 
