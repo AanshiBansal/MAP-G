@@ -27,6 +27,11 @@ class Home extends Component {
                                     <Link to="/pile-choosing">Earn Maximum</Link>
                                 </Card.Content>
                             </Card>
+                            <Card>
+                                <Card.Content>
+                                    <Link to="/balloon-blow">Blow the Balloon</Link>
+                                </Card.Content>
+                            </Card>
                         </Card.Group>
                     </nav>
                 </div>

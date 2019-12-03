@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Game2 from './Components/Game2';
 import PileChoosing from './Components/PileChoosing'
 import Home from "./Components/Home";
+import BalloonBlow from "./Components/BalloonBlow";
 
 class App extends Component {
     render() {
@@ -15,6 +16,7 @@ class App extends Component {
                         }
                         <Route exact path="/pile-choosing" component={PileChoosing}/>
                         <Route exact path="/listening" component={Game2}/>
+                        <Route exact path="/balloon-blow" component={BalloonBlow}/>
                     </div>
                 </Switch>
             </BrowserRouter>
