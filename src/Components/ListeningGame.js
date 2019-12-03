@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Header,Icon, Modal, Card} from 'semantic-ui-react'
 import ReactStopwatch from 'react-stopwatch';
-import Piles from './Piles'
 import Game2 from "./Game2";
 
 export default class ListeningGame extends Component{

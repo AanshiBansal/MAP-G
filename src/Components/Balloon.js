@@ -77,7 +77,7 @@ class Balloon extends Component{
                 <Card header = 'Money collected' description = {this.state.total}/>
                 <Image src={this.state.src} id ='balloon' size = {this.imgsize[this.state.size]} onClick={this.handleClick}/>
                 <div>
-                    <Button onClick={this.handleBlow}>Blow</Button>
+                    <Button onClick={this.handleBlow}>Pump</Button>
                     <Button onClick={this.handleCollect}>Collect</Button>
                 </div>
             </div>
