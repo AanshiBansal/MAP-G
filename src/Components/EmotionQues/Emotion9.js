@@ -43,14 +43,16 @@ class Emotion9 extends Component {
                     onCallback={() => this._onButtonClick()}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
-                            <div >
+                            <div style={{float:'right'}}>
                                 <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 07 seconds'/>
                             </div>
                         );
                     }}
                 />
                 { (this.state.showComponent) ? <Redirect to="/emotion10"/> : null }
-                <img src={require('./pic9.jpg')} />
+                <Card header ='9/14' style={{textAlign:'center'}}/>
+                <Image src={require('./pic9.jpg')} centered/>
+                <br/>
                 <p>
                     What kind of emotion is it displaying? <br />
                     <Button id='Anger' onClick={this.handleClick}>Anger</Button>

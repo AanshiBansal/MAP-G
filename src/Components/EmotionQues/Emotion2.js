@@ -32,6 +32,7 @@ class Emotion1 extends Component {
     render() {
         return (
             <div>
+
                 <ReactStopwatch
                     seconds={0}
                     minutes={0}
@@ -42,14 +43,16 @@ class Emotion1 extends Component {
                     onCallback={() => this._onButtonClick()}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
-                            <div >
+                            <div style={{float:'right'}}>
                                 <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 30 seconds'/>
                             </div>
                         );
                     }}
                 />
                 { (this.state.showComponent) ? <Redirect to="/emotion3"/> : null }
-                <img src={require('./pic2.jpg')} />
+                <Card header ='2/14' style={{textAlign:'center'}}/>
+                <Image src={require('./pic2.jpg')} centered/>
+                <br/>
                 <p>
 
                     <span>

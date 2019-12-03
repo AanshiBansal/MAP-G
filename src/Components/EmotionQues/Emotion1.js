@@ -31,7 +31,9 @@ class Emotion1 extends Component {
     render() {
         return (
             <div>
-                <img src={require('./pic1.jpg')} />
+                <Card header ='1/14' style={{textAlign:'center'}}/>
+                <Image src={require('./pic1.jpg')} centered/>
+                <br/>
                 <p>
                     <span>
                         This is a story about a woman who made it onto the Olympic rowing team.

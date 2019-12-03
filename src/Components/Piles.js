@@ -49,12 +49,14 @@ class Piles extends Component{
         return(
             <div>
                 <Card header = 'Money collected' description = {this.state.total}/>
+                <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
                 <Image.Group size='small'>
                     <Image src={src1} id ='1' onClick={this.handleClick}/>
                     <Image src={src2} id ='2' onClick={this.handleClick}/>
                     <Image src={src3} id ='3' onClick={this.handleClick}/>
                     <Image src={src4} id ='4' onClick={this.handleClick}/>
                 </Image.Group>
+                </div>
             </div>
         )
     }

@@ -41,13 +41,15 @@ class Emotion14 extends Component {
                     onCallback={() => this.handleOpen()}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
-                            <div >
+                            <div style={{float:'right'}}>
                                 <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 30 seconds'/>
                             </div>
                         );
                     }}
                 />
-                <img src={require('./pic14.jpg')} />
+                <Card header ='14/14' style={{textAlign:'center'}}/>
+                <Image src={require('./pic14.jpg')} centered/>
+                <br/>
                 <p>
                     <span>
                       This is a story of a man who went to the

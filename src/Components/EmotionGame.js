@@ -53,7 +53,7 @@ export default class EmotionGame extends Component{
                     onCallback={() => console.log('Finish')}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
-                            <div >
+                            <div style={{float:'right'}}>
                                 <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 30 seconds'/>
                             </div>
                         );
