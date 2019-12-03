@@ -60,7 +60,7 @@ class Emotion4 extends Component {
                     <Button id='Fear' onClick={this.handleClick}>Fear</Button>
                     <Button id='Sadness' onClick={this.handleClick}>Sadness</Button>
                     <Button id='Pain' onClick={this.handleClick}>Pain</Button>
-                    <Button id='Surprise' onClick={this.handleClick}>Surprise></Button>
+                    <Button id='Surprise' onClick={this.handleClick}>Surprise</Button>
                     <Button id='Puzzle' onClick={this.handleClick}>Puzzle element</Button>
                     { (this.state.redirectstate) ? <Redirect to="/emotion5"/> : null }
                 </p>
