@@ -4,29 +4,30 @@ import AudioPlayer from "react-h5-audio-player";
 import soundfile from '../Content/audio_record.mp3'
 import Ques2 from "./Ques2";
 import Ques3 from "./Ques3";
-import { Button } from 'semantic-ui-react'
+import {Button, Header, Icon, Modal} from 'semantic-ui-react'
+import {Redirect} from "react-router-dom";
 
 class Game2 extends React.Component{
     constructor(props) {
         super(props);
-        this.state = { time: new Date() }; // initialise the state
+        this.state = { time: new Date(),
+            modalOpen: false,
+            redirecthome: false}; // initialise the state
     }
+    openClose = () => this.setState({ modalOpe: true });
+    closeClose = (event) => {
+        this.setState({ redirecthome: true });
+    };
 
     componentDidMount() { // create the interval once component is mounted
         this.update = setInterval(() => {
             this.setState({ time: new Date() });
         }, 1000); // every 1 seconds
-        this.reset = this.reset.bind(this);
     }
 
     componentWillUnmount() { // delete the interval just before component is removed
         clearInterval(this.update);
     }
-
-    reset =()=>{
-        alert("Game completed successfully.");
-
-    };
 
     render() {
         const { time } = this.state; // retrieve the time from state
@@ -59,9 +60,31 @@ class Game2 extends React.Component{
             {/*<Segment basic textAlign={"center"}>*/}
             {/*    <Button primary style={{textAlign: "center"}} onClick={this.reset}>SUBMIT</Button>*/}
             {/*</Segment>*/}
-            <Button primary floated="right" onClick={this.reset}>SUBMIT</Button>
+            <Modal
+                //trigger={<Button onClick={this.handleOpen}>Show Modal</Button>}
+                open={this.state.modalOpe}
+                onClose={this.closeClose}
+                basic
+                size='small'
+            >
+                <Header icon='browser' content='Information'/>
+                <Modal.Content>
+                    <h3>
+                         Game complete.
+                    </h3>
+                </Modal.Content>
+                <Modal.Actions>
+                    <Button color='green' onClick={this.closeClose} inverted>
+                        <Icon name='checkmark'/> Got it
+                    </Button>
+                </Modal.Actions>
+            </Modal>
 
-        </div>);
+            { (this.state.redirecthome) ? <Redirect to="/"/> : null }
+            <Button primary floated="right" onClick={this.openClose}>SUBMIT</Button>
+
+
+                </div>);
     }
 }
 export default Game2;

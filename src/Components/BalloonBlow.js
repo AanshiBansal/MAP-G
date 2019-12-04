@@ -60,7 +60,7 @@ export default class BalloonBlow extends Component{
                     seconds={0}
                     minutes={0}
                     hours={0}
-                    limit="00:00:30"
+                    limit="00:00:60"
                     onChange={({hours, minutes, seconds}) => {
                     }}
                     onCallback={() => this.openClose()}
@@ -79,13 +79,10 @@ export default class BalloonBlow extends Component{
                     basic
                     size='small'
                 >
-                    <Header icon='browser' content='Instructions'/>
+                    <Header icon='browser' content='Infomration'/>
                     <Modal.Content>
                         <h3>
-                            The goal of this game is to accumulate as much as money possible by pumping balloons.
-                            Each balloon has an explosion point, where too much pumping pops the balloon.
-                            To pump a balloon, click Pump.
-                            Each pump earns $ 5, but can only be earned if balloon is collected by clicking Collect before the balloon explodes.
+                            Game complete
                         </h3>
                     </Modal.Content>
                     <Modal.Actions>

@@ -2,15 +2,22 @@ import React, {Component} from 'react';
 import {Button, Header,Icon, Modal, Card} from 'semantic-ui-react'
 import ReactStopwatch from 'react-stopwatch';
 import Piles from './Piles'
+import {Redirect} from "react-router-dom";
 
 export default class PileChoosing extends Component{
     state = {
             modalOpen: false,
-            stopWatch:false
+            stopWatch:false,
+            modalOpe:false,
+            redirecthome: false
     };
 
     handleOpen = () => this.setState({ modalOpen: true });
     handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
+    openClose = () => this.setState({ modalOpe: true });
+    closeClose = () => {
+        this.setState({ redirecthome: true });
+    };
 
     componentDidMount() {
         this.handleOpen=this.handleOpen.bind(this);
@@ -49,7 +56,7 @@ export default class PileChoosing extends Component{
                     limit="00:00:60"
                     onChange={({hours, minutes, seconds}) => {
                     }}
-                    onCallback={() => console.log('Finish')}
+                    onCallback={() => this.openClose()}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
                             <div style={{float:'right'}}>
@@ -58,6 +65,27 @@ export default class PileChoosing extends Component{
                         );
                     }}
                 />
+
+                <Modal
+                    //trigger={<Button onClick={this.handleOpen}>Show Modal</Button>}
+                    open={this.state.modalOpe}
+                    onClose={this.closeClose}
+                    basic
+                    size='small'
+                >
+                    <Header icon='browser' content='Infomration'/>
+                    <Modal.Content>
+                        <h3>
+                            Game complete
+                        </h3>
+                    </Modal.Content>
+                    <Modal.Actions>
+                        <Button color='green' onClick={this.closeClose} inverted>
+                            <Icon name='checkmark'/> Got it
+                        </Button>
+                    </Modal.Actions>
+                </Modal>
+                { (this.state.redirecthome) ? <Redirect to="/"/> : null }
 
                 <Piles />
             </div>

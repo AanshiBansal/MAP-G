@@ -22,6 +22,7 @@ class Emotion14 extends Component {
     };
 
 
+
     _onButtonClick() {
         this.setState({
             showComponent: true,
@@ -64,16 +65,16 @@ number 7 is going to take the lead.
                 </p>
                 <p>
                     What kind of emotion is it displaying? <br />
-                    <Button id='Anger'onClick={this.handleClose}>Anger</Button>
-                    <Button id='Determination' onClick={this.handleClose}>Determination</Button>
-                    <Button id='Disgust' onClick={this.handleClose}>Disgust</Button>
-                    <Button id='Happiness' onClick={this.handleClose}>Happiness</Button>
-                    <Button id='Hope' onClick={this.handleClose}>Hope</Button>
-                    <Button id='Fear' onClick={this.handleClose}>Fear</Button>
-                    <Button id='Sadness' onClick={this.handleClose}>Sadness</Button>
-                    <Button id='Pain' onClick={this.handleClose}>Pain</Button>
-                    <Button id='Surprise' onClick={this.handleClose}>Surprise</Button>
-                    <Button id='Puzzle' onClick={this.handleClose}>Puzzle element</Button>
+                    <Button id='Anger'onClick={this.handleOpen}>Anger</Button>
+                    <Button id='Determination' onClick={this.handleOpen}>Determination</Button>
+                    <Button id='Disgust' onClick={this.handleOpen}>Disgust</Button>
+                    <Button id='Happiness' onClick={this.handleOpen}>Happiness</Button>
+                    <Button id='Hope' onClick={this.handleOpen}>Hope</Button>
+                    <Button id='Fear' onClick={this.handleOpen}>Fear</Button>
+                    <Button id='Sadness' onClick={this.handleOpen}>Sadness</Button>
+                    <Button id='Pain' onClick={this.handleOpen}>Pain</Button>
+                    <Button id='Surprise' onClick={this.handleOpen}>Surprise</Button>
+                    <Button id='Puzzle' onClick={this.handleOpen}>Puzzle element</Button>
                 </p>
                 <Modal
                     open={this.state.modalOpen}
