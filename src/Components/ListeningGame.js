@@ -76,13 +76,10 @@ export default class ListeningGame extends Component{
                     basic
                     size='small'
                 >
-                    <Header icon='browser' content='Instructions'/>
+                    <Header icon='browser' content='Information'/>
                     <Modal.Content>
                         <h3>
-                            The goal of this game is to accumulate as much as money possible by pumping balloons.
-                            Each balloon has an explosion point, where too much pumping pops the balloon.
-                            To pump a balloon, click Pump.
-                            Each pump earns $ 5, but can only be earned if balloon is collected by clicking Collect before the balloon explodes.
+                            Game Complete.
                         </h3>
                     </Modal.Content>
                     <Modal.Actions>
