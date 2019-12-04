@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfbb8a2d-a4ff-4040-a7fd-74054ab33ad3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionGame.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion10.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion10.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion11.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion11.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion12.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion12.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion13.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion13.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion14.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion14.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion3.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion4.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion5.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion6.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion6.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion7.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion7.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion8.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion8.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion9.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EmotionQues/Emotion9.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Piles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Piles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Home.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,7 +14,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Components/Home.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-467">
+              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -79,7 +76,6 @@
         <option value="$PROJECT_DIR$/src/Game/Game.js" />
         <option value="$PROJECT_DIR$/src/Home.js" />
         <option value="$PROJECT_DIR$/src/Card/Card.js" />
-        <option value="$PROJECT_DIR$/src/Components/Home.js" />
         <option value="$PROJECT_DIR$/src/Components/Listening" />
         <option value="$PROJECT_DIR$/src/Components/Listen" />
         <option value="$PROJECT_DIR$/src/App.js" />
@@ -95,7 +91,6 @@
         <option value="$PROJECT_DIR$/src/Components/EmotionQues/Emotion2.js" />
         <option value="$PROJECT_DIR$/src/Components/EmotionQues/Emotion3.js" />
         <option value="$PROJECT_DIR$/src/Components/EmotionQues/Emotion4.js" />
-        <option value="$PROJECT_DIR$/src/Components/EmotionQues/Emotion5.js" />
         <option value="$PROJECT_DIR$/src/Components/EmotionQues/Emotion8.js" />
         <option value="$PROJECT_DIR$/src/Components/EmotionQues/Emotion6.js" />
         <option value="$PROJECT_DIR$/src/Components/EmotionQues/Emotion9.js" />
@@ -105,10 +100,12 @@
         <option value="$PROJECT_DIR$/src/Components/EmotionQues/Emotion13.js" />
         <option value="$PROJECT_DIR$/src/Components/EmotionQues/Emotion14.js" />
         <option value="$PROJECT_DIR$/src/Components/EmotionQues/Emotion7.js" />
+        <option value="$PROJECT_DIR$/src/Components/EmotionQues/Emotion5.js" />
+        <option value="$PROJECT_DIR$/src/Components/Home.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="y" value="30" />
     <option name="width" value="1386" />
     <option name="height" value="788" />
@@ -136,13 +133,6 @@
               <item name="MAP-G" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MAP-G" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MAP-G" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="EmotionQues" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -208,15 +198,16 @@
       <workItem from="1572673247483" duration="872000" />
       <workItem from="1575182790976" duration="19737000" />
       <workItem from="1575263580500" duration="17644000" />
-      <workItem from="1575285486156" duration="19122000" />
+      <workItem from="1575285486156" duration="19889000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78041000" />
+    <option name="totallyTimeSpent" value="78808000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25074404" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -394,16 +385,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
@@ -518,16 +499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/EmotionQues/Emotion5.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/EmotionQues/Emotion1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -634,6 +605,26 @@
           <caret line="43" column="56" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/EmotionQues/Emotion5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="44" column="56" selection-start-line="44" selection-start-column="56" selection-end-line="44" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-467">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
