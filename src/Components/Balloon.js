@@ -25,11 +25,12 @@ class Balloon extends Component{
     clickLimit=3;
 //add timestamp
     handleBlow=()=>{
+        const timestamp = Date.now();
         this.clickCount=this.clickCount+1;
         this.setState({size:this.state.size+1});
         if(this.clickCount===this.clickLimit){
             //display blast for 2 secs
-            console.log("Balloon bursted after "+this.clickCount +" clicks without collecting the potential amount");
+            console.log("Balloon bursted after "+this.clickCount +" clicks without collecting the potential amount"+ " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
             const balloonColour=(this.state.balloonColour+1)%3;
             const data = [];
             for(let i=0;i<this.state.Balloon.length;i++)
@@ -51,7 +52,8 @@ class Balloon extends Component{
         }
     };
     handleCollect=()=>{
-        console.log("After "+this.clickCount +" clicks the potential amount was collected");
+        const timestamp = Date.now();
+        console.log("After "+this.clickCount +" clicks the potential amount was collected" + " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
         const balloonColour=(this.state.balloonColour+1)%3;
         const data = [];
         for(let i=0;i<this.state.Balloon.length;i++)
@@ -74,7 +76,7 @@ class Balloon extends Component{
     render() {
         return(
             <div>
-
+                <Card header = 'hello' description = {this.state.total}/>
                 <Card header = 'Money collected' description = {this.state.total}/>
                 <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
                     <Button onClick={this.handleBlow}>Pump</Button>

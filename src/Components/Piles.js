@@ -21,8 +21,9 @@ class Piles extends Component{
         [10,5,7,12,6,4,8,11,6,9,10,5,7,12,6,4,8,11,6,9,10,5,7,12,6,4,8,11,6,9]];
 //add timestamp
     handleClick = (event)=>{
+        const timestamp = Date.now();
         const id = event.target.id;
-        console.log(id+" Pile was choosen with net change of "+ this.val[id][this.state.countPiles[id]]);
+        console.log(id+" Pile was choosen with net change of "+ this.val[id][this.state.countPiles[id]]+" at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
         const counter =[];
         const data = [];
         for(let i=0;i<this.state.Piles.length;i++)

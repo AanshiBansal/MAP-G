@@ -4,15 +4,25 @@ import { Link } from 'react-router-dom';
 
 class Home extends Component {
     state={
-        disable:[]
+        disable:[false,false,false,false,false]
     };
     handleClick=(event)=>{
+        //console.log(this.state.disable);
         const id = event.target.id;
-        const data =[];
-        for(let i=0;i<this.state.disable.length;i++)
-            data.push(this.state.disable[i]);
-        data[id]="";
-        this.setState({disable:data});
+        if(this.state.disable[id])
+            event.preventDefault();
+        else {
+            //console.log("Hi");
+            let data = [];
+            for (let i = 0; i < this.state.disable.length; i++)
+                data.push(this.state.disable[i]);
+            data[id] = true;
+            this.setState({disable: data});
+            //console.log(data);
+            //console.log(this.state.disable);
+        }
+
+        //console.log(this.state.disable);
     };
     render() {
         return (

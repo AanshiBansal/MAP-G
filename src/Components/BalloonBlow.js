@@ -60,7 +60,7 @@ export default class BalloonBlow extends Component{
                     seconds={0}
                     minutes={0}
                     hours={0}
-                    limit="00:00:60"
+                    limit="00:01:00"
                     onChange={({hours, minutes, seconds}) => {
                     }}
                     onCallback={() => this.openClose()}
