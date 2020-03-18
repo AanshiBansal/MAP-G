@@ -128,7 +128,7 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="30" />
     <option name="width" value="1386" />
     <option name="height" value="788" />
@@ -223,16 +223,15 @@
       <workItem from="1575263580500" duration="17644000" />
       <workItem from="1575285486156" duration="23740000" />
       <workItem from="1583832015163" duration="2269000" />
-      <workItem from="1584513683035" duration="17355000" />
+      <workItem from="1584513683035" duration="17602000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102283000" />
+    <option name="totallyTimeSpent" value="102530000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25074404" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -252,7 +251,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50967264" side_tool="true" weight="0.41080198" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4903274" weight="0.87888706" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4903274" visible="true" weight="0.87888706" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
