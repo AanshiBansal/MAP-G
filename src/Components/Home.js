@@ -35,7 +35,7 @@ class Home extends Component {
         return (
             <div>
                 <HeaderBar/>
-                <div class="container">
+                <div className="container">
                     <nav>
                         <Card.Group itemsPerRow={2}>
                             {/*<Card>*/}
@@ -74,7 +74,7 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
     return { isSignedIn: state.auth.isSignedIn, userInfo: state.auth.userInfo };
-}
+};
 
 export default connect(
     mapStateToProps,null

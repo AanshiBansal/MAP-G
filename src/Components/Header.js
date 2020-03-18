@@ -28,11 +28,11 @@ class HeaderBar extends Component{
 
         )
     }
-};
+}
 
 const mapStateToProps = (state) => {
     return { isSignedIn: state.auth.isSignedIn, userInfo: state.auth.userInfo };
-}
+};
 
 export default connect(
     mapStateToProps,null

@@ -24,7 +24,8 @@ class GoogleAuth extends Component{
                 openID:this.auth.currentUser.get().getId(),
                 email:this.auth.currentUser.get().getBasicProfile().zu,
                 name:this.auth.currentUser.get().getBasicProfile().Ad,
-                fname:this.auth.currentUser.get().getBasicProfile().vW
+                fname:this.auth.currentUser.get().getBasicProfile().vW,
+                lname:this.auth.currentUser.get().getBasicProfile().wU
             });
         }else{
             this.props.signOut();

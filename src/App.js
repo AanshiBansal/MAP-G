@@ -5,6 +5,7 @@ import PileChoosing from './Components/PileChoosing';
 import BalloonBlow from "./Components/BalloonBlow";
 import ListeningGame from "./Components/ListeningGame";
 import EmotionGame from "./Components/EmotionGame";
+import SignUp from "./Components/SignUp"
 import Emotion2 from "./Components/EmotionQues/Emotion2";
 import Emotion3 from "./Components/EmotionQues/Emotion3";
 import Emotion4 from "./Components/EmotionQues/Emotion4";
@@ -26,6 +27,7 @@ class App extends Component {
                 <Switch>
                     <div className="App">
                         <Route exact path="/" component={Home}/>
+                        <Route exact path="/sign-up" component={SignUp}/>
                         <Route exact path="/pile-choosing" component={PileChoosing}/>
                         <Route exact path="/listening" component={ListeningGame}/>
                         <Route exact path="/balloon-blow" component={BalloonBlow}/>
