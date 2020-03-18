@@ -1,4 +1,4 @@
-import { PILE_CHOOSEN } from '../Actions';
+import { PILE_CHOOSEN } from '../Actions/types';
 import _ from 'lodash';
 
 export default function (state = {}, action) {

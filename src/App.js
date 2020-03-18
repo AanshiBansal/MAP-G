@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import Game2 from './Components/Game2';
-import PileChoosing from './Components/PileChoosing'
+import GoogleLogin from 'react-google-login';
 import Home from "./Components/Home";
-
+import PileChoosing from './Components/PileChoosing';
 import BalloonBlow from "./Components/BalloonBlow";
+import ListeningGame from "./Components/ListeningGame";
 import EmotionGame from "./Components/EmotionGame";
 import Emotion2 from "./Components/EmotionQues/Emotion2";
 import Emotion3 from "./Components/EmotionQues/Emotion3";
@@ -19,9 +19,6 @@ import Emotion11 from "./Components/EmotionQues/Emotion11";
 import Emotion12 from "./Components/EmotionQues/Emotion12";
 import Emotion13 from "./Components/EmotionQues/Emotion13";
 import Emotion14 from "./Components/EmotionQues/Emotion14";
-
-import ListeningGame from "./Components/ListeningGame";
-
 
 class App extends Component {
     render() {

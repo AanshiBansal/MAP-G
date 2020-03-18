@@ -1,7 +1,10 @@
 import { combineReducers } from 'redux';
 import PileChoosing from './PileChoosing';
+import AuthReducer from './AuthReducer';
+
 const rootReducer = combineReducers({
-    PileChoosing
+    pile: PileChoosing,
+    auth: AuthReducer
 });
 
 export default rootReducer;

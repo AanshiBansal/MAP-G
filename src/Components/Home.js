@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Card } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
+import Header from './Header'
 
 class Home extends Component {
     state={
@@ -27,9 +28,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <div style={{textAlign: 'center', justifyContent:'center'}}>
-                    <h1><b><br /> MAP-G <br /><br /></b> </h1>
-                </div>
+                <Header/>
                 <div class="container">
                     <nav>
                         <Card.Group itemsPerRow={2}>
