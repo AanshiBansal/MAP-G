@@ -4,10 +4,10 @@ export const addPileChoosen = ()=> (dispatch)=>{
     dispatch({type: PILE_CHOOSEN, payload: ""});
 }
 
-export const signIn = (userId) => {
+export const signIn = (userInfo) => {
     return {
         type: SIGN_IN,
-        payload: userId
+        payload: userInfo
     };
 };
 
