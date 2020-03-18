@@ -2,13 +2,19 @@ import React, { Component } from "react"
 import { Card } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import HeaderBar from './Header'
+import {connect} from "react-redux";
 
 class Home extends Component {
     state={
         disable:[false,false,false,false,false]
     };
     handleClick=(event)=>{
+        if(this.props.isSignedIn === false){
+            event.preventDefault();
+            alert("Please Login First");
+        }
         //console.log(this.state.disable);
+        else{
         const id = event.target.id;
         if(this.state.disable[id])
             event.preventDefault();
@@ -21,7 +27,7 @@ class Home extends Component {
             this.setState({disable: data});
             //console.log(data);
             //console.log(this.state.disable);
-        }
+        }}
 
         //console.log(this.state.disable);
     };
@@ -65,4 +71,11 @@ class Home extends Component {
         )
     }
 }
-export default Home;
+
+const mapStateToProps = (state) => {
+    return { isSignedIn: state.auth.isSignedIn, userInfo: state.auth.userInfo };
+}
+
+export default connect(
+    mapStateToProps,null
+)(Home);
