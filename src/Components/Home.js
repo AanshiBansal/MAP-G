@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Card } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
-import Header from './Header'
+import HeaderBar from './Header'
 
 class Home extends Component {
     state={
@@ -28,7 +28,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <Header/>
+                <HeaderBar/>
                 <div class="container">
                     <nav>
                         <Card.Group itemsPerRow={2}>
