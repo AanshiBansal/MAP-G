@@ -30,6 +30,7 @@ class Balloon extends Component{
         this.setState({size:this.state.size+1});
         if(this.clickCount===this.clickLimit){
             //display blast for 2 secs
+            // eslint-disable-next-line
             console.log("Balloon bursted after "+this.clickCount +" clicks without collecting the potential amount"+ " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
             const balloonColour=(this.state.balloonColour+1)%3;
             const data = [];
@@ -52,7 +53,9 @@ class Balloon extends Component{
         }
     };
     handleCollect=()=>{
+        // eslint-disable-next-line
         const timestamp = Date.now();
+        // eslint-disable-next-line
         console.log("After "+this.clickCount +" clicks the potential amount was collected" + " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
         const balloonColour=(this.state.balloonColour+1)%3;
         const data = [];

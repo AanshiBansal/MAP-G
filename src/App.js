@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import GoogleLogin from 'react-google-login';
 import Home from "./Components/Home";
 import PileChoosing from './Components/PileChoosing';
 import BalloonBlow from "./Components/BalloonBlow";

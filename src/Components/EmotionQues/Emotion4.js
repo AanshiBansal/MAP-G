@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {Card, Image} from "semantic-ui-react";
 import Button from "semantic-ui-react/dist/es/elements/Button/Button";
 import ReactStopwatch from 'react-stopwatch';
-import Emotion2 from "./Emotion2";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 class Emotion4 extends Component {
     constructor(props) {
