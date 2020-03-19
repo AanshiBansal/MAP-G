@@ -30,18 +30,21 @@ export const signOut = () => {
         type: SIGN_OUT
     };
 };
+const url = "http://127.0.0.1:8000/earnMaxearnMax/";
+
 export const pileGame = (data) => {
     return dispatch => {
         dispatch(addPile());
-        console.log(data);
-        /*axios
-            .post(`http://127.0.0.1:8000/earnMaxearnMax`,data)
+        axios
+            .post(url,data)
             .then(res => {
+                console.log(res);
                 dispatch(addPileSuccess(res.data));
             })
             .catch(err => {
+                console.log(err);
                 dispatch(addPileFailure(err.message));
-            });*/
+            });
     };
 };
 
