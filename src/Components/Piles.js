@@ -49,7 +49,7 @@ class Piles extends Component{
         this.state.changeS.push(this.val[id][this.state.countPiles[id]]);
 
         this.props.pileGame({
-            uid: this.props.userInfo.email,
+            email: this.props.userInfo.email,
             Pile: this.state.storeData,
             Scores:this.state.changeS,
             Total: current
