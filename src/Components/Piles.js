@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import {Card, Image} from "semantic-ui-react";
 import { connect } from 'react-redux';
-import {addPileChoosen} from "../Actions";
 import src1 from "../Content/One.jpg";
 import src2 from "../Content/Two.jpg";
 import src3 from "../Content/Three.jpg";
 import src4 from "../Content/Four.jpg";
+import { pileGame } from '../Actions';
+
 class Piles extends Component{
     state = {
         count:0,
         countPiles : {1:0,2:0,3:0,4:0},
         Piles:[],
+        storeData: [],
+        changeS:[],
         total:2000
     };
 
@@ -21,9 +24,10 @@ class Piles extends Component{
         [10,5,7,12,6,4,8,11,6,9,10,5,7,12,6,4,8,11,6,9,10,5,7,12,6,4,8,11,6,9]];
 //add timestamp
     handleClick = (event)=>{
-        const timestamp = Date.now();
+        // const timestamp = Date.now();
         const id = event.target.id;
-        console.log(id+" Pile was choosen with net change of "+ this.val[id][this.state.countPiles[id]]+" at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
+        this.state.storeData.push(id);
+        // this.state.storeData.push(id+" Pile was choosen with net change of "+ this.val[id][this.state.countPiles[id]]+" at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
         const counter =[];
         const data = [];
         for(let i=0;i<this.state.Piles.length;i++)
@@ -35,14 +39,20 @@ class Piles extends Component{
         for(let i=0;i<5;i++)
             counter.push(this.state.countPiles[i]);
         counter[id]=counter[id]+1;
-
         this.setState({
             count:this.state.count+1,
             countPiles:counter,
             Piles:data,
             total:current
-        })
+        });
 
+        this.state.changeS.push(this.val[id][this.state.countPiles[id]]);
+
+        this.props.pileGame({
+            Pile: this.state.storeData,
+            Scores:this.state.changeS,
+            Total: current
+        });
     };
 
 
@@ -62,10 +72,8 @@ class Piles extends Component{
         )
     }
 }
-//
-// function mapStateToProps(state) {
-//     return {count: state.piles.length};
-//
-// }
+const mapStateToProps = (state) => {
+    return {  pileData: state.pile.pileData };
+};
 
-export default connect(null, { addPileChoosen  })(Piles);
+export default connect(mapStateToProps, { pileGame })(Piles);

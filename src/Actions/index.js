@@ -1,8 +1,21 @@
-import { SIGN_IN, SIGN_OUT, PILE_CHOOSEN } from '../Actions/types';
+import { SIGN_IN, SIGN_OUT, PILE_CHOOSEN,PILE_CHOOSEN_SUCCESS,PILE_CHOOSEN_FAILURE } from '../Actions/types';
+import axios from 'axios';
 
-export const addPileChoosen = ()=> (dispatch)=>{
-    dispatch({type: PILE_CHOOSEN, payload: ""});
-}
+const addPile = () => ({
+    type: PILE_CHOOSEN
+});
+const addPileSuccess = pileData => ({
+    type: PILE_CHOOSEN_SUCCESS,
+    payload: {
+        ...pileData
+    }
+});
+const addPileFailure = error => ({
+    type: PILE_CHOOSEN_FAILURE,
+    payload: {
+        error
+    }
+});
 
 export const signIn = (userInfo) => {
     return {
@@ -14,5 +27,26 @@ export const signIn = (userInfo) => {
 export const signOut = () => {
     return {
         type: SIGN_OUT
+    };
+};
+// const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const url = "http://127.0.0.1:8000/earnMaxearnMax";
+export const pileGame = ({ Pile,Scores,Total }) => {
+    return dispatch => {
+        dispatch(addPile());
+
+        axios
+            .post( url, {
+                Pile,
+                Scores,
+                Total
+            })
+            .then(res => {
+                console.log(addPileSuccess(res.data));
+                // dispatch(addPileSuccess(res.data));
+            })
+            .catch(err => {
+                dispatch(addPileFailure(err.message));
+            });
     };
 };

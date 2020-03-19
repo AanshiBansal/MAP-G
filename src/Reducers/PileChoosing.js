@@ -1,16 +1,33 @@
-import { PILE_CHOOSEN } from '../Actions/types';
-import _ from 'lodash';
+import {PILE_CHOOSEN, PILE_CHOOSEN_FAILURE, PILE_CHOOSEN_SUCCESS} from '../Actions/types';
 
-export default function (state = {}, action) {
+const INITIAL_STATE = {
+    pileData: [],
+    loading: false,
+    error: null
+};
+
+export default function (state = {INITIAL_STATE}, action) {
     switch(action.type) {
         case PILE_CHOOSEN:
-            //console.log(action.payload);
-            return _.mapKeys(action.payload, 'id');
-
-        // case POST_ONBOARDING_USER:
-        //     state[action.payload.id] = action.payload;
-        //     return state;
-
+            return {
+                ...state,
+                loading: true
+            };
+        case PILE_CHOOSEN_SUCCESS:
+            console.log(action.payload);
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                pileData: action.payload
+            };
+        case PILE_CHOOSEN_FAILURE:
+            console.log(action.payload);
+            return {
+                ...state,
+                loading: false,
+                error: action.payload.error
+            };
         default:
             return state;
     }

@@ -3,8 +3,9 @@ import {Button, Header,Icon, Modal, Card} from 'semantic-ui-react'
 import ReactStopwatch from 'react-stopwatch';
 import Game2 from "./Game2";
 import {Redirect} from "react-router-dom";
+import {connect} from "react-redux";
 
-export default class ListeningGame extends Component{
+class ListeningGame extends Component{
     state = {
         modalOpen: false,
         stopWatch:false,
@@ -17,7 +18,7 @@ export default class ListeningGame extends Component{
     handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
     openClose = () => this.setState({ modalOpe: true });
     closeClose = (event) => {
-        this.setState({ redirecthome: true });
+        this.setState({ redirecthome: true, isSubmit: true });
     };
 
     componentDidMount() {
@@ -95,3 +96,11 @@ export default class ListeningGame extends Component{
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return { isSubmit: state.list.isSubmit, ldata: state.list.ldata };
+};
+
+export default connect(
+    mapStateToProps,null
+)(ListeningGame)

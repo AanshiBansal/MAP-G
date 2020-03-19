@@ -19,7 +19,6 @@ export default class BalloonBlow extends Component{
     closeClose = () => {
         this.setState({ redirecthome: true });
     };
-    //updateTime = (seconds) => this.seconds=seconds;
 
     componentDidMount() {
         this.handleOpen=this.handleOpen.bind(this);
