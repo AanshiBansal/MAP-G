@@ -49,6 +49,7 @@ class Piles extends Component{
         this.state.changeS.push(this.val[id][this.state.countPiles[id]]);
 
         this.props.pileGame({
+            uid: this.props.userInfo.email,
             Pile: this.state.storeData,
             Scores:this.state.changeS,
             Total: current
@@ -73,7 +74,7 @@ class Piles extends Component{
     }
 }
 const mapStateToProps = (state) => {
-    return {  pileData: state.pile.pileData };
+    return {  pileData: state.pile.pileData, userInfo:state.auth.userInfo };
 };
 
 export default connect(mapStateToProps, { pileGame })(Piles);

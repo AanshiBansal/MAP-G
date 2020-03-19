@@ -30,22 +30,18 @@ export const signOut = () => {
         type: SIGN_OUT
     };
 };
-export const pileGame = ({ uid,Pile,Scores,Total }) => {
+export const pileGame = (data) => {
     return dispatch => {
         dispatch(addPile());
-        axios
-            .post(`http://127.0.0.1:8000/earnMaxearnMax`, {
-                uid,
-                Pile,
-                Scores,
-                Total
-            })
+        console.log(data);
+        /*axios
+            .post(`http://127.0.0.1:8000/earnMaxearnMax`,data)
             .then(res => {
                 dispatch(addPileSuccess(res.data));
             })
             .catch(err => {
                 dispatch(addPileFailure(err.message));
-            });
+            });*/
     };
 };
 
