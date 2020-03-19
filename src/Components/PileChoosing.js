@@ -96,7 +96,6 @@ class PileChoosing extends Component{
                         </Button>
                     </Modal.Actions>
                 </Modal>
-                { (this.state.redirectHome) ?  : null }
                 { (this.state.redirectHome) ? <Redirect to="/"/> : null }
 
                 <Piles />
