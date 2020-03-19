@@ -39,8 +39,11 @@ export const pileClicked = (data) => {
     };
 };
 
-export const pileGame = (data) => {
-    return dispatch => {
+export const pileGame = () => {
+    return (dispatch,getState) => {
+        const store= getState();
+        const data =store.pile.pileData;
+        console.log(data);
         dispatch(addPile());
         console.log(data);
         axios

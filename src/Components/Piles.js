@@ -72,6 +72,7 @@ class Piles extends Component{
         )
     }
 }
+
 const mapStateToProps = (state) => {
     return {  pileData: state.pile.pileData, userInfo:state.auth.userInfo };
 };

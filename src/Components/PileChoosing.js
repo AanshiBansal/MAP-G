@@ -23,7 +23,9 @@ class PileChoosing extends Component{
     handleOpen = () => this.setState({ modalOpen: true });
     handleClose = () => this.setState({ modalOpen: false, stopWatch: true });
     openClose = () => {
+        this.props.pileGame();
         this.setState({ modalOpen2: true });
+
 
     };
     closeClose = () => {
@@ -66,7 +68,7 @@ class PileChoosing extends Component{
                     seconds={0}
                     minutes={0}
                     hours={0}
-                    limit="00:01:00"
+                    limit="00:00:10"
                     onChange={({hours, minutes, seconds}) => {
                     }}
                     onCallback={() => this.openClose()}
@@ -105,9 +107,5 @@ class PileChoosing extends Component{
         )
     }
 }
+export default connect(null, { pileGame })(PileChoosing);
 
-const mapStateToProps = (state) => {
-    return {  pileData: state.pile.pileData, userInfo:state.auth.userInfo };
-};
-
-export default connect(mapStateToProps, { pileGame })(PileChoosing);
