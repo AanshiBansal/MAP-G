@@ -7,29 +7,25 @@ import {connect} from "react-redux";
 import {pileGame} from "../Actions";
 
 class PileChoosing extends Component{
-
     constructor(props) {
         super(props);
         this.state = {
             modalOpen: false,
             stopWatch:false,
             modalOpen2:false,
-            redirectHome: false,
-            redStorDat: false
+            redirectHome: false
         };
     }
 
 
     handleOpen = () => this.setState({ modalOpen: true });
-    handleClose = () => this.setState({ modalOpen: false, stopWatch: true });
+    handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
     openClose = () => {
-        this.props.pileGame();
         this.setState({ modalOpen2: true });
-
 
     };
     closeClose = () => {
-        this.setState({ redirectHome: true, redStorDat: true });
+        this.setState({ redirectHome: true });
 
     };
 
@@ -44,7 +40,6 @@ class PileChoosing extends Component{
     }
 
     render() {
-        console.log(this.props.pileData);
         return(
             <div>
                 <Modal
@@ -68,7 +63,7 @@ class PileChoosing extends Component{
                     seconds={0}
                     minutes={0}
                     hours={0}
-                    limit="00:00:10"
+                    limit="00:01:00"
                     onChange={({hours, minutes, seconds}) => {
                     }}
                     onCallback={() => this.openClose()}
@@ -92,6 +87,7 @@ class PileChoosing extends Component{
                     <Modal.Content>
                         <h3>
                             Game complete
+
                         </h3>
                     </Modal.Content>
                     <Modal.Actions>
@@ -100,12 +96,17 @@ class PileChoosing extends Component{
                         </Button>
                     </Modal.Actions>
                 </Modal>
+                { (this.state.redirectHome) ?  : null }
                 { (this.state.redirectHome) ? <Redirect to="/"/> : null }
-                { (this.state.redStorDat) ? console.log(this.props.pileData) : null }
+
                 <Piles />
             </div>
         )
     }
 }
-export default connect(null, { pileGame })(PileChoosing);
 
+const mapStateToProps = (state) => {
+    return {  pileData: state.pile.pileData, userInfo:state.auth.userInfo };
+};
+
+export default connect(mapStateToProps, { pileGame })(PileChoosing);
