@@ -55,7 +55,6 @@ class Piles extends Component{
         });
     };
 
-
     render() {
         return(
             <div>
