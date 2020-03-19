@@ -3,20 +3,25 @@ import {Button, Header,Icon, Modal, Card} from 'semantic-ui-react'
 import ReactStopwatch from 'react-stopwatch';
 import Piles from './Piles'
 import {Redirect} from "react-router-dom";
+import {connect} from "react-redux";
+import {pileGame} from "../Actions";
 
-export default class PileChoosing extends Component{
+class PileChoosing extends Component{
     state = {
             modalOpen: false,
             stopWatch:false,
-            modalOpe:false,
-            redirecthome: false
+            modalOpen2:false,
+            redirectHome: false
     };
 
     handleOpen = () => this.setState({ modalOpen: true });
     handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
-    openClose = () => this.setState({ modalOpe: true });
+    openClose = () => {
+        this.setState({ modalOpen2: true });
+        this.props.pileGame(this.props.pileData);
+    };
     closeClose = () => {
-        this.setState({ redirecthome: true });
+        this.setState({ redirectHome: true });
     };
 
     componentDidMount() {
@@ -68,12 +73,12 @@ export default class PileChoosing extends Component{
 
                 <Modal
                     //trigger={<Button onClick={this.handleOpen}>Show Modal</Button>}
-                    open={this.state.modalOpe}
+                    open={this.state.modalOpen2}
                     onClose={this.closeClose}
                     basic
                     size='small'
                 >
-                    <Header icon='browser' content='Infomration'/>
+                    <Header icon='browser' content='Information'/>
                     <Modal.Content>
                         <h3>
                             Game complete
@@ -85,10 +90,16 @@ export default class PileChoosing extends Component{
                         </Button>
                     </Modal.Actions>
                 </Modal>
-                { (this.state.redirecthome) ? <Redirect to="/"/> : null }
+                { (this.state.redirectHome) ? <Redirect to="/"/> : null }
 
                 <Piles />
             </div>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {  pileData: state.pile.pileData, userInfo:state.auth.userInfo };
+};
+
+export default connect(mapStateToProps, { pileGame })(PileChoosing);

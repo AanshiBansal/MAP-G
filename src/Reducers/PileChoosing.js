@@ -1,13 +1,15 @@
-import {PILE_CHOOSEN, PILE_CHOOSEN_FAILURE, PILE_CHOOSEN_SUCCESS} from '../Actions/types';
+import {PILE_CLICKED, PILE_CHOOSEN, PILE_CHOOSEN_FAILURE, PILE_CHOOSEN_SUCCESS} from '../Actions/types';
 
 const INITIAL_STATE = {
-    pileData: [],
+    pileData: {},
     loading: false,
     error: null
 };
 
 export default function (state = {INITIAL_STATE}, action) {
     switch(action.type) {
+        case PILE_CLICKED:
+            return { ...state, pileData: action.payload};
         case PILE_CHOOSEN:
             return {
                 ...state,

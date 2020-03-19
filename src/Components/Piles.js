@@ -5,7 +5,7 @@ import src1 from "../Content/One.jpg";
 import src2 from "../Content/Two.jpg";
 import src3 from "../Content/Three.jpg";
 import src4 from "../Content/Four.jpg";
-import { pileGame } from '../Actions';
+import { pileClicked } from '../Actions';
 
 class Piles extends Component{
     state = {
@@ -22,9 +22,8 @@ class Piles extends Component{
         [50,60,40,70,80,90,-30,50,60,40,70,80,90,-30,50,60,40,70,80,90,-30,50,60,40,70,80,90,-30,50,60],
         [-60,-30,-20,-50,300,-40,-35,-40,-65,250,-60,-30,-20,-50,300,-40,-35,-40,-65,250,-60,-30,-20,-50,300,-40,-35,-40,-65,250],
         [10,5,7,12,6,4,8,11,6,9,10,5,7,12,6,4,8,11,6,9,10,5,7,12,6,4,8,11,6,9]];
-//add timestamp
+
     handleClick = (event)=>{
-        // const timestamp = Date.now();
         const id = event.target.id;
         this.state.storeData.push(id);
         // this.state.storeData.push(id+" Pile was choosen with net change of "+ this.val[id][this.state.countPiles[id]]+" at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
@@ -48,7 +47,7 @@ class Piles extends Component{
 
         this.state.changeS.push(this.val[id][this.state.countPiles[id]]);
 
-        this.props.pileGame({
+        this.props.pileClicked({
             emailId: this.props.userInfo.email,
             pile: this.state.storeData,
             scores:this.state.changeS,
@@ -77,4 +76,4 @@ const mapStateToProps = (state) => {
     return {  pileData: state.pile.pileData, userInfo:state.auth.userInfo };
 };
 
-export default connect(mapStateToProps, { pileGame })(Piles);
+export default connect(mapStateToProps, { pileClicked })(Piles);

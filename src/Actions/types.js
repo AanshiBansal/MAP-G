@@ -1,5 +1,6 @@
 export const SIGN_IN = 'SIGN_IN';
 export const SIGN_OUT = 'SIGN_OUT';
+export const PILE_CLICKED = 'PILE_CLICKED';
 export const PILE_CHOOSEN = 'PILE_CHOOSEN';
 export const PILE_CHOOSEN_SUCCESS = 'PILE_CHOOSEN_SUCCESS';
 export const PILE_CHOOSEN_FAILURE = 'PILE_CHOOSEN_FAILURE';
