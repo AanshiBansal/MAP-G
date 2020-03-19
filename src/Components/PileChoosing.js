@@ -7,21 +7,28 @@ import {connect} from "react-redux";
 import {pileGame} from "../Actions";
 
 class PileChoosing extends Component{
-    state = {
+
+    constructor(props) {
+        super(props);
+        this.state = {
             modalOpen: false,
             stopWatch:false,
             modalOpen2:false,
-            redirectHome: false
-    };
+            redirectHome: false,
+            redStorDat: false
+        };
+    }
+
 
     handleOpen = () => this.setState({ modalOpen: true });
-    handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
+    handleClose = () => this.setState({ modalOpen: false, stopWatch: true });
     openClose = () => {
         this.setState({ modalOpen2: true });
-        this.props.pileGame(this.props.pileData);
+
     };
     closeClose = () => {
-        this.setState({ redirectHome: true });
+        this.setState({ redirectHome: true, redStorDat: true });
+
     };
 
     componentDidMount() {
@@ -35,6 +42,7 @@ class PileChoosing extends Component{
     }
 
     render() {
+        console.log(this.props.pileData);
         return(
             <div>
                 <Modal
@@ -91,7 +99,7 @@ class PileChoosing extends Component{
                     </Modal.Actions>
                 </Modal>
                 { (this.state.redirectHome) ? <Redirect to="/"/> : null }
-
+                { (this.state.redStorDat) ? console.log(this.props.pileData) : null }
                 <Piles />
             </div>
         )

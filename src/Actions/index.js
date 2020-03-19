@@ -30,7 +30,7 @@ export const signOut = () => {
         type: SIGN_OUT
     };
 };
-const baseUrl = 'http://127.0.0.1:8000';
+// const baseUrl = 'http://127.0.0.1:8000';
 
 export const pileClicked = (data) => {
     return {
@@ -42,8 +42,9 @@ export const pileClicked = (data) => {
 export const pileGame = (data) => {
     return dispatch => {
         dispatch(addPile());
+        console.log(data);
         axios
-            .post(`${baseUrl}/earnMaxearnMax/`,data)
+            .post(`http://127.0.0.1:8000/earnMaxearnMax/`,data)
             .then(res => {
                 console.log(res);
                 dispatch(addPileSuccess(res.data));
