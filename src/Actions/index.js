@@ -17,6 +17,7 @@ const addPileFailure = error => ({
     }
 });
 
+
 export const signIn = (userInfo) => {
     return {
         type: SIGN_IN,
@@ -29,24 +30,22 @@ export const signOut = () => {
         type: SIGN_OUT
     };
 };
-// const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const url = "http://127.0.0.1:8000/earnMaxearnMax";
-export const pileGame = ({ Pile,Scores,Total }) => {
+export const pileGame = ({ uid,Pile,Scores,Total }) => {
     return dispatch => {
         dispatch(addPile());
-
         axios
-            .post( url, {
+            .post(`http://127.0.0.1:8000/earnMaxearnMax`, {
+                uid,
                 Pile,
                 Scores,
                 Total
             })
             .then(res => {
-                console.log(addPileSuccess(res.data));
-                // dispatch(addPileSuccess(res.data));
+                dispatch(addPileSuccess(res.data));
             })
             .catch(err => {
                 dispatch(addPileFailure(err.message));
             });
     };
 };
+
