@@ -5,34 +5,30 @@ import ReactStopwatch from "react-stopwatch";
 import Balloon from "./Balloon";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {baloonGame} from "../Actions";
+import {balloonGame} from "../Actions";
 
 class BalloonBlow extends Component{
     state = {
         modalOpen: false,
         stopWatch:false,
         modalOpe:false,
-        redirecthome: false
+        redirectHome: false
     };
 
     handleOpen = () => this.setState({ modalOpen: true });
     handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
     openClose = () => {
-        this.props.baloonGame();
+        this.props.balloonGame();
         this.setState({ modalOpe: true });
     };
     closeClose = () => {
-        this.setState({ redirecthome: true });
+        this.setState({ redirectHome: true });
     };
 
     componentDidMount() {
         this.handleOpen=this.handleOpen.bind(this);
         this.handleClose=this.handleClose.bind(this);
         this.handleOpen();
-    }
-
-    componentWillUnmount() {
-
     }
 
     render() {
@@ -83,7 +79,7 @@ class BalloonBlow extends Component{
                     basic
                     size='small'
                 >
-                    <Header icon='browser' content='Infomration'/>
+                    <Header icon='browser' content='Information'/>
                     <Modal.Content>
                         <h3>
                             Game complete
@@ -95,11 +91,11 @@ class BalloonBlow extends Component{
                         </Button>
                     </Modal.Actions>
                 </Modal>
-                { (this.state.redirecthome) ? <Redirect to="/"/> : null }
+                { (this.state.redirectHome) ? <Redirect to="/"/> : null }
                 <Balloon />
             </div>
         )
     }
 }
 
-export default connect(null, { baloonGame })(BalloonBlow);
+export default connect(null, { balloonGame })(BalloonBlow);

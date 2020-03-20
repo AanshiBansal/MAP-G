@@ -8,7 +8,7 @@ import redblast from '../Content/redblast.png';
 import yellow from '../Content/yellow.png';
 import yelloBlst from '../Content/yellowBlst.png';
 import balloonPump from '../Content/balloonPump.jpg';
-import {baloonClicked} from "../Actions";
+import {balloonClicked} from "../Actions";
 
 class Balloon extends Component{
     state = {
@@ -38,10 +38,12 @@ class Balloon extends Component{
             //display blast for 2 secs
             // eslint-disable-next-line
            // console.log("Balloon bursted after "+this.clickCount +" clicks without collecting the potential amount"+ " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
-            this.props.baloonClicked({
+            this.props.balloonClicked({
                 emailId: this.props.userInfo.email,
                 color: this.state.balloonColour,
-                clicksBursted: this.clickCount
+                clicksCollected: this.clickCount,
+                score:0,
+                total: current
             });
             const balloonColour=(this.state.balloonColour+1)%3;
             const data = [];
@@ -82,9 +84,11 @@ class Balloon extends Component{
         this.clickCount=0;
         this.clickLimit=this.val[balloonColour][counter[balloonColour]];
 
-        this.props.baloonClicked({
+        this.props.balloonClicked({
+            emailId:this.props.userInfo,
             color: this.state.balloonColour,
             clicksCollected: this.clickCount,
+            score:this.score,
             total: current
         });
         this.setState({balloonColour:balloonColour,count:this.state.count+1,src:this.imgsrc[0][balloonColour],Balloon:data,countBalloon:counter,total:current,size:0});
@@ -113,7 +117,7 @@ class Balloon extends Component{
 }
 
 const mapStateToProps = (state) => {
-    return {  baloonData: state.bal.baloonData, userInfo:state.auth.userInfo };
+    return {  balloonData: state.bal.balloonData, userInfo:state.auth.userInfo };
 };
 
-export default connect(mapStateToProps, { baloonClicked })(Balloon);
+export default connect(mapStateToProps, { balloonClicked })(Balloon);

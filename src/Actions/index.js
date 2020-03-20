@@ -26,16 +26,16 @@ const addPileFailure = error => ({
     }
 });
 
-const addBaloon = () => ({
+const addBalloon = () => ({
     type: BALOON_CHOOSEN
 });
-const addBaloonSuccess = baloonData => ({
+const addBalloonSuccess = balloonData => ({
     type: BALOON_CHOOSEN_SUCCESS,
     payload: {
-        ...baloonData
+        ...balloonData
     }
 });
-const addBaloonFailure = error => ({
+const addBalloonFailure = error => ({
     type: BALOON_CHOOSEN_FAILURE,
     payload: {
         error
@@ -82,28 +82,28 @@ export const pileGame = () => {
 };
 
 
-export const baloonClicked = (data) => {
+export const balloonClicked = (data) => {
     return {
         type: BALOON_CLICKED,
         payload : data,
     };
 };
 
-export const baloonGame = () => {
+export const balloonGame = () => {
     return (dispatch,getState) => {
         const store = getState();
-        const data = store.bal.baloonData;
+        const data = store.bal.balloonData;
         console.log(data);
-        dispatch(addBaloon());
+        dispatch(addBalloon());
         axios
             .post(`${baseUrl}/ballonGameballonGame/`,data)
             .then(res => {
                 console.log(res);
-                dispatch(addBaloonSuccess(res.data));
+                dispatch(addBalloonSuccess(res.data));
             })
             .catch(err => {
                 console.log(err);
-                dispatch(addBaloonFailure(err.message));
+                dispatch(addBalloonFailure(err.message));
             });
     };
 };

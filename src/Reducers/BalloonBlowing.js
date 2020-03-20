@@ -1,7 +1,7 @@
 import {BALOON_CLICKED, BALOON_CHOOSEN, BALOON_CHOOSEN_SUCCESS, BALOON_CHOOSEN_FAILURE} from '../Actions/types';
 
 const INITIAL_STATE = {
-    baloonData: [],
+    balloonData: {},
     loading: false,
     error: null
 };
@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 export default function (state = {INITIAL_STATE}, action) {
     switch(action.type) {
         case BALOON_CLICKED:
-            return { ...state, baloonData: action.payload};
+            return { ...state, balloonData: action.payload};
         case BALOON_CHOOSEN:
             return {
                 ...state,
@@ -21,7 +21,7 @@ export default function (state = {INITIAL_STATE}, action) {
                 ...state,
                 loading: false,
                 error: null,
-                baloonData: action.payload
+                balloonData: action.payload
             };
         case BALOON_CHOOSEN_FAILURE:
             console.log(action.payload);
