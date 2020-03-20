@@ -7,26 +7,23 @@ import {connect} from "react-redux";
 import {pileGame} from "../Actions";
 
 class PileChoosing extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            modalOpen: false,
-            stopWatch:false,
-            modalOpen2:false,
-            redirectHome: false
-        };
-    }
-
+    state = {
+        modalOpen: false,
+        stopWatch:false,
+        modalOpen2:false,
+        redirectHome: false
+    };
 
     handleOpen = () => this.setState({ modalOpen: true });
     handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
     openClose = () => {
+        this.props.pileGame();
         this.setState({ modalOpen2: true });
 
+        //helper();
     };
     closeClose = () => {
         this.setState({ redirectHome: true });
-
     };
 
     componentDidMount() {
@@ -48,7 +45,7 @@ class PileChoosing extends Component{
                     onClose={this.handleClose}
                     basic
                     size='small'
-                    >
+                >
                     <Header icon='browser' content='Instructions'/>
                     <Modal.Content>
                         <h3>The goal of this game is to win as much money as possible by drawing cards. Some cards will earn you a reward, but some cards will have penality and you will loose money. You will start with a $2000 loan. Click on any of the four piles to draw a card from that pile. You are free to switch from one pile to another at any time, and as often as you wish. Continue drawing cards until the game is over.</h3>
@@ -63,7 +60,7 @@ class PileChoosing extends Component{
                     seconds={0}
                     minutes={0}
                     hours={0}
-                    limit="00:01:00"
+                    limit="00:00:10"
                     onChange={({hours, minutes, seconds}) => {
                     }}
                     onCallback={() => this.openClose()}
@@ -87,7 +84,6 @@ class PileChoosing extends Component{
                     <Modal.Content>
                         <h3>
                             Game complete
-
                         </h3>
                     </Modal.Content>
                     <Modal.Actions>
@@ -103,9 +99,4 @@ class PileChoosing extends Component{
         )
     }
 }
-
-const mapStateToProps = (state) => {
-    return {  pileData: state.pile.pileData, userInfo:state.auth.userInfo };
-};
-
-export default connect(mapStateToProps, { pileGame })(PileChoosing);
+export default connect(null, { pileGame })(PileChoosing);

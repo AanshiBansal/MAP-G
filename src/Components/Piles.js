@@ -26,7 +26,8 @@ class Piles extends Component{
     handleClick = (event)=>{
         const id = event.target.id;
         this.state.storeData.push(id);
-        // this.state.storeData.push(id+" Pile was choosen with net change of "+ this.val[id][this.state.countPiles[id]]+" at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
+        console.log('selected');
+        // console.log(id+" Pile was choosen with net change of "+ this.val[id][this.state.countPiles[id]]+" at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
         const counter =[];
         const data = [];
         for(let i=0;i<this.state.Piles.length;i++)
@@ -55,17 +56,18 @@ class Piles extends Component{
         });
     };
 
+
     render() {
         return(
             <div>
                 <Card header = 'Money collected' description = {this.state.total}/>
                 <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
-                <Image.Group size='small'>
-                    <Image src={src1} id ='1' onClick={this.handleClick}/>
-                    <Image src={src2} id ='2' onClick={this.handleClick}/>
-                    <Image src={src3} id ='3' onClick={this.handleClick}/>
-                    <Image src={src4} id ='4' onClick={this.handleClick}/>
-                </Image.Group>
+                    <Image.Group size='small'>
+                        <Image src={src1} id ='1' onClick={this.handleClick}/>
+                        <Image src={src2} id ='2' onClick={this.handleClick}/>
+                        <Image src={src3} id ='3' onClick={this.handleClick}/>
+                        <Image src={src4} id ='4' onClick={this.handleClick}/>
+                    </Image.Group>
                 </div>
             </div>
         )

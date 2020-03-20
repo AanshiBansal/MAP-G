@@ -30,7 +30,7 @@ export const signOut = () => {
         type: SIGN_OUT
     };
 };
-// const baseUrl = 'http://127.0.0.1:8000';
+const baseUrl = 'http://127.0.0.1:8000';
 
 export const pileClicked = (data) => {
     return {
@@ -41,13 +41,12 @@ export const pileClicked = (data) => {
 
 export const pileGame = () => {
     return (dispatch,getState) => {
-        const store= getState();
-        const data =store.pile.pileData;
+        const store = getState();
+        const data = store.pile.pileData;
         console.log(data);
         dispatch(addPile());
-        console.log(data);
         axios
-            .post(`http://127.0.0.1:8000/earnMaxearnMax/`,data)
+            .post(`${baseUrl}/earnMaxearnMax/`,data)
             .then(res => {
                 console.log(res);
                 dispatch(addPileSuccess(res.data));
@@ -58,4 +57,3 @@ export const pileGame = () => {
             });
     };
 };
-
