@@ -8,6 +8,7 @@ import redblast from '../Content/redblast.png';
 import yellow from '../Content/yellow.png';
 import yelloBlst from '../Content/yellowBlst.png';
 import balloonPump from '../Content/balloonPump.jpg';
+import {baloonClicked} from "../Actions";
 
 class Balloon extends Component{
     state = {
@@ -16,6 +17,9 @@ class Balloon extends Component{
         count:0,
         countBalloon : [0,0,0],
         Balloon:[],
+        clicksBurst:[],
+        clicksCollect:[],
+        amountCollected:[],
         total:0,
         src:red
     };
@@ -26,15 +30,19 @@ class Balloon extends Component{
     clickLimit=3;
 //add timestamp
     handleBlow=()=>{
-        const timestamp = Date.now();
+        // const timestamp = Date.now();
         this.clickCount=this.clickCount+1;
         this.setState({size:this.state.size+1});
         if(this.clickCount===this.clickLimit){
 
             //display blast for 2 secs
             // eslint-disable-next-line
-            console.log("Balloon bursted after "+this.clickCount +" clicks without collecting the potential amount"+ " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
-
+           // console.log("Balloon bursted after "+this.clickCount +" clicks without collecting the potential amount"+ " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
+            this.props.baloonClicked({
+                emailId: this.props.userInfo.email,
+                color: this.state.balloonColour,
+                clicksBursted: this.clickCount
+            });
             const balloonColour=(this.state.balloonColour+1)%3;
             const data = [];
             for(let i=0;i<this.state.Balloon.length;i++)
@@ -74,6 +82,11 @@ class Balloon extends Component{
         this.clickCount=0;
         this.clickLimit=this.val[balloonColour][counter[balloonColour]];
 
+        this.props.baloonClicked({
+            color: this.state.balloonColour,
+            clicksCollected: this.clickCount,
+            total: current
+        });
         this.setState({balloonColour:balloonColour,count:this.state.count+1,src:this.imgsrc[0][balloonColour],Balloon:data,countBalloon:counter,total:current,size:0});
 
     };
@@ -98,10 +111,9 @@ class Balloon extends Component{
         )
     }
 }
-//
-// function mapStateToProps(state) {
-//     return {count: state.Balloon.length};
-//
-// }
 
-export default connect(null, { })(Balloon);
+const mapStateToProps = (state) => {
+    return {  baloonData: state.bal.baloonData, userInfo:state.auth.userInfo };
+};
+
+export default connect(mapStateToProps, { baloonClicked })(Balloon);

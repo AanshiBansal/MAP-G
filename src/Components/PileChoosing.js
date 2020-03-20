@@ -19,8 +19,6 @@ class PileChoosing extends Component{
     openClose = () => {
         this.props.pileGame();
         this.setState({ modalOpen2: true });
-
-        //helper();
     };
     closeClose = () => {
         this.setState({ redirectHome: true });

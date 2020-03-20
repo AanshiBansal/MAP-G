@@ -4,8 +4,10 @@ import {Button, Modal, Header, Icon, Card} from 'semantic-ui-react'
 import ReactStopwatch from "react-stopwatch";
 import Balloon from "./Balloon";
 import {Redirect} from "react-router-dom";
+import {connect} from "react-redux";
+import {baloonGame} from "../Actions";
 
-export default class BalloonBlow extends Component{
+class BalloonBlow extends Component{
     state = {
         modalOpen: false,
         stopWatch:false,
@@ -15,7 +17,10 @@ export default class BalloonBlow extends Component{
 
     handleOpen = () => this.setState({ modalOpen: true });
     handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
-    openClose = () => this.setState({ modalOpe: true });
+    openClose = () => {
+        this.props.baloonGame();
+        this.setState({ modalOpe: true });
+    };
     closeClose = () => {
         this.setState({ redirecthome: true });
     };
@@ -59,7 +64,7 @@ export default class BalloonBlow extends Component{
                     seconds={0}
                     minutes={0}
                     hours={0}
-                    limit="00:01:00"
+                    limit="00:00:10"
                     onChange={({hours, minutes, seconds}) => {
                     }}
                     onCallback={() => this.openClose()}
@@ -96,3 +101,5 @@ export default class BalloonBlow extends Component{
         )
     }
 }
+
+export default connect(null, { baloonGame })(BalloonBlow);

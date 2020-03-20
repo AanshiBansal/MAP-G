@@ -1,29 +1,29 @@
-import {PILE_CLICKED, PILE_CHOOSEN, PILE_CHOOSEN_FAILURE, PILE_CHOOSEN_SUCCESS} from '../Actions/types';
+import {BALOON_CLICKED, BALOON_CHOOSEN, BALOON_CHOOSEN_SUCCESS, BALOON_CHOOSEN_FAILURE} from '../Actions/types';
 
 const INITIAL_STATE = {
-    pileData: [],
+    baloonData: [],
     loading: false,
     error: null
 };
 
 export default function (state = {INITIAL_STATE}, action) {
     switch(action.type) {
-        case PILE_CLICKED:
-            return { ...state, pileData: action.payload};
-        case PILE_CHOOSEN:
+        case BALOON_CLICKED:
+            return { ...state, baloonData: action.payload};
+        case BALOON_CHOOSEN:
             return {
                 ...state,
                 loading: true
             };
-        case PILE_CHOOSEN_SUCCESS:
+        case BALOON_CHOOSEN_SUCCESS:
             console.log(action.payload);
             return {
                 ...state,
                 loading: false,
                 error: null,
-                pileData: action.payload
+                baloonData: action.payload
             };
-        case PILE_CHOOSEN_FAILURE:
+        case BALOON_CHOOSEN_FAILURE:
             console.log(action.payload);
             return {
                 ...state,
