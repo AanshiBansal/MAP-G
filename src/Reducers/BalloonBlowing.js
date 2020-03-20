@@ -1,4 +1,4 @@
-import {BALOON_CLICKED, BALOON_CHOOSEN, BALOON_CHOOSEN_SUCCESS, BALOON_CHOOSEN_FAILURE} from '../Actions/types';
+import {BALLOON_CLICKED, BALLOON_CHOOSEN, BALLOON_CHOOSEN_SUCCESS, BALLOON_CHOOSEN_FAILURE} from '../Actions/types';
 
 const INITIAL_STATE = {
     balloonData: {},
@@ -8,14 +8,14 @@ const INITIAL_STATE = {
 
 export default function (state = {INITIAL_STATE}, action) {
     switch(action.type) {
-        case BALOON_CLICKED:
+        case BALLOON_CLICKED:
             return { ...state, balloonData: action.payload};
-        case BALOON_CHOOSEN:
+        case BALLOON_CHOOSEN:
             return {
                 ...state,
                 loading: true
             };
-        case BALOON_CHOOSEN_SUCCESS:
+        case BALLOON_CHOOSEN_SUCCESS:
             console.log(action.payload);
             return {
                 ...state,
@@ -23,7 +23,7 @@ export default function (state = {INITIAL_STATE}, action) {
                 error: null,
                 balloonData: action.payload
             };
-        case BALOON_CHOOSEN_FAILURE:
+        case BALLOON_CHOOSEN_FAILURE:
             console.log(action.payload);
             return {
                 ...state,

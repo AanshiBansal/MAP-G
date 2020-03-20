@@ -4,10 +4,10 @@ import { SIGN_IN,
          PILE_CHOOSEN,
          PILE_CHOOSEN_SUCCESS,
          PILE_CHOOSEN_FAILURE,
-         BALOON_CLICKED,
-         BALOON_CHOOSEN,
-         BALOON_CHOOSEN_SUCCESS,
-         BALOON_CHOOSEN_FAILURE} from '../Actions/types';
+         BALLOON_CLICKED,
+         BALLOON_CHOOSEN,
+         BALLOON_CHOOSEN_SUCCESS,
+         BALLOON_CHOOSEN_FAILURE} from '../Actions/types';
 import axios from 'axios';
 
 const addPile = () => ({
@@ -27,16 +27,16 @@ const addPileFailure = error => ({
 });
 
 const addBalloon = () => ({
-    type: BALOON_CHOOSEN
+    type: BALLOON_CHOOSEN
 });
 const addBalloonSuccess = balloonData => ({
-    type: BALOON_CHOOSEN_SUCCESS,
+    type: BALLOON_CHOOSEN_SUCCESS,
     payload: {
         ...balloonData
     }
 });
 const addBalloonFailure = error => ({
-    type: BALOON_CHOOSEN_FAILURE,
+    type: BALLOON_CHOOSEN_FAILURE,
     payload: {
         error
     }
@@ -84,7 +84,7 @@ export const pileGame = () => {
 
 export const balloonClicked = (data) => {
     return {
-        type: BALOON_CLICKED,
+        type: BALLOON_CLICKED,
         payload : data,
     };
 };
@@ -96,7 +96,7 @@ export const balloonGame = () => {
         console.log(data);
         dispatch(addBalloon());
         axios
-            .post(`${baseUrl}/ballonGameballonGame/`,data)
+            .post(`${baseUrl}/balloonGameballoonGame/`,data)
             .then(res => {
                 console.log(res);
                 dispatch(addBalloonSuccess(res.data));
