@@ -17,7 +17,6 @@ export default function (state = INITIAL_STATE, action) {
     switch(action.type) {
         case LISTENING_CLICKED:{
             if(action.payload.b===0) {
-                console.log(action.payload.a);
                 state.listeningData.audioStart.push(action.payload.a);
             }
             if(action.payload.b===1) {

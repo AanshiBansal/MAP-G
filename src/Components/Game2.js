@@ -12,9 +12,6 @@ import {listeningClicked, listeningAns, listeningGame} from "../Actions";
 class Game2 extends React.Component{
     constructor(props) {
         super(props);
-        //this.onSelectAnswer = this.onSelectAnswer.bind(this);
-        //this.onSelectAnswer2 = this.onSelectAnswer2.bind(this);
-        //this.onSelectAnswer3 = this.onSelectAnswer3.bind(this);
         this.state = {
             time: new Date(),
             modalOpen: false,
@@ -22,72 +19,12 @@ class Game2 extends React.Component{
         };// initialise the state
     }
     openClose = () => {
-        // console.log(this.state.answer1);
-        // console.log(this.state.answer2);
-        // console.log(this.state.answer3);
-       /* this.props.listeningClicked({
-            emailId: this.props.userInfo.email,
-            pauseTimeStart:this.state.audioPause,
-            pauseTimeEnd:this.state.audioStart,
-            adjusTimings:this.state.audioAdjust,
-            endTimings:this.state.audioEnd,
-            ans1:this.state.answer1,
-            ans2:this.state.answer2,
-            ans3:this.state.answer3
-        });*/
         this.setState({ modalOpe: true });
     };
     closeClose = (event) => {
         this.props.listeningGame();
-        /*this.props.listeningClicked({
-            emailId: this.props.userInfo.email,
-            pauseTimeStart:this.state.audioPause,
-            pauseTimeEnd:this.state.audioStart,
-            adjusTimings:this.state.audioAdjust,
-            endTimings:this.state.audioEnd,
-            ans1:this.state.answer1,
-            ans2:this.state.answer2,
-            ans3:this.state.answer3
-        });*/
         this.setState({ redirecthome: true });
     };
-    /*onSelectAnswer(ansValue){
-        console.log(ansValue);
-        this.setState({
-            answer1: ansValue
-        });
-    }
-
-    onSelectAnswer2(ansValue){
-        console.log(ansValue);
-        this.setState({
-            answer2: ansValue
-        });
-    }
-
-    onSelectAnswer3(ansValue){
-        console.log(ansValue);
-        this.setState({
-            answer3: ansValue
-        });
-    }
-
-
-    /*handleClick = (a,b) => {
-        const { time } = this.state;
-        if(b===0) {
-            this.state.audioStart.push(time.toLocaleTimeString());
-        }
-        if(b===1) {
-            this.state.audioPause.push(time.toLocaleString());
-        }
-        if(b===2) {
-            this.state.audioEnd.push(time.toLocaleString());
-        }
-        if(b===3) {
-            this.state.audioAdjust.push(time.toLocaleString());
-        }
-    };*/
 
     componentDidMount() { // create the interval once component is mounted
         this.update = setInterval(() => {

@@ -18,7 +18,6 @@ class ListeningGame extends Component{
     handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
     openClose = () =>
     {
-        //this.props.listeningGame();
         this.setState({ modalOpe: true });
 
     };
@@ -96,7 +95,6 @@ class ListeningGame extends Component{
                     </Modal.Actions>
                 </Modal>
                 { (this.state.redirecthome) ? <Redirect to="/"/> : null }
-
                 <Game2 />
             </div>
         )
