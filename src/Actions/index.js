@@ -11,7 +11,8 @@ import { SIGN_IN,
          LISTENING_CHOOSEN,
          LISTENING_CLICKED,
          LISTENING_CHOOSEN_SUCCESS,
-         LISTENING_CHOOSEN_FAILURE} from '../Actions/types';
+         LISTENING_CHOOSEN_FAILURE,
+        LISTENING_ANS} from '../Actions/types';
 import axios from 'axios';
 
 const addPile = () => ({
@@ -133,6 +134,13 @@ export const balloonGame = () => {
 export const listeningClicked = (data) => {
     return {
         type: LISTENING_CLICKED,
+        payload : data,
+    };
+};
+
+export const listeningAns = data => {
+    return {
+        type: LISTENING_ANS,
         payload : data,
     };
 };

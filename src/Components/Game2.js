@@ -7,14 +7,14 @@ import Ques3 from "./Ques3";
 import {Button, Header, Icon, Modal} from 'semantic-ui-react'
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {listeningClicked} from "../Actions";
+import {listeningClicked,listeningAns} from "../Actions";
 
 class Game2 extends React.Component{
     constructor(props) {
         super(props);
-        this.onSelectAnswer = this.onSelectAnswer.bind(this);
-        this.onSelectAnswer2 = this.onSelectAnswer2.bind(this);
-        this.onSelectAnswer3 = this.onSelectAnswer3.bind(this);
+        //this.onSelectAnswer = this.onSelectAnswer.bind(this);
+        //this.onSelectAnswer2 = this.onSelectAnswer2.bind(this);
+        //this.onSelectAnswer3 = this.onSelectAnswer3.bind(this);
         this.state = {
             time: new Date(),
             modalOpen: false,
@@ -50,7 +50,7 @@ class Game2 extends React.Component{
         });*/
         this.setState({ redirecthome: true });
     };
-    onSelectAnswer(ansValue){
+    /*onSelectAnswer(ansValue){
         console.log(ansValue);
         this.setState({
             answer1: ansValue
@@ -104,17 +104,17 @@ class Game2 extends React.Component{
             <AudioPlayer ref={c => (this.player = c)}
                          autoPlay = {false}
                          src={soundfile}
-                         onPlay={e => { this.props.listeningClicked(time.toLocaleString(),0);console.log("Audio started playing : "+time.toLocaleTimeString())}}
-                         onPause={e => { this.props.listeningClicked(time.toLocaleString(),1);console.log("Audio is paused : "+time.toLocaleTimeString())}}
-                         onEnded={e => { this.props.listeningClicked(time.toLocaleString(),2);console.log("Audio ended : "+time.toLocaleTimeString())}}
-                         onDragMove={e =>{this.props.listeningClicked(time.toLocaleString(),3); console.log("Audio is being adjusted : "+time.toLocaleTimeString())}}
+                         onPlay={e => { this.props.listeningClicked({a:time.toLocaleString(),b:0});console.log("Audio started playing : "+time.toLocaleTimeString())}}
+                         onPause={e => { this.props.listeningClicked({a:time.toLocaleString(),b:1});console.log("Audio is paused : "+time.toLocaleTimeString())}}
+                         onEnded={e => { this.props.listeningClicked({a:time.toLocaleString(),b:2});console.log("Audio ended : "+time.toLocaleTimeString())}}
+                         onDragMove={e =>{this.props.listeningClicked({a:time.toLocaleString(),b:3}); console.log("Audio is being adjusted : "+time.toLocaleTimeString())}}
             />
             <br/>
-            <Ques onSelectAnswer={this.onSelectAnswer} />
+            <Ques onSelectAnswer={ans=>{this.props.listeningAns({a:ans,b:1})}} />
             <br />
-            <Ques2 onSelectAnswer2={this.onSelectAnswer2}/>
+            <Ques2 onSelectAnswer2={ans=>{this.props.listeningAns({a:ans,b:2})}}/>
             <br />
-            <Ques3 onSelectAnswer3={this.onSelectAnswer3}/>
+            <Ques3 onSelectAnswer3={ans=>{this.props.listeningAns({a:ans,b:3})}}/>
             <br />
             <Modal
                 open={this.state.modalOpe}
@@ -143,4 +143,4 @@ const mapStateToProps = (state) => {
     return {userInfo:state.auth.userInfo };
 };
 
-export default connect(mapStateToProps, {listeningClicked})(Game2);
+export default connect(mapStateToProps, {listeningClicked,listeningAns})(Game2);

@@ -1,4 +1,4 @@
-import {LISTENING_CLICKED, LISTENING_CHOOSEN, LISTENING_CHOOSEN_SUCCESS, LISTENING_CHOOSEN_FAILURE} from '../Actions/types';
+import {LISTENING_CLICKED, LISTENING_CHOOSEN, LISTENING_CHOOSEN_SUCCESS, LISTENING_CHOOSEN_FAILURE,LISTENING_ANS} from '../Actions/types';
 
 const INITIAL_STATE = {
     listeningData: {
@@ -16,19 +16,31 @@ const INITIAL_STATE = {
 export default function (state = {INITIAL_STATE}, action) {
     switch(action.type) {
         case LISTENING_CLICKED:{
-            if(b===0) {
-                this.state.audioStart.push(time.toLocaleTimeString());
+            if(action.payload.b===0) {
+                state.listeningData.audioStart.push(action.payload.a);
             }
-            if(b===1) {
-                this.state.audioPause.push(time.toLocaleString());
+            if(action.payload.b===1) {
+                state.listeningData.audioPause.push(action.payload.a);
             }
-            if(b===2) {
-                this.state.audioEnd.push(time.toLocaleString());
+            if(action.payload.b===2) {
+                state.listeningData.audioEnd.push(action.payload.a);
             }
-            if(b===3) {
-                this.state.audioAdjust.push(time.toLocaleString());
+            if(action.payload.b===3) {
+                state.listeningData.audioAdjust.push(action.payload.a);
             }
-            return { ...state, listeningData: action.payload};
+            return { ...state};
+        }
+        case LISTENING_ANS:{
+            if(action.payload.b===1){
+                state.listeningData.answer1=action.payload.a;
+            }
+            if(action.payload.b===2){
+                state.listeningData.answer2=action.payload.a;
+            }
+            if(action.payload.b===2){
+                state.listeningData.answer3=action.payload.a;
+            }
+            return {...state};
         }
         case LISTENING_CHOOSEN:
             return {

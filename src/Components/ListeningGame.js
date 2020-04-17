@@ -19,11 +19,12 @@ class ListeningGame extends Component{
     handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
     openClose = () =>
     {
-        this.props.listeningGame();
+        //this.props.listeningGame();
         this.setState({ modalOpe: true });
 
     };
     closeClose = (event) => {
+        this.props.listeningGame();
         this.setState({ redirecthome: true, isSubmit: true });
     };
 
