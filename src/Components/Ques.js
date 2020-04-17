@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import { Form, Radio } from 'semantic-ui-react'
+import {connect} from "react-redux";
+import {listeningClicked} from "../Actions";
 
 class Ques extends Component{
-    state = {};
-    handleChange = (e, { value }) => {console.log("Question 1: Option " + value.toUpperCase() + " is selected at "+ new Date().toLocaleTimeString());this.setState({ value })};
+        state = {};
+
+    handleChange = (e, { value }) =>
+    {
+        console.log("Question 1: Option " + value.toUpperCase() + " is selected at "+ new Date().toLocaleTimeString());
+        this.setState({ value });
+        const timeAnswer = new Date().toLocaleTimeString();
+        this.props.onSelectAnswer(timeAnswer);
+    };
 
     render() {
         return (
@@ -45,4 +54,8 @@ class Ques extends Component{
     }
 }
 
-export default Ques;
+const mapStateToProps = (state) => {
+    return {  listeningData: state.list.listeningData, userInfo:state.auth.userInfo };
+};
+
+export default connect(mapStateToProps, {listeningClicked})(Ques);

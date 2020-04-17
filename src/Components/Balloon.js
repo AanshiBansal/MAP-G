@@ -17,8 +17,9 @@ class Balloon extends Component{
         count:0,
         countBalloon : [0,0,0],
         Balloon:[],
-        clicksBurst:[],
+        balColor:[],
         clicksCollect:[],
+        genScore:[],
         amountCollected:[],
         total:0,
         src:red
@@ -28,22 +29,21 @@ class Balloon extends Component{
     val=[[3,4,4,3,4,3,3,4,3,4,4,3],[5,6,6,5,6,5,5,6,5,6,6,5],[2,3,2,2,3,2,2,3,2,2,2,3]];
     clickCount=0;
     clickLimit=3;
-//add timestamp
     handleBlow=()=>{
-        // const timestamp = Date.now();
         this.clickCount=this.clickCount+1;
         this.setState({size:this.state.size+1});
         if(this.clickCount===this.clickLimit){
 
             //display blast for 2 secs
-            // eslint-disable-next-line
-           // console.log("Balloon busted after "+this.clickCount +" clicks without collecting the potential amount"+ " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
+            this.state.clicksCollect.push(this.clickCount);
+            this.state.balColor.push(this.state.balloonColour);
+            this.state.genScore.push(0);
             this.props.balloonClicked({
                 emailId: this.props.userInfo.email,
-                color: this.state.balloonColour,
-                clicksCollected: this.clickCount,
-                score:0,
-                total: current
+                color: this.state.balColor,
+                clicksCollected: this.state.clicksCollect,
+                score:this.state.genScore,
+                total: this.state.total
             });
             const balloonColour=(this.state.balloonColour+1)%3;
             const data = [];
@@ -57,7 +57,6 @@ class Balloon extends Component{
             counter[this.state.balloonColour]=counter[this.state.balloonColour]+1;
             this.clickCount=0;
             this.clickLimit=this.val[balloonColour][counter[balloonColour]];
-           // document.querySelector('balloon').src = this.imgSrc[1][this.state.balloonColour];
             document.getElementById("balloon").src = this.imgSrc[1][this.state.balloonColour];
             setTimeout(() => {
                 this.setState({balloonColour:balloonColour,count:this.state.count+1,src:this.imgSrc[0][balloonColour],Balloon:data,countBalloon:counter,size:0});
@@ -66,10 +65,6 @@ class Balloon extends Component{
         }
     };
     handleCollect=()=>{
-        // eslint-disable-next-line
-        //const timestamp = Date.now();
-        // eslint-disable-next-line
-        //console.log("After "+this.clickCount +" clicks the potential amount was collected" + " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
         const balloonColour=(this.state.balloonColour+1)%3;
         const data = [];
         for(let i=0;i<this.state.Balloon.length;i++)
@@ -83,12 +78,14 @@ class Balloon extends Component{
         const current  = this.clickCount*5 + this.state.total;
         this.clickCount=0;
         this.clickLimit=this.val[balloonColour][counter[balloonColour]];
-
+        this.state.clicksCollect.push(this.clickCount);
+        this.state.balColor.push(this.state.balloonColour);
+        this.state.genScore.push(current-this.state.total);
         this.props.balloonClicked({
-            emailId:this.props.userInfo,
-            color: this.state.balloonColour,
-            clicksCollected: this.clickCount,
-            score:this.score,
+            emailId: this.props.userInfo.email,
+            color: this.state.balColor,
+            clicksCollected: this.state.clicksCollect,
+            score:this.state.genScore,
             total: current
         });
         this.setState({balloonColour:balloonColour,count:this.state.count+1,src:this.imgSrc[0][balloonColour],Balloon:data,countBalloon:counter,total:current,size:0});

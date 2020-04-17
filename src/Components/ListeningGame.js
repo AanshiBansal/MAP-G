@@ -4,6 +4,7 @@ import ReactStopwatch from 'react-stopwatch';
 import Game2 from "./Game2";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
+import {listeningGame} from "../Actions";
 
 class ListeningGame extends Component{
     state = {
@@ -16,7 +17,12 @@ class ListeningGame extends Component{
 
     handleOpen = () => this.setState({ modalOpen: true });
     handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
-    openClose = () => this.setState({ modalOpe: true });
+    openClose = () =>
+    {
+        this.props.listeningGame();
+        this.setState({ modalOpe: true });
+
+    };
     closeClose = (event) => {
         this.setState({ redirecthome: true, isSubmit: true });
     };
@@ -57,7 +63,7 @@ class ListeningGame extends Component{
                     seconds={0}
                     minutes={0}
                     hours={0}
-                    limit="00:02:00"
+                    limit="00:00:10"
                     onChange={({hours, minutes, seconds}) => {
                     }}
                     onCallback={() => this.openClose()}
@@ -97,10 +103,6 @@ class ListeningGame extends Component{
     }
 }
 
-const mapStateToProps = (state) => {
-    return { isSubmit: state.list.isSubmit, ldata: state.list.ldata };
-};
+export default connect(null, { listeningGame })(ListeningGame);
 
-export default connect(
-    mapStateToProps,null
-)(ListeningGame)
+

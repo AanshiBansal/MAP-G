@@ -7,7 +7,11 @@ import { SIGN_IN,
          BALLOON_CLICKED,
          BALLOON_CHOOSEN,
          BALLOON_CHOOSEN_SUCCESS,
-         BALLOON_CHOOSEN_FAILURE} from '../Actions/types';
+         BALLOON_CHOOSEN_FAILURE,
+         LISTENING_CHOOSEN,
+         LISTENING_CLICKED,
+         LISTENING_CHOOSEN_SUCCESS,
+         LISTENING_CHOOSEN_FAILURE} from '../Actions/types';
 import axios from 'axios';
 
 const addPile = () => ({
@@ -42,6 +46,22 @@ const addBalloonFailure = error => ({
     }
 });
 
+const addListening = () => ({
+    type: LISTENING_CHOOSEN
+});
+const addListeningSuccess = listeningData => ({
+    type: LISTENING_CHOOSEN_SUCCESS,
+    payload: {
+        ...listeningData
+    }
+});
+const addListeningFailure = error => ({
+    type: LISTENING_CHOOSEN_FAILURE,
+    payload: {
+        error
+    }
+});
+
 export const signIn = (userInfo) => {
     return {
         type: SIGN_IN,
@@ -67,6 +87,8 @@ export const pileGame = () => {
     return (dispatch,getState) => {
         const store = getState();
         const data = store.pile.pileData;
+        console.log("hi");
+        console.log(data);
         dispatch(addPile());
         axios
             .post(`${baseUrl}/earnMaxearnMax/`,data)
@@ -104,6 +126,32 @@ export const balloonGame = () => {
             .catch(err => {
                 console.log(err);
                 dispatch(addBalloonFailure(err.message));
+            });
+    };
+};
+
+export const listeningClicked = (data) => {
+    return {
+        type: LISTENING_CLICKED,
+        payload : data,
+    };
+};
+
+export const listeningGame = () => {
+    return (dispatch,getState) => {
+        const store = getState();
+        const data = store.list.listeningData;
+        console.log(data);
+        dispatch(addListening());
+        axios
+            .post(`${baseUrl}/balloonGameballoonGame/`,data)
+            .then(res => {
+                console.log(res);
+                dispatch(addListeningSuccess(res.data));
+            })
+            .catch(err => {
+                console.log(err);
+                dispatch(addListeningFailure(err.message));
             });
     };
 };

@@ -3,7 +3,12 @@ import { Form, Radio } from 'semantic-ui-react'
 
 class Ques2 extends Component{
     state = {};
-    handleChange = (e, { value }) => {console.log("Question 2: Option " + value.toUpperCase() + " is selected at "+ new Date().toLocaleTimeString());this.setState({ value })};
+    handleChange = (e, { value }) => {
+        console.log("Question 2: Option " + value.toUpperCase() + " is selected at "+ new Date().toLocaleTimeString());
+        this.setState({ value });
+        const timeAnswer = new Date().toLocaleTimeString();
+        this.props.onSelectAnswer2(timeAnswer);
+    };
 
     render() {
         return (
