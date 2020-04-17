@@ -18,21 +18,14 @@ class Game2 extends React.Component{
         this.state = {
             time: new Date(),
             modalOpen: false,
-            redirecthome: false,
-            audioStart:[],
-            audioPause:[],
-            audioEnd:[],
-            audioAdjust:[],
-            answer1: '',
-            answer2:'',
-            answer3:''
+            redirecthome: false
         };// initialise the state
     }
     openClose = () => {
         // console.log(this.state.answer1);
         // console.log(this.state.answer2);
         // console.log(this.state.answer3);
-        this.props.listeningClicked({
+       /* this.props.listeningClicked({
             emailId: this.props.userInfo.email,
             pauseTimeStart:this.state.audioPause,
             pauseTimeEnd:this.state.audioStart,
@@ -41,11 +34,11 @@ class Game2 extends React.Component{
             ans1:this.state.answer1,
             ans2:this.state.answer2,
             ans3:this.state.answer3
-        });
+        });*/
         this.setState({ modalOpe: true });
     };
     closeClose = (event) => {
-        this.props.listeningClicked({
+        /*this.props.listeningClicked({
             emailId: this.props.userInfo.email,
             pauseTimeStart:this.state.audioPause,
             pauseTimeEnd:this.state.audioStart,
@@ -54,7 +47,7 @@ class Game2 extends React.Component{
             ans1:this.state.answer1,
             ans2:this.state.answer2,
             ans3:this.state.answer3
-        });
+        });*/
         this.setState({ redirecthome: true });
     };
     onSelectAnswer(ansValue){
@@ -79,7 +72,7 @@ class Game2 extends React.Component{
     }
 
 
-    handleClick = (a,b) => {
+    /*handleClick = (a,b) => {
         const { time } = this.state;
         if(b===0) {
             this.state.audioStart.push(time.toLocaleTimeString());
@@ -93,7 +86,7 @@ class Game2 extends React.Component{
         if(b===3) {
             this.state.audioAdjust.push(time.toLocaleString());
         }
-    };
+    };*/
 
     componentDidMount() { // create the interval once component is mounted
         this.update = setInterval(() => {
@@ -111,10 +104,10 @@ class Game2 extends React.Component{
             <AudioPlayer ref={c => (this.player = c)}
                          autoPlay = {false}
                          src={soundfile}
-                         onPlay={e => { this.handleClick(time.toLocaleString(),0);console.log("Audio started playing : "+time.toLocaleTimeString())}}
-                         onPause={e => { this.handleClick(time.toLocaleString(),1);console.log("Audio is paused : "+time.toLocaleTimeString())}}
-                         onEnded={e => { this.handleClick(time.toLocaleString(),2);console.log("Audio ended : "+time.toLocaleTimeString())}}
-                         onDragMove={e =>{this.handleClick(time.toLocaleString(),3); console.log("Audio is being adjusted : "+time.toLocaleTimeString())}}
+                         onPlay={e => { this.props.listeningClicked(time.toLocaleString(),0);console.log("Audio started playing : "+time.toLocaleTimeString())}}
+                         onPause={e => { this.props.listeningClicked(time.toLocaleString(),1);console.log("Audio is paused : "+time.toLocaleTimeString())}}
+                         onEnded={e => { this.props.listeningClicked(time.toLocaleString(),2);console.log("Audio ended : "+time.toLocaleTimeString())}}
+                         onDragMove={e =>{this.props.listeningClicked(time.toLocaleString(),3); console.log("Audio is being adjusted : "+time.toLocaleTimeString())}}
             />
             <br/>
             <Ques onSelectAnswer={this.onSelectAnswer} />
@@ -147,7 +140,7 @@ class Game2 extends React.Component{
     }
 }
 const mapStateToProps = (state) => {
-    return {  listeningData: state.list.listeningData, userInfo:state.auth.userInfo };
+    return {userInfo:state.auth.userInfo };
 };
 
 export default connect(mapStateToProps, {listeningClicked})(Game2);
