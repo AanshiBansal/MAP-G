@@ -13,10 +13,11 @@ const INITIAL_STATE = {
     error: null
 };
 
-export default function (state = {INITIAL_STATE}, action) {
+export default function (state = INITIAL_STATE, action) {
     switch(action.type) {
         case LISTENING_CLICKED:{
             if(action.payload.b===0) {
+                console.log(action.payload.a);
                 state.listeningData.audioStart.push(action.payload.a);
             }
             if(action.payload.b===1) {
@@ -37,11 +38,12 @@ export default function (state = {INITIAL_STATE}, action) {
             if(action.payload.b===2){
                 state.listeningData.answer2=action.payload.a;
             }
-            if(action.payload.b===2){
+            if(action.payload.b===3){
                 state.listeningData.answer3=action.payload.a;
             }
             return {...state};
         }
+
         case LISTENING_CHOOSEN:
             return {
                 ...state,

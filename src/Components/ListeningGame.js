@@ -14,7 +14,6 @@ class ListeningGame extends Component{
         redirecthome: false
     };
 
-
     handleOpen = () => this.setState({ modalOpen: true });
     handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
     openClose = () =>
