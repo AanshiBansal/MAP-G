@@ -7,7 +7,7 @@ class Ques2 extends Component{
         console.log("Question 2: Option " + value.toUpperCase() + " is selected at "+ new Date().toLocaleTimeString());
         this.setState({ value });
         const timeAnswer = new Date().toLocaleTimeString();
-        this.props.onSelectAnswer2(timeAnswer);
+        this.props.onSelectAnswer2(timeAnswer, value.toUpperCase());
     };
 
     render() {

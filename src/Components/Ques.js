@@ -5,13 +5,12 @@ import {listeningClicked} from "../Actions";
 
 class Ques extends Component{
         state = {};
-
     handleChange = (e, { value }) =>
     {
         console.log("Question 1: Option " + value.toUpperCase() + " is selected at "+ new Date().toLocaleTimeString());
         this.setState({ value });
         const timeAnswer = new Date().toLocaleTimeString();
-        this.props.onSelectAnswer(timeAnswer);
+        this.props.onSelectAnswer(timeAnswer,value.toUpperCase());
     };
 
     render() {
@@ -47,7 +46,6 @@ class Ques extends Component{
                         checked={this.state.value === 'c'}
                         onChange={this.handleChange}
                     />
-
                 </Form.Field>
             </Form>
         )

@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import {Button, Header,Icon, Modal, Card} from 'semantic-ui-react'
 import ReactStopwatch from 'react-stopwatch';
 import Emotion1 from './EmotionQues/Emotion1'
+import {connect} from "react-redux";
+import {emotionAns, emotionGame} from "../Actions";
 
-export default class EmotionGame extends Component{
+class EmotionGame extends Component{
     state = {
         modalOpen: false,
         stopWatch:false
@@ -11,7 +13,6 @@ export default class EmotionGame extends Component{
 
     handleOpen = () => this.setState({ modalOpen: true });
     handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
-    //updateTime = (seconds) => this.seconds=seconds;
 
     componentDidMount() {
         this.handleOpen=this.handleOpen.bind(this);
@@ -65,3 +66,9 @@ export default class EmotionGame extends Component{
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {userInfo:state.auth.userInfo };
+};
+
+export default connect(mapStateToProps, {emotionAns,emotionGame})(EmotionGame);

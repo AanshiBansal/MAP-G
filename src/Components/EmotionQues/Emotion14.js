@@ -3,6 +3,8 @@ import {Card, Header, Icon, Image, Modal} from "semantic-ui-react";
 import ReactStopwatch from 'react-stopwatch';
 import Button from "semantic-ui-react/dist/es/elements/Button/Button";
 import {Redirect} from "react-router-dom";
+import {connect} from "react-redux";
+import {emotionGame,emotionAns} from "../../Actions";
 
 class Emotion14 extends Component {
     constructor(props) {
@@ -14,14 +16,17 @@ class Emotion14 extends Component {
         };
         this._onButtonClick = this._onButtonClick.bind(this);
     }
-    handleOpen = () => this.setState({ modalOpen: true });
-    handleClose = (event) => {
+    handleOpen = (event) =>  {
         const timestamp = Date.now(); // This would be the timestamp you want to format
         console.log("Emotion detected for picture 14 " + event.target.id + " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
+        const timeAnswer = new Date().toLocaleTimeString();
+        this.props.emotionAns({a:event.target.id,b:14,c:timeAnswer});
+        this.setState({ modalOpen: true })
+    };
+    handleClose = (event) => {
+        this.props.emotionGame();
         this.setState({ redirecthome: true });
     };
-
-
 
     _onButtonClick() {
         this.setState({
@@ -100,4 +105,8 @@ number 7 is going to take the lead.
     }
 }
 
-export default Emotion14;
+const mapStateToProps = (state) => {
+    return {  emotionData: state.emo.emotionData, userInfo:state.auth.userInfo };
+};
+
+export default connect(mapStateToProps, {emotionGame, emotionAns})(Emotion14);

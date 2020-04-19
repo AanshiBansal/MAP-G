@@ -12,7 +12,11 @@ import { SIGN_IN,
          LISTENING_CLICKED,
          LISTENING_CHOOSEN_SUCCESS,
          LISTENING_CHOOSEN_FAILURE,
-        LISTENING_ANS} from '../Actions/types';
+        LISTENING_ANS,
+        EMOTION_ANS,
+        EMOTION_CHOOSEN,
+        EMOTION_CHOOSEN_SUCCESS,
+        EMOTION_CHOOSEN_FAILURE} from '../Actions/types';
 import axios from 'axios';
 
 const addPile = () => ({
@@ -58,6 +62,22 @@ const addListeningSuccess = listeningData => ({
 });
 const addListeningFailure = error => ({
     type: LISTENING_CHOOSEN_FAILURE,
+    payload: {
+        error
+    }
+});
+
+const addEmotion = () => ({
+    type: EMOTION_CHOOSEN
+});
+const addEmotionSuccess = emotionData => ({
+    type: EMOTION_CHOOSEN_SUCCESS,
+    payload: {
+        ...emotionData
+    }
+});
+const addEmotionFailure = error => ({
+    type: EMOTION_CHOOSEN_FAILURE,
     payload: {
         error
     }
@@ -152,7 +172,7 @@ export const listeningGame = () => {
         console.log(data);
         dispatch(addListening());
         axios
-            .post(`${baseUrl}/balloonGameballoonGame/`,data)
+            .post(`${baseUrl}/listeningGamelisteningGame/`,data)
             .then(res => {
                 console.log(res);
                 dispatch(addListeningSuccess(res.data));
@@ -160,6 +180,32 @@ export const listeningGame = () => {
             .catch(err => {
                 console.log(err);
                 dispatch(addListeningFailure(err.message));
+            });
+    };
+};
+
+export const emotionAns = data => {
+    return {
+        type: EMOTION_ANS,
+        payload : data,
+    };
+};
+
+export const emotionGame = () => {
+    return (dispatch,getState) => {
+        const store = getState();
+        const data = store.emo.emotionData;
+        console.log(data);
+        dispatch(addEmotion());
+        axios
+            .post(`${baseUrl}/emotionPredictoremotionPredictor/`,data)
+            .then(res => {
+                console.log(res);
+                dispatch(addEmotionSuccess(res.data));
+            })
+            .catch(err => {
+                console.log(err);
+                dispatch(addEmotionFailure(err.message));
             });
     };
 };

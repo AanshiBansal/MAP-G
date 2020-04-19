@@ -3,6 +3,8 @@ import {Card, Image} from "semantic-ui-react";
 import Button from "semantic-ui-react/dist/es/elements/Button/Button";
 import ReactStopwatch from 'react-stopwatch';
 import {Redirect} from "react-router-dom";
+import {connect} from "react-redux";
+import {emotionAns} from "../../Actions";
 
 class Emotion9 extends Component {
     constructor(props) {
@@ -23,6 +25,8 @@ class Emotion9 extends Component {
     handleClick = (event)=>{
         const timestamp = Date.now(); // This would be the timestamp you want to format
         console.log("Emotion detected for picture 9" + event.target.id + " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
+        const timeAnswer = new Date().toLocaleTimeString();
+        this.props.emotionAns({a:event.target.id,b:9,c:timeAnswer});
         this.setState({
             redirectstate: true,
 
@@ -65,11 +69,15 @@ class Emotion9 extends Component {
                     <Button id='Pain' onClick={this.handleClick}>Pain</Button>
                     <Button id='Surprise' onClick={this.handleClick}>Surprise</Button>
                     <Button id='Puzzle' onClick={this.handleClick}>Puzzle element</Button>
-                    { (this.state.redirectstate) ? <Redirect to="/emotion10"/> : null }
+                    { (this.state.redirectstate) ? <Redirect to="/emotion10" /> : null }
                 </p>
             </div>
         )
     }
 }
 
-export default Emotion9;
+const mapStateToProps = (state) => {
+    return {  emotionData: state.emo.emotionData, userInfo:state.auth.userInfo };
+};
+
+export default connect(mapStateToProps, {emotionAns})(Emotion9);

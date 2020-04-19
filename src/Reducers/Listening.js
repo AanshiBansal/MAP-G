@@ -6,9 +6,7 @@ const INITIAL_STATE = {
         audioPause:[],
         audioEnd:[],
         audioAdjust:[],
-        answer1: '',
-        answer2:'',
-        answer3:''},
+        answers:[]},
     loading: false,
     error: null
 };
@@ -31,15 +29,7 @@ export default function (state = INITIAL_STATE, action) {
             return { ...state};
         }
         case LISTENING_ANS:{
-            if(action.payload.b===1){
-                state.listeningData.answer1=action.payload.a;
-            }
-            if(action.payload.b===2){
-                state.listeningData.answer2=action.payload.a;
-            }
-            if(action.payload.b===3){
-                state.listeningData.answer3=action.payload.a;
-            }
+            state.listeningData.answers.push( [action.payload.b, action.payload.a, action.payload.c ]);
             return {...state};
         }
 
