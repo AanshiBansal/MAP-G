@@ -2,6 +2,7 @@ import {LISTENING_CLICKED, LISTENING_CHOOSEN, LISTENING_CHOOSEN_SUCCESS, LISTENI
 
 const INITIAL_STATE = {
     listeningData: {
+        emailId:'',
         audioStart:[],
         audioPause:[],
         audioEnd:[],
@@ -29,6 +30,7 @@ export default function (state = INITIAL_STATE, action) {
             return { ...state};
         }
         case LISTENING_ANS:{
+            state.listeningData.emailId = action.payload.emailId;
             state.listeningData.answers.push( [action.payload.b, action.payload.a, action.payload.c ]);
             return {...state};
         }

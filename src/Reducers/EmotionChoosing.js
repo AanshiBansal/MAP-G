@@ -5,6 +5,7 @@ import { EMOTION_CHOOSEN,
 
 const INITIAL_STATE = {
     emotionData: {
+        emailId:'',
        answers:[]},
     loading: false,
     error: null
@@ -13,6 +14,7 @@ const INITIAL_STATE = {
 export default function (state = INITIAL_STATE, action) {
     switch(action.type) {
         case EMOTION_ANS:{
+            state.emotionData.emailId = action.payload.emailId;
            state.emotionData.answers.push( [action.payload.b, action.payload.a, action.payload.c ]);
             return {...state};
         }

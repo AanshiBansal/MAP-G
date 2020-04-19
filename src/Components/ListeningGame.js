@@ -33,7 +33,6 @@ class ListeningGame extends Component{
     }
 
     componentWillUnmount() {
-
     }
 
     render() {

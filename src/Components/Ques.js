@@ -10,7 +10,8 @@ class Ques extends Component{
         console.log("Question 1: Option " + value.toUpperCase() + " is selected at "+ new Date().toLocaleTimeString());
         this.setState({ value });
         const timeAnswer = new Date().toLocaleTimeString();
-        this.props.onSelectAnswer(timeAnswer,value.toUpperCase());
+        const ema=this.props.userInfo.email;
+        this.props.onSelectAnswer(ema,timeAnswer,value.toUpperCase());
     };
 
     render() {
