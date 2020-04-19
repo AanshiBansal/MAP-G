@@ -5,7 +5,7 @@ import ReactStopwatch from "react-stopwatch";
 import Balloon from "./Balloon";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {balloonGame} from "../Actions";
+import {balloonGame, disable} from "../Actions";
 
 class BalloonBlow extends Component{
     state = {
@@ -19,6 +19,7 @@ class BalloonBlow extends Component{
     handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
     openClose = () => {
         this.props.balloonGame();
+        this.props.disable({id:3});
         this.setState({ modalOpe: true });
     };
     closeClose = () => {
@@ -98,4 +99,4 @@ class BalloonBlow extends Component{
     }
 }
 
-export default connect(null, { balloonGame })(BalloonBlow);
+export default connect(null, { balloonGame,disable })(BalloonBlow);

@@ -4,7 +4,7 @@ import ReactStopwatch from 'react-stopwatch';
 import Button from "semantic-ui-react/dist/es/elements/Button/Button";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {emotionGame,emotionAns} from "../../Actions";
+import {emotionGame,emotionAns,disable} from "../../Actions";
 
 class Emotion14 extends Component {
     constructor(props) {
@@ -24,6 +24,7 @@ class Emotion14 extends Component {
         this.setState({ modalOpen: true })
     };
     handleClose = (event) => {
+        this.props.disable({id:4});
         this.props.emotionGame();
         this.setState({ redirecthome: true });
     };
@@ -109,4 +110,4 @@ const mapStateToProps = (state) => {
     return {  emotionData: state.emo.emotionData, userInfo:state.auth.userInfo };
 };
 
-export default connect(mapStateToProps, {emotionGame, emotionAns})(Emotion14);
+export default connect(mapStateToProps, {emotionGame, emotionAns,disable})(Emotion14);

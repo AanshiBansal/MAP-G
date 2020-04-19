@@ -13,7 +13,6 @@ class Ques3 extends Component{
         this.props.onSelectAnswer3(ema,timeAnswer,value.toUpperCase());
     };
 
-
     render() {
         return (
             <Form>

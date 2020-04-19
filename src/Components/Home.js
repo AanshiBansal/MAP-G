@@ -13,20 +13,18 @@ class Home extends Component {
             event.preventDefault();
             alert("Please Login First");
         }
-        //console.log(this.state.disable);
         else{
         const id = event.target.id;
-        if(this.state.disable[id])
+        console.log(id);
+        console.log(this.props.disable[id]);
+        if(this.props.disable[id])
             event.preventDefault();
         else {
-            //console.log("Hi");
             let data = [];
             for (let i = 0; i < this.state.disable.length; i++)
                 data.push(this.state.disable[i]);
             data[id] = true;
             this.setState({disable: data});
-            //console.log(data);
-            //console.log(this.state.disable);
         }}
 
         //console.log(this.state.disable);
@@ -73,7 +71,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return { isSignedIn: state.auth.isSignedIn, userInfo: state.auth.userInfo };
+    return { isSignedIn: state.auth.isSignedIn, userInfo: state.auth.userInfo, disable:state.home.disable };
 };
 
 export default connect(

@@ -4,7 +4,7 @@ import ReactStopwatch from 'react-stopwatch';
 import Piles from './Piles'
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {pileGame} from "../Actions";
+import {pileGame,disable} from "../Actions";
 
 class PileChoosing extends Component{
     state = {
@@ -17,6 +17,7 @@ class PileChoosing extends Component{
     handleOpen = () => this.setState({ modalOpen: true });
     handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
     openClose = () => {
+        this.props.disable({id:2});
         this.props.pileGame();
         this.setState({ modalOpen2: true });
     };
@@ -97,4 +98,4 @@ class PileChoosing extends Component{
         )
     }
 }
-export default connect(null, { pileGame })(PileChoosing);
+export default connect(null, { pileGame,disable })(PileChoosing);

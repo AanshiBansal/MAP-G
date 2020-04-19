@@ -7,7 +7,7 @@ import Ques3 from "./Ques3";
 import {Button, Header, Icon, Modal} from 'semantic-ui-react'
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {listeningClicked, listeningAns, listeningGame} from "../Actions";
+import {listeningClicked, listeningAns, listeningGame,disable} from "../Actions";
 
 class Game2 extends React.Component{
     constructor(props) {
@@ -22,6 +22,7 @@ class Game2 extends React.Component{
         this.setState({ modalOpe: true });
     };
     closeClose = (event) => {
+        this.props.disable({id:1});
         this.props.listeningGame();
         this.setState({ redirecthome: true });
     };
@@ -81,4 +82,4 @@ const mapStateToProps = (state) => {
     return {userInfo:state.auth.userInfo };
 };
 
-export default connect(mapStateToProps, {listeningClicked,listeningAns,listeningGame})(Game2);
+export default connect(mapStateToProps, {listeningClicked,listeningAns,listeningGame,disable})(Game2);

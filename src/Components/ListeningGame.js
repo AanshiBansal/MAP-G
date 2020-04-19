@@ -4,7 +4,7 @@ import ReactStopwatch from 'react-stopwatch';
 import Game2 from "./Game2";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {listeningGame} from "../Actions";
+import {listeningGame,disable} from "../Actions";
 
 class ListeningGame extends Component{
     state = {
@@ -22,8 +22,10 @@ class ListeningGame extends Component{
 
     };
     closeClose = (event) => {
-        this.props.listeningGame();
+        const id = 1;
+        this.props.disable({id:id});
         this.setState({ redirecthome: true, isSubmit: true });
+        this.props.listeningGame();
     };
 
     componentDidMount() {
@@ -100,6 +102,6 @@ class ListeningGame extends Component{
     }
 }
 
-export default connect(null, { listeningGame })(ListeningGame);
+export default connect(null, { listeningGame,disable })(ListeningGame);
 
 

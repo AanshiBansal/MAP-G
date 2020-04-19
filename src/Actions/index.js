@@ -16,7 +16,8 @@ import { SIGN_IN,
         EMOTION_ANS,
         EMOTION_CHOOSEN,
         EMOTION_CHOOSEN_SUCCESS,
-        EMOTION_CHOOSEN_FAILURE} from '../Actions/types';
+        EMOTION_CHOOSEN_FAILURE,
+        DISABLE} from '../Actions/types';
 import axios from 'axios';
 
 const addPile = () => ({
@@ -148,6 +149,13 @@ export const balloonGame = () => {
                 console.log(err);
                 dispatch(addBalloonFailure(err.message));
             });
+    };
+};
+
+export const disable = (disable,id) => {
+    return {
+        type: DISABLE,
+        payload: disable,id
     };
 };
 
