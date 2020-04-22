@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
+import {Redirect} from "react-router-dom";
 import { signIn, signOut } from '../Actions';
 
 class GoogleAuth extends Component{
@@ -58,13 +59,18 @@ class GoogleAuth extends Component{
     }
 
     render(){
-        console.log(this.props);
-        return <div>{this.renderAuthButton()}</div>;
+        //console.log(this.props);
+        return (
+            <div>
+                {this.renderAuthButton()}
+                { (this.props.registered === false) ? <Redirect to="/sign-up"/> : null }
+            </div>
+        );
     }
 }
 
 const mapStateToProps = (state) => {
-    return { isSignedIn: state.auth.isSignedIn, userInfo: state.auth.userInfo };
+    return { isSignedIn: state.auth.isSignedIn, userInfo: state.auth.userInfo, registered: state.auth.registered };
 }
 
 export default connect(

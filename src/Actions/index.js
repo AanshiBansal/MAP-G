@@ -1,23 +1,27 @@
-import { SIGN_IN,
-         SIGN_OUT,
-         PILE_CLICKED,
-         PILE_CHOOSEN,
-         PILE_CHOOSEN_SUCCESS,
-         PILE_CHOOSEN_FAILURE,
-         BALLOON_CLICKED,
-         BALLOON_CHOOSEN,
-         BALLOON_CHOOSEN_SUCCESS,
-         BALLOON_CHOOSEN_FAILURE,
-         LISTENING_CHOOSEN,
-         LISTENING_CLICKED,
-         LISTENING_CHOOSEN_SUCCESS,
-         LISTENING_CHOOSEN_FAILURE,
-        LISTENING_ANS,
-        EMOTION_ANS,
-        EMOTION_CHOOSEN,
-        EMOTION_CHOOSEN_SUCCESS,
-        EMOTION_CHOOSEN_FAILURE,
-        DISABLE} from '../Actions/types';
+import {
+    SIGN_IN,
+    SIGN_OUT,
+    PILE_CLICKED,
+    PILE_CHOOSEN,
+    PILE_CHOOSEN_SUCCESS,
+    PILE_CHOOSEN_FAILURE,
+    BALLOON_CLICKED,
+    BALLOON_CHOOSEN,
+    BALLOON_CHOOSEN_SUCCESS,
+    BALLOON_CHOOSEN_FAILURE,
+    LISTENING_CHOOSEN,
+    LISTENING_CLICKED,
+    LISTENING_CHOOSEN_SUCCESS,
+    LISTENING_CHOOSEN_FAILURE,
+    LISTENING_ANS,
+    EMOTION_ANS,
+    EMOTION_CHOOSEN,
+    EMOTION_CHOOSEN_SUCCESS,
+    EMOTION_CHOOSEN_FAILURE,
+    DISABLE,
+    REGISTRATION,
+    GAMES_PLAYED
+} from '../Actions/types';
 import axios from 'axios';
 
 const addPile = () => ({
@@ -84,6 +88,16 @@ const addEmotionFailure = error => ({
     }
 });
 
+const checkRegistration = (registered) => ({
+    type: REGISTRATION,
+    payload:registered
+});
+
+const gamesPlayed = (games) => ({
+    types:GAMES_PLAYED,
+    payload:games
+});
+
 export const signIn = (userInfo) => {
     return (dispatch) => {
         dispatch({
@@ -93,7 +107,9 @@ export const signIn = (userInfo) => {
         axios
             .get(`${baseUrl}/addURL/`,userInfo.email)
             .then(res => {
-                //console.log(res);
+                console.log(res);
+                dispatch(checkRegistration(res.data.registered));
+                dispatch(gamesPlayed(res.data.games));
             })
             .catch(err => {
                 // console.log(err);
