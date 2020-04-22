@@ -85,10 +85,21 @@ const addEmotionFailure = error => ({
 });
 
 export const signIn = (userInfo) => {
-    return {
-        type: SIGN_IN,
-        payload: userInfo
+    return (dispatch) => {
+        dispatch({
+            type: SIGN_IN,
+            payload: userInfo
+        });
+        axios
+            .get(`${baseUrl}/addURL/`,userInfo.email)
+            .then(res => {
+                //console.log(res);
+            })
+            .catch(err => {
+                // console.log(err);
+            });
     };
+
 };
 
 export const signOut = () => {
@@ -109,17 +120,17 @@ export const pileGame = () => {
     return (dispatch,getState) => {
         const store = getState();
         const data = store.pile.pileData;
-        console.log("hi");
-        console.log(data);
+        //console.log("hi");
+        //console.log(data);
         dispatch(addPile());
         axios
             .post(`${baseUrl}/earnMaxearnMax/`,data)
             .then(res => {
-                console.log(res);
+                //console.log(res);
                 dispatch(addPileSuccess(res.data));
             })
             .catch(err => {
-                console.log(err);
+               // console.log(err);
                 dispatch(addPileFailure(err.message));
             });
     };
@@ -137,7 +148,7 @@ export const balloonGame = () => {
     return (dispatch,getState) => {
         const store = getState();
         const data = store.bal.balloonData;
-        console.log(data);
+        //console.log(data);
         dispatch(addBalloon());
         axios
             .post(`${baseUrl}/balloonGameballoonGame/`,data)
@@ -177,7 +188,7 @@ export const listeningGame = () => {
     return (dispatch,getState) => {
         const store = getState();
         const data = store.list.listeningData;
-        console.log(data);
+        //console.log(data);
         dispatch(addListening());
         axios
             .post(`${baseUrl}/listeningGamelisteningGame/`,data)
@@ -203,16 +214,16 @@ export const emotionGame = () => {
     return (dispatch,getState) => {
         const store = getState();
         const data = store.emo.emotionData;
-        console.log(data);
+        //console.log(data);
         dispatch(addEmotion());
         axios
             .post(`${baseUrl}/emotionPredictoremotionPredictor/`,data)
             .then(res => {
-                console.log(res);
+               // console.log(res);
                 dispatch(addEmotionSuccess(res.data));
             })
             .catch(err => {
-                console.log(err);
+                //console.log(err);
                 dispatch(addEmotionFailure(err.message));
             });
     };
