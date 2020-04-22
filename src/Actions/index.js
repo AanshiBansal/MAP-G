@@ -105,7 +105,7 @@ export const signIn = (userInfo) => {
             payload: userInfo
         });
         axios
-            .get(`${baseUrl}/addURL/`,userInfo.email)
+            .get(`${baseUrl}/addURL/?emailToCheck=${userInfo.email}`)
             .then(res => {
                 console.log(res);
                 dispatch(checkRegistration(res.data.registered));

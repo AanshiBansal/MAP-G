@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfbb8a2d-a4ff-4040-a7fd-74054ab33ad3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actions/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/GoogleAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/GoogleAuth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reducers/AuthReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reducers/AuthReducer.js" afterDir="false" />
-    </list>
+    <list default="true" id="dfbb8a2d-a4ff-4040-a7fd-74054ab33ad3" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -43,7 +37,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/SignUp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-763">
+            <state relative-caret-position="85">
               <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -257,18 +251,18 @@
       <workItem from="1587139309815" duration="54000" />
       <workItem from="1587139634283" duration="5568000" />
       <workItem from="1587457366563" duration="794000" />
-      <workItem from="1587564358105" duration="3963000" />
+      <workItem from="1587564358105" duration="4070000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128825000" />
+    <option name="totallyTimeSpent" value="128932000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25074404" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25074404" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -721,7 +715,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/SignUp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-763">
+        <state relative-caret-position="85">
           <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
