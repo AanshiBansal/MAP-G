@@ -108,7 +108,7 @@ export const signIn = (userInfo) => {
             .get(`${baseUrl}/addURL/?emailToCheck=${userInfo.email}`)
             .then(res => {
                 console.log(res);
-                dispatch(checkRegistration(res.data.registered));
+                dispatch(checkRegistration(res.data.emailToCheck));
                 dispatch(gamesPlayed(res.data.games));
             })
             .catch(err => {

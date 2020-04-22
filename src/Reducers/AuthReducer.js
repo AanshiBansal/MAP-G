@@ -1,10 +1,9 @@
-import { SIGN_IN, SIGN_OUT, REGISTRATION, GAMES_PLAYED } from '../Actions/types';
+import { SIGN_IN, SIGN_OUT, REGISTRATION} from '../Actions/types';
 
 const INITIAL_STATE = {
     isSignedIn: null,
     userInfo: null,
-    registered: null,
-    gamesPlayed: null
+    registered: null
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -18,9 +17,6 @@ export default (state = INITIAL_STATE, action) => {
         }
         case REGISTRATION: {
             return {...state, registered:action.payload};
-        }
-        case GAMES_PLAYED: {
-            return  {...state,gamesPlayed:action.payload};
         }
         default:
             return state;
