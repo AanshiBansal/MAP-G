@@ -15,14 +15,12 @@ const experienceOptions = [
 
 class SignUp extends Component{
     state = {
-        //email:this.props.userInfo.email,
-        //name:this.props.userInfo.name,
-        email:'aanshi.bansal@gmail.com',
-        name:'Aanshi Bansal',
+        email:this.props.userInfo.email,
+        name:this.props.userInfo.name,
         age:'',
         teachingExp:'',
         teachingField:null,
-        //openID:this.props.userInfo.openID,
+        openID:this.props.userInfo.openID,
         gender:null,
         games_played:[false,false,false,false,false],
         loading:false
