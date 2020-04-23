@@ -106,7 +106,7 @@ export const signIn = (userInfo) => {
             payload: userInfo
         });
         axios
-            .get(`${baseUrl}/userExists/?emailToCheck=${userInfo.email}`)
+            .get(`${baseUrl}/userExist/?emailToCheck=${userInfo.email}`)
             .then(res => {
                 console.log(res);
                 dispatch(checkRegistration(res.data.emailToCheck));
@@ -137,13 +137,12 @@ export const pileGame = () => {
     return (dispatch,getState) => {
         const store = getState();
         const data = store.pile.pileData;
-        //console.log("hi");
-        //console.log(data);
+        console.log(data);
         dispatch(addPile());
         axios
             .post(`${baseUrl}/earnMaxearnMax/`,data)
             .then(res => {
-                //console.log(res);
+                console.log(res);
                 dispatch(addPileSuccess(res.data));
             })
             .catch(err => {
@@ -188,7 +187,7 @@ export const disable = (disable,id) => {
         });
         const store = getState();
         axios
-            .post(`${baseUrl}/updateGamesPlayed/?emailToCheck=${store.auth.userInfo.email}&games_played=${store.home.disable}`)
+            .post(`${baseUrl}/updateGamesPlayed/?email=${store.auth.userInfo.email}&games_played=${store.home.disable}`)
             .then(res => {
                 //console.log(res);
             })
@@ -217,7 +216,7 @@ export const listeningGame = () => {
     return (dispatch,getState) => {
         const store = getState();
         const data = store.list.listeningData;
-        //console.log(data);
+        console.log(data);
         dispatch(addListening());
         axios
             .post(`${baseUrl}/listeningGamelisteningGame/`,data)
@@ -259,10 +258,10 @@ export const emotionGame = () => {
 };
 
 export const registerUser = (data, callback) => (dispatch) => {
-    axios.post(`${baseUrl}/userData`, data)
+    axios.post(`${baseUrl}/userdata`, data)
         .then(res => {
             dispatch({type: REGISTER_USER, payload: res.data});
             callback();
         })
-}
+};
 

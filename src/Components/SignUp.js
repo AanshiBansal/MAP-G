@@ -17,8 +17,8 @@ class SignUp extends Component{
     state = {
         email:this.props.userInfo.email,
         name:this.props.userInfo.name,
-        age:'',
-        teachingExp:'',
+        age:null,
+        teachingExp:null,
         teachingField:null,
         openID:this.props.userInfo.openID,
         gender:null,
