@@ -186,10 +186,13 @@ export const disable = (disable,id) => {
             payload: disable,id
         });
         const store = getState();
+        const data1={email:store.auth.userInfo.email,games_played:store.home.disable};
+        const data=JSON.stringify(data1);
+        console.log(data);
         console.log(store.home.disable);
         axios
-            .post(`${baseUrl}/updateGamesPlayed/?email=${store.auth.userInfo.email}&games_played=${store.home.disable}`)
-           // .post(`${baseUrl}/updateGamesPlayed/`,{email:store.auth.userInfo.email,games_played:store.home.disable})
+            //.post(`${baseUrl}/updateGamesPlayed/?email=${store.auth.userInfo.email}&games_played=${store.home.disable}`)
+            .post(`${baseUrl}/updateGamesPlayed/`,data)
             .then(res => {
                 //console.log(res);
             })
