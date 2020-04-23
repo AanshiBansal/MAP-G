@@ -1,4 +1,4 @@
-import { SIGN_IN, SIGN_OUT, REGISTRATION} from '../Actions/types';
+import { SIGN_IN, SIGN_OUT, REGISTRATION, REGISTER_USER} from '../Actions/types';
 
 const INITIAL_STATE = {
     isSignedIn: null,
@@ -17,6 +17,9 @@ export default (state = INITIAL_STATE, action) => {
         }
         case REGISTRATION: {
             return {...state, registered:action.payload};
+        }
+        case REGISTER_USER: {
+            return {...state};
         }
         default:
             return state;

@@ -20,7 +20,8 @@ import {
     EMOTION_CHOOSEN_FAILURE,
     DISABLE,
     REGISTRATION,
-    GAMES_PLAYED
+    GAMES_PLAYED,
+    REGISTER_USER
 } from '../Actions/types';
 import axios from 'axios';
 
@@ -256,3 +257,12 @@ export const emotionGame = () => {
             });
     };
 };
+
+export const registerUser = (data, callback) => (dispatch) => {
+    axios.post(`${baseUrl}/userData`, data)
+        .then(res => {
+            dispatch({type: REGISTER_USER, payload: res.data});
+            callback();
+        })
+}
+

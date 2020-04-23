@@ -1,68 +1,97 @@
 import React,{ Component } from 'react'
 import { Form, Input, Button, Select } from 'semantic-ui-react'
 import {connect} from "react-redux";
+import {registerUser} from "../Actions";
 
 const genderOptions = [
-    { key: 'm', text: 'Male', value: 1 },
-    { key: 'f', text: 'Female', value: 2 },
-    { key: 'o', text: 'Other', value: 3 },
+    { text: 'Male', value: 1 },
+    { text: 'Female', value: 2 },
+    { text: 'Other', value: 3 },
+];
+const experienceOptions = [
+    { text: 'School', value: 1 },
+    { text: 'College', value: 2 },
 ];
 
 class SignUp extends Component{
+    state = {
+        //email:this.props.userInfo.email,
+        //name:this.props.userInfo.name,
+        email:'aanshi.bansal@gmail.com',
+        name:'Aanshi Bansal',
+        age:'',
+        teachingExp:'',
+        teachingField:null,
+        //openID:this.props.userInfo.openID,
+        gender:null,
+        games_played:[false,false,false,false,false],
+        loading:false
+    };
+    handleChange = (e,{id,value}) => this.setState({[id]:value});
+
+    handleSubmit = () => {
+        this.setState({loading: true});
+        const data = {...this.state};
+        delete data.loading;
+        console.log(data);
+        this.props.registerUser(data, () => {
+            this.setState({loading: false});
+            this.props.history.push('/');
+        });
+    };
     render(){
         return(
-            <Form>
-                <Form.Field
-                    id='form-input-control-error-email'
+            <Form onSubmit = {this.handleSubmit} loading={this.state.loading}>
+                <Form.Input
                     control={Input}
                     label='Email'
-                    placeholder={this.props.userInfo.email} readOnly
-                    error={{
-                        content: 'Please enter a valid email address',
-                        pointing: 'below',
-                    }}
+                    value={this.state.email} readOnly
                 />
-                <Form.Group widths='equal'>
-                    <Form.Field
-                        id='form-input-control-first-name'
-                        control={Input}
-                        label='First name'
-                        placeholder={this.props.userInfo.fname} readOnly
-                    />
-                    <Form.Field
-                        id='form-input-control-last-name'
-                        control={Input}
-                        label='Last name'
-                        placeholder={this.props.userInfo.lname} readOnly
-                    />
-                </Form.Group>
+                <Form.Input
+                    control={Input}
+                    label='Name'
+                    value={this.state.name} readOnly
+                />
+
                 <Form.Group width='equal'>
                     <Form.Field
+                        id='gender'
                         control={Select}
                         options={genderOptions}
-                        label={{ children: 'Gender', htmlFor: 'form-select-control-gender' }}
+                        label='Gender'
                         placeholder='Gender'
-                        search
-                        searchInput={{ id: 'form-select-control-gender' }}
+                        value={this.state.gender}
+                        onChange={this.handleChange}
                     />
-                    <Form.Field
-                        id='form-input-control-age'
-                        control={Input}
+                    <Form.Input
+                        id='age'
                         label='Age'
                         placeholder='Age'
+                        onChange={this.handleChange}
+                    />
+
+                </Form.Group>
+                <Form.Group>
+                    <Form.Field
+                        id={'teachingField'}
+                        control={Select}
+                        options={experienceOptions}
+                        label='Teaching Field'
+                        placeholder='Teaching Field'
+                        value={this.state.teachingField}
+                        onChange={this.handleChange}
                     />
                     <Form.Field
-                        id='form-input-control-experience'
+                        id='teachingExp'
                         control={Input}
                         label='Teaching Experience'
                         placeholder='In Years'
+                        onChange={this.handleChange}
                     />
                 </Form.Group>
                 <Form.Field
-                    id='form-button-control-public'
                     control={Button}
-                    content='Confirm'
-                    label='Label with htmlFor'
+                    content='Register'
                 />
             </Form>
         )
@@ -74,5 +103,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(
-    mapStateToProps,null
+    mapStateToProps,{registerUser}
 )(SignUp);
