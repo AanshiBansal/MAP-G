@@ -22,13 +22,18 @@ class SignUp extends Component{
         teachingField:null,
         openID:this.props.userInfo.openID,
         gender:null,
-        games_played:[false,false,false,false,false],
+        games_played:[0,0,0,0,0],
         loading:false
     };
-    handleChange = (e,{id,value}) => this.setState({[id]:value});
+    handleChange = (e,{id,value}) => this.setState({[id]:parseInt(value)});
 
     handleSubmit = () => {
-        this.setState({loading: true});
+        this.setState({
+            loading: true,
+            age:Number(this.state.age),
+            teachingExp:parseInt(this.state.teachingExp),
+        });
+        console.log(typeof (this.state.age));
         const data = {...this.state};
         delete data.loading;
         console.log(data);
@@ -65,6 +70,7 @@ class SignUp extends Component{
                         id='age'
                         label='Age'
                         placeholder='Age'
+                        type='number'
                         onChange={this.handleChange}
                     />
 
@@ -84,6 +90,7 @@ class SignUp extends Component{
                         control={Input}
                         label='Teaching Experience'
                         placeholder='In Years'
+                        type='number'
                         onChange={this.handleChange}
                     />
                 </Form.Group>

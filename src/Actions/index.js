@@ -186,8 +186,10 @@ export const disable = (disable,id) => {
             payload: disable,id
         });
         const store = getState();
+        console.log(store.home.disable);
         axios
             .post(`${baseUrl}/updateGamesPlayed/?email=${store.auth.userInfo.email}&games_played=${store.home.disable}`)
+           // .post(`${baseUrl}/updateGamesPlayed/`,{email:store.auth.userInfo.email,games_played:store.home.disable})
             .then(res => {
                 //console.log(res);
             })
@@ -242,7 +244,7 @@ export const emotionGame = () => {
     return (dispatch,getState) => {
         const store = getState();
         const data = store.emo.emotionData;
-        //console.log(data);
+        console.log(data);
         dispatch(addEmotion());
         axios
             .post(`${baseUrl}/emotionPredictoremotionPredictor/`,data)
@@ -258,7 +260,7 @@ export const emotionGame = () => {
 };
 
 export const registerUser = (data, callback) => (dispatch) => {
-    axios.post(`${baseUrl}/userdata`, data)
+    axios.post(`${baseUrl}/userdata/`, data)
         .then(res => {
             dispatch({type: REGISTER_USER, payload: res.data});
             callback();
