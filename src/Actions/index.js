@@ -105,7 +105,7 @@ export const signIn = (userInfo) => {
             payload: userInfo
         });
         axios
-            .get(`${baseUrl}/addURL/?emailToCheck=${userInfo.email}`)
+            .get(`${baseUrl}/userExists/?emailToCheck=${userInfo.email}`)
             .then(res => {
                 console.log(res);
                 dispatch(checkRegistration(res.data.emailToCheck));
@@ -180,10 +180,22 @@ export const balloonGame = () => {
 };
 
 export const disable = (disable,id) => {
-    return {
-        type: DISABLE,
-        payload: disable,id
+    return (dispatch,getState) => {
+        dispatch({
+            type: DISABLE,
+            payload: disable,id
+        });
+        const store = getState();
+        axios
+            .post(`${baseUrl}/updateGamesPlayed/?emailToCheck=${store.auth.userInfo.email}&games_played=${store.home.disable}`)
+            .then(res => {
+                //console.log(res);
+            })
+            .catch(err => {
+                // console.log(err);
+            });
     };
+
 };
 
 export const listeningClicked = (data) => {
