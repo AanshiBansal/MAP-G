@@ -95,7 +95,7 @@ const checkRegistration = (registered) => ({
 });
 
 const gamesPlayed = (games) => ({
-    types:GAMES_PLAYED,
+    type:GAMES_PLAYED,
     payload:games
 });
 
