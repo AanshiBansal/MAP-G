@@ -2,6 +2,7 @@ import React,{ Component } from 'react'
 import { Form, Input, Button, Select } from 'semantic-ui-react'
 import {connect} from "react-redux";
 import {registerUser} from "../Actions";
+import {Redirect} from "react-router-dom";
 
 const genderOptions = [
     { text: 'Male', value: 1 },
@@ -23,7 +24,8 @@ class SignUp extends Component{
         openID:this.props.userInfo.openID,
         gender:null,
         games_played:[0,0,0,0,0],
-        loading:false
+        loading:false,
+        redirecthome: false
     };
     handleChange = (e,{id,value}) => this.setState({[id]:parseInt(value)});
 
@@ -33,18 +35,24 @@ class SignUp extends Component{
             age:Number(this.state.age),
             teachingExp:parseInt(this.state.teachingExp),
         });
-        console.log(typeof (this.state.age));
         const data = {...this.state};
         delete data.loading;
         console.log(data);
         this.props.registerUser(data, () => {
-            this.setState({loading: false});
+            this.setState(
+                {
+                        loading: false,
+                        redirecthome: true
+                });
+            debugger
+            console.log(this.state.redirecthome);
             this.props.history.push('/');
         });
     };
     render(){
         return(
-            <Form onSubmit = {this.handleSubmit} loading={this.state.loading}>
+            <div>
+            <Form onSubmit = {this.handleSubmit} loading={this.state.loading} Redire>
                 <Form.Input
                     control={Input}
                     label='Email'
@@ -99,6 +107,10 @@ class SignUp extends Component{
                     content='Register'
                 />
             </Form>
+                {console.log("hi")}
+                { console.log(this.state.redirecthome)}
+                {(this.state.redirecthome) ? <Redirect to="/"/> : null }
+            </div>
         )
     }
 }
