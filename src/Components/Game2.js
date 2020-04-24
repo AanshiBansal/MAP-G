@@ -49,11 +49,11 @@ class Game2 extends React.Component{
                          onDragMove={e =>{this.props.listeningClicked({a:time.toLocaleString(),b:3}); console.log("Audio is being adjusted : "+time.toLocaleTimeString())}}
             />
             <br/>
-            <Ques onSelectAnswer={(email,ans,tim)=>{this.props.listeningAns({emailId:email,a:ans,b:1,c:tim})}} />
+            <Ques onSelectAnswer={(email,ans,tim)=>{this.props.listeningAns({emailId:email,a:ans,b:"1",c:tim})}} />
             <br />
-            <Ques2 onSelectAnswer2={(email,ans,tim)=>{this.props.listeningAns({emailId:email,a:ans,b:2,c:tim})}}/>
+            <Ques2 onSelectAnswer2={(email,ans,tim)=>{this.props.listeningAns({emailId:email,a:ans,b:"2",c:tim})}}/>
             <br />
-            <Ques3 onSelectAnswer3={(email,ans,tim)=>{this.props.listeningAns({emailId:email,a:ans,b:3,c:tim})}}/>
+            <Ques3 onSelectAnswer3={(email,ans,tim)=>{this.props.listeningAns({emailId:email,a:ans,b:"3",c:tim})}}/>
             <br />
             <Modal
                 open={this.state.modalOpe}

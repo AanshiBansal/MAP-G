@@ -2,7 +2,6 @@ import React,{ Component } from 'react'
 import { Form, Input, Button, Select } from 'semantic-ui-react'
 import {connect} from "react-redux";
 import {registerUser} from "../Actions";
-import {Redirect} from "react-router-dom";
 
 const genderOptions = [
     { text: 'Male', value: 1 },
@@ -23,17 +22,14 @@ class SignUp extends Component{
         teachingField:null,
         openID:this.props.userInfo.openID,
         gender:null,
-        games_played:[0,0,0,0,0],
-        loading:false,
-        redirecthome: false
+        games_played:[false,false,false,false,false],
+        loading:false
     };
     handleChange = (e,{id,value}) => this.setState({[id]:parseInt(value)});
 
     handleSubmit = () => {
         this.setState({
-            loading: true,
-            age:Number(this.state.age),
-            teachingExp:parseInt(this.state.teachingExp),
+            loading: true
         });
         const data = {...this.state};
         delete data.loading;
@@ -41,18 +37,16 @@ class SignUp extends Component{
         this.props.registerUser(data, () => {
             this.setState(
                 {
-                        loading: false,
-                        redirecthome: true
+                        loading: false
                 });
-            debugger
-            console.log(this.state.redirecthome);
+            console.log(this.props.history);
             this.props.history.push('/');
         });
     };
     render(){
         return(
             <div>
-            <Form onSubmit = {this.handleSubmit} loading={this.state.loading} Redire>
+            <Form onSubmit = {this.handleSubmit} loading={this.state.loading} >
                 <Form.Input
                     control={Input}
                     label='Email'
@@ -107,9 +101,6 @@ class SignUp extends Component{
                     content='Register'
                 />
             </Form>
-                {console.log("hi")}
-                { console.log(this.state.redirecthome)}
-                {(this.state.redirecthome) ? <Redirect to="/"/> : null }
             </div>
         )
     }

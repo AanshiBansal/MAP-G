@@ -5,9 +5,6 @@ import HeaderBar from './Header'
 import {connect} from "react-redux";
 
 class Home extends Component {
-    state={
-        disable:[false,false,false,false,false]
-    };
     handleClick=(event)=>{
         if(this.props.isSignedIn === false){
             event.preventDefault();
@@ -16,16 +13,11 @@ class Home extends Component {
         else{
         const id = event.target.id;
         console.log(id);
+        console.log(this.props.disable);
         console.log(this.props.disable[id]);
         if(this.props.disable[id])
             event.preventDefault();
-        else {
-            let data = [];
-            for (let i = 0; i < this.state.disable.length; i++)
-                data.push(this.state.disable[i]);
-            data[id] = true;
-            this.setState({disable: data});
-        }}
+        }
 
         //console.log(this.state.disable);
     };

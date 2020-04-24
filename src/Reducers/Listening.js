@@ -3,10 +3,10 @@ import {LISTENING_CLICKED, LISTENING_CHOOSEN, LISTENING_CHOOSEN_SUCCESS, LISTENI
 const INITIAL_STATE = {
     listeningData: {
         emailId:'',
-        audioStart:[],
-        audioPause:[],
-        audioEnd:[],
-        audioAdjust:[],
+        audioStart:["0"],
+        audioPause:["0"],
+        audioEnd:["0"],
+        audioAdjust:["0"],
         answers:[]},
     loading: false,
     error: null

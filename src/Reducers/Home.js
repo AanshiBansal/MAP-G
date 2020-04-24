@@ -10,6 +10,7 @@ export default function (state = INITIAL_STATE, action) {
             return  {...state,disable:action.payload};
         }
         case DISABLE:{
+            console.log(action.payload);
             let data = [];
             for (let i = 0; i < state.disable.length; i++)
                 data.push(state.disable[i]);

@@ -19,7 +19,7 @@ export default (state = INITIAL_STATE, action) => {
             return {...state, registered:action.payload};
         }
         case REGISTER_USER: {
-            return {...state};
+            return {...state,registered:true};
         }
         default:
             return state;

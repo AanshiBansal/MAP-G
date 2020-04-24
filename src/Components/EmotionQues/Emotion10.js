@@ -26,7 +26,7 @@ class Emotion10 extends Component {
         const timestamp = Date.now(); // This would be the timestamp you want to format
         console.log("Emotion detected for picture 10" + event.target.id + " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
         const timeAnswer = new Date().toLocaleTimeString();
-        this.props.emotionAns({a:event.target.id,b:10,c:timeAnswer,emailId:this.props.userInfo.email});
+        this.props.emotionAns({a:event.target.id,b:"10",c:timeAnswer,emailId:this.props.userInfo.email});
         this.setState({
             redirectstate: true,
 

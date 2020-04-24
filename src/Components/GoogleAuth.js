@@ -63,7 +63,7 @@ class GoogleAuth extends Component{
         return (
             <div>
                 {this.renderAuthButton()}
-                { (this.props.registered === false) ? <Redirect to="/sign-up"/> : null }
+                { (this.props.registered === false) ? <Redirect to="/sign-up" /> : <Redirect to="/" /> }
             </div>
         );
     }
@@ -71,7 +71,7 @@ class GoogleAuth extends Component{
 
 const mapStateToProps = (state) => {
     return { isSignedIn: state.auth.isSignedIn, userInfo: state.auth.userInfo, registered: state.auth.registered };
-}
+};
 
 export default connect(
     mapStateToProps,

@@ -19,7 +19,8 @@
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.1",
-    "uuid": "latest"
+    "uuid": "latest",
+    "react-router-dom": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "deepcopy": "^2.0.0",
-    "react-hot-loader": "^4.5.3"
+    "react-hot-loader": "^4.5.3",
+    "react-router-dom": "latest"
   }
 }

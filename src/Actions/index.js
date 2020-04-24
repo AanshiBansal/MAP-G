@@ -89,10 +89,10 @@ const addEmotionFailure = error => ({
     }
 });
 
-const checkRegistration = (registered) => ({
-    type: REGISTRATION,
-    payload:registered
-});
+ const checkRegistration = (registered) => ({
+     type: REGISTRATION,
+     payload:registered
+ });
 
 const gamesPlayed = (games) => ({
     type:GAMES_PLAYED,
@@ -109,11 +109,17 @@ export const signIn = (userInfo) => {
             .get(`${baseUrl}/userExist/?emailToCheck=${userInfo.email}`)
             .then(res => {
                 console.log(res);
-                dispatch(checkRegistration(res.data.emailToCheck));
-                dispatch(gamesPlayed(res.data.games));
+                //debugger
+                 dispatch(checkRegistration(res.data.emailToCheck));
+                 console.log(res.data.emailToCheck);
+                // // debugger
+                // if(res.data.emailToCheck===false){
+                //     this.props.history.push('/sign-up');
+                // }
+                dispatch(gamesPlayed(res.data.games_played));
             })
             .catch(err => {
-                // console.log(err);
+                 console.log(err);
             });
     };
 
