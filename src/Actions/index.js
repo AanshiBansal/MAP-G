@@ -186,8 +186,8 @@ export const disable = (disable,id) => {
             payload: disable,id
         });
         const store = getState();
-        const data1={email:store.auth.userInfo.email,games_played:store.home.disable};
-        const data=JSON.stringify(data1);
+        const data={email:store.auth.userInfo.email,games_played:JSON.stringify(store.home.disable)};
+        //const data=JSON.stringify(data1);
         console.log(data);
         console.log(store.home.disable);
         axios
