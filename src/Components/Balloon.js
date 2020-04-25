@@ -96,7 +96,6 @@ class Balloon extends Component{
     render() {
         return(
             <div>
-                <Card header = 'hello' description = {this.state.total}/>
                 <Card header = 'Money collected' description = {this.state.total}/>
                 <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
                     <Button onClick={this.handleBlow}>Pump</Button>
