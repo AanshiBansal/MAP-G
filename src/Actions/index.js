@@ -131,7 +131,7 @@ export const signOut = () => {
     };
 };
 // const baseUrl = 'http://127.0.0.1:8000';
-const baseUrl = 'https://18.215.251.109';
+const baseUrl = 'http://18.215.251.109';
 
 export const pileClicked = (data) => {
     return {
