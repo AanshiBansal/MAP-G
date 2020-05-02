@@ -11,7 +11,7 @@ class Footer extends Component{
         return check;
     };
     render(){
-        const check=this.checkDisable;
+        const check=this.checkDisable();
         return(
             <Button primary floated='right' style={{margin:'20px'}} disabled={check}>View Report</Button>
         )
