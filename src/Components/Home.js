@@ -1,7 +1,8 @@
 import React, { Component } from "react"
 import { Card } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
-import HeaderBar from './Header'
+import HeaderBar from './Header';
+import Footer from './Footer';
 import {connect} from "react-redux";
 
 class Home extends Component {
@@ -12,14 +13,9 @@ class Home extends Component {
         }
         else{
         const id = event.target.id;
-        console.log(id);
-        console.log(this.props.disable);
-        console.log(this.props.disable[id]);
         if(this.props.disable[id])
             event.preventDefault();
         }
-
-        //console.log(this.state.disable);
     };
     render() {
         return (
@@ -57,6 +53,7 @@ class Home extends Component {
                         </Card.Group>
                     </nav>
                 </div>
+                <Footer />
             </div>
         )
     }

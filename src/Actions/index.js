@@ -109,18 +109,13 @@ export const signIn = (userInfo) => {
         axios
             .get(`${baseUrl}/userExist/?emailToCheck=${userInfo.email}`)
             .then(res => {
-                console.log(res);
                 //debugger
                  dispatch(checkRegistration(res.data.emailToCheck));
-                 console.log(res.data.emailToCheck);
-                // // debugger
-                // if(res.data.emailToCheck===false){
-                //     this.props.history.push('/sign-up');
-                // }
+
                 dispatch(gamesPlayed(res.data.games_played));
             })
             .catch(err => {
-                 console.log(err);
+
             });
     };
 
@@ -194,11 +189,7 @@ export const disable = (disable,id) => {
         });
         const store = getState();
         const data={email:store.auth.userInfo.email,games_played:JSON.stringify(store.home.disable)};
-        //const data=JSON.stringify(data1);
-        console.log(data);
-        console.log(store.home.disable);
         axios
-            //.post(`${baseUrl}/updateGamesPlayed/?email=${store.auth.userInfo.email}&games_played=${store.home.disable}`)
             .post(`${baseUrl}/updateGamesPlayed/`,data)
             .then(res => {
                 //console.log(res);

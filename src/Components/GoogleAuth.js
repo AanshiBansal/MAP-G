@@ -63,7 +63,8 @@ class GoogleAuth extends Component{
         return (
             <div>
                 {this.renderAuthButton()}
-                { (this.props.registered === false) ? <Redirect to="/sign-up" /> : <Redirect to="/" /> }
+                { (this.props.registered === false) ? <Redirect to="/sign-up" /> : <Redirect to="/" />
+                    }
             </div>
         );
     }
