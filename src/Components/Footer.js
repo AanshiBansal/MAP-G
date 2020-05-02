@@ -6,6 +6,8 @@ class Footer extends Component{
     checkDisable=()=>{
         let check=true;
         const {disable}=this.props;
+        if(disable===null)
+            return true;
         if(disable[1]===true && disable[2]===true && disable[3]===true && disable[4]===true)
             check=false;
         return check;
