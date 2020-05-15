@@ -12,16 +12,15 @@ class Ques3 extends Component{
         const ema=this.props.userInfo.email;
         this.props.onSelectAnswer3(ema,timeAnswer,value.toUpperCase());
     };
-
     render() {
         return (
             <Form>
                 <Form.Field>
-                    <b>Question 3 : Why did girl write about the poem?</b>
+                    <b>Question 3 : Did the customer order dessert straight away?</b>
                 </Form.Field>
                 <Form.Field>
                     <Radio
-                        label='Because it contains a message about nature'
+                        label='No, she wanted to wait'
                         name='radioGroup'
                         value='a'
                         checked={this.state.value === 'a'}
@@ -30,7 +29,7 @@ class Ques3 extends Component{
                 </Form.Field>
                 <Form.Field>
                     <Radio
-                        label='Because her mother told her to do so'
+                        label='Yes, she wanted it with the food'
                         name='radioGroup'
                         value='b'
                         checked={this.state.value === 'b'}
@@ -40,7 +39,7 @@ class Ques3 extends Component{
                 </Form.Field>
                 <Form.Field>
                     <Radio
-                        label='As she had won a prize for this theme'
+                        label='She was confused'
                         name='radioGroup'
                         value='c'
                         checked={this.state.value === 'c'}

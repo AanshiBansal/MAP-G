@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'semantic-ui-react/index'
-import soundfile from '../Content/audio_record.mp3'
+import soundfile from '../Content/audio_record2.mp3'
 
 
 class Music extends Component {

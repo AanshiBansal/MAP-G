@@ -1,7 +1,7 @@
 import React  from 'react';
 import Ques from './Ques';
 import AudioPlayer from "react-h5-audio-player";
-import soundfile from '../Content/audio_record.mp3'
+import soundfile from '../Content/audio_record2.mp3'
 import Ques2 from "./Ques2";
 import Ques3 from "./Ques3";
 import {Button, Header, Icon, Modal} from 'semantic-ui-react'

@@ -12,16 +12,15 @@ class Ques2 extends Component{
         const ema=this.props.userInfo.email;
         this.props.onSelectAnswer2(ema,timeAnswer, value.toUpperCase());
     };
-
     render() {
         return (
             <Form>
                 <Form.Field>
-                    <b>Question 2 : What is the name of the contest?</b>
+                    <b>Question 2 : Which dessert is not vegetarian?</b>
                 </Form.Field>
                 <Form.Field>
                     <Radio
-                        label='River of Spirit'
+                        label='Jelly'
                         name='radioGroup'
                         value='a'
                         checked={this.state.value === 'a'}
@@ -30,7 +29,7 @@ class Ques2 extends Component{
                 </Form.Field>
                 <Form.Field>
                     <Radio
-                        label='River of words'
+                        label='Apple Pudding'
                         name='radioGroup'
                         value='b'
                         checked={this.state.value === 'b'}
@@ -40,7 +39,7 @@ class Ques2 extends Component{
                 </Form.Field>
                 <Form.Field>
                     <Radio
-                        label='River of Wisdom'
+                        label='Cake Jar'
                         name='radioGroup'
                         value='c'
                         checked={this.state.value === 'c'}
