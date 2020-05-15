@@ -1,7 +1,7 @@
 import React  from 'react';
 import Ques from './Ques';
 import AudioPlayer from "react-h5-audio-player";
-import soundfile from '../Content/audio_record2.mp3'
+import soundFile from '../Content/audio_record.mp3'
 import Ques2 from "./Ques2";
 import Ques3 from "./Ques3";
 import {Button, Header, Icon, Modal} from 'semantic-ui-react'
@@ -15,16 +15,16 @@ class Game2 extends React.Component{
         this.state = {
             time: new Date(),
             modalOpen: false,
-            redirecthome: false
-        };// initialise the state
+            redirectHome: false
+        };
     }
     openClose = () => {
         this.setState({ modalOpe: true });
     };
-    closeClose = (event) => {
+    closeClose = () => {
         this.props.disable({id:1});
         this.props.listeningGame();
-        this.setState({ redirecthome: true });
+        this.setState({ redirectHome: true });
     };
 
     componentDidMount() { // create the interval once component is mounted
@@ -42,11 +42,11 @@ class Game2 extends React.Component{
         return (<div style={{margin : "30px"}}>
             <AudioPlayer ref={c => (this.player = c)}
                          autoPlay = {false}
-                         src={soundfile}
+                         src={soundFile}
                          onPlay={e => { this.props.listeningClicked({a:time.toLocaleString(),b:0});console.log("Audio started playing : "+time.toLocaleTimeString())}}
-                         onPause={e => { this.props.listeningClicked({a:time.toLocaleString(),b:1});console.log("Audio is paused : "+time.toLocaleTimeString())}}
+                         //onPause={e => { this.props.listeningClicked({a:time.toLocaleString(),b:1});console.log("Audio is paused : "+time.toLocaleTimeString())}}
                          onEnded={e => { this.props.listeningClicked({a:time.toLocaleString(),b:2});console.log("Audio ended : "+time.toLocaleTimeString())}}
-                         onDragMove={e =>{this.props.listeningClicked({a:time.toLocaleString(),b:3}); console.log("Audio is being adjusted : "+time.toLocaleTimeString())}}
+                         //onDragMove={e =>{this.props.listeningClicked({a:time.toLocaleString(),b:3}); console.log("Audio is being adjusted : "+time.toLocaleTimeString())}}
             />
             <br/>
             <Ques onSelectAnswer={(email,ans,tim)=>{this.props.listeningAns({emailId:email,a:ans,b:"1",c:tim})}} />

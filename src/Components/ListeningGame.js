@@ -8,42 +8,31 @@ import {listeningGame,disable} from "../Actions";
 
 class ListeningGame extends Component{
     state = {
-        modalOpen: false,
+        modalStartOpen: false,
         stopWatch:false,
-        modalope: false,
-        redirecthome: false
+        modalEndOpen: false,
+        redirectHome: false
     };
-
-    handleOpen = () => this.setState({ modalOpen: true });
-    handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
-    openClose = () =>
-    {
-        this.setState({ modalOpe: true });
-
-    };
-    closeClose = (event) => {
+    handleStartOpen = () => this.setState({ modalStartOpen: true });
+    handleStartClose = () => this.setState({ modalStartOpen: false,stopWatch:true });
+    handleEndOpen = () => this.setState({ modalEndOpen: true });
+    handleEndClose = () => {
         const id = 1;
         this.props.disable({id:id});
-        this.setState({ redirecthome: true, isSubmit: true });
+        this.setState({ redirectHome: true, isSubmit: true });
         this.props.listeningGame();
     };
 
     componentDidMount() {
-        this.handleOpen=this.handleOpen.bind(this);
-        this.handleClose=this.handleClose.bind(this);
-        this.handleOpen();
-    }
-
-    componentWillUnmount() {
+        this.handleStartOpen();
     }
 
     render() {
         return(
             <div>
                 <Modal
-                    //trigger={<Button onClick={this.handleOpen}>Show Modal</Button>}
-                    open={this.state.modalOpen}
-                    onClose={this.handleClose}
+                    open={this.state.modalStartOpen}
+                    onClose={this.handleStartClose}
                     basic
                     size='small'
                 >
@@ -54,7 +43,7 @@ class ListeningGame extends Component{
                         </h3>
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button color='green' onClick={this.handleClose} inverted>
+                        <Button color='green' onClick={this.handleStartClose} inverted>
                             <Icon name='checkmark'/> Got it
                         </Button>
                     </Modal.Actions>
@@ -64,10 +53,8 @@ class ListeningGame extends Component{
                     minutes={0}
                     hours={0}
                     limit="00:00:10"
-                    onChange={({hours, minutes, seconds}) => {
-                    }}
-                    onCallback={() => this.openClose()}
-                    render={({formatted, hours, minutes, seconds}) => {
+                    onCallback={this.handleEndOpen}
+                    render={({minutes, seconds}) => {
                         const sec = 60*minutes + seconds;
                         return (
                             <div style={{float:'right'}}>
@@ -77,9 +64,8 @@ class ListeningGame extends Component{
                     }}
                 />
                 <Modal
-                    //trigger={<Button onClick={this.handleOpen}>Show Modal</Button>}
-                    open={this.state.modalOpe}
-                    onClose={this.closeClose}
+                    open={this.state.modalEndOpen}
+                    onClose={this.handleEndClose}
                     basic
                     size='small'
                 >
@@ -90,12 +76,12 @@ class ListeningGame extends Component{
                         </h3>
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button color='green' onClick={this.closeClose} inverted>
+                        <Button color='green' onClick={this.handleEndClose} inverted>
                             <Icon name='checkmark'/> Got it
                         </Button>
                     </Modal.Actions>
                 </Modal>
-                { (this.state.redirecthome) ? <Redirect to="/"/> : null }
+                { (this.state.redirectHome) ? <Redirect to="/"/> : null }
                 <Game2 />
             </div>
         )
