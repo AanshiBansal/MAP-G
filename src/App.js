@@ -4,6 +4,7 @@ import Home from "./Components/Home";
 import PileChoosing from './Components/PileChoosing';
 import BalloonBlow from "./Components/BalloonBlow";
 import ListeningGame from "./Components/ListeningGame";
+import Game2 from "./Components/Questions";
 import EmotionGame from "./Components/EmotionGame";
 import SignUp from "./Components/SignUp"
 import Emotion2 from "./Components/EmotionQues/Emotion2";
@@ -30,6 +31,7 @@ class App extends Component {
                         <Route exact path="/sign-up" component={SignUp}/>
                         <Route exact path="/pile-choosing" component={PileChoosing}/>
                         <Route exact path="/listening" component={ListeningGame}/>
+                        <Route exact path="/listening-questions" component={Game2}/>
                         <Route exact path="/balloon-blow" component={BalloonBlow}/>
                         <Route exact path="/emotion-sensing" component={EmotionGame}/>
                         <Route exact path="/emotion2" component={Emotion2}/>

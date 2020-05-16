@@ -3,15 +3,15 @@ import { Form, Radio } from 'semantic-ui-react'
 import {connect} from "react-redux";
 import {listeningClicked} from "../Actions";
 
-class Ques extends Component{
+class Ques1 extends Component{
         state = {};
     handleChange = (e, { value }) =>
     {
         console.log("Question 1: Option " + value.toUpperCase() + " is selected at "+ new Date().toLocaleTimeString());
         this.setState({ value });
-        const timeAnswer = new Date().toLocaleTimeString();
-        const ema=this.props.userInfo.email;
-        this.props.onSelectAnswer(ema,timeAnswer,value.toUpperCase());
+        const time = new Date().toLocaleTimeString();
+        const email=this.props.userInfo.email;
+        this.props.onSelectAnswer(email,value.toUpperCase(),time);
     };
     render() {
         return (
@@ -56,4 +56,4 @@ const mapStateToProps = (state) => {
     return {  listeningData: state.list.listeningData, userInfo:state.auth.userInfo };
 };
 
-export default connect(mapStateToProps, {listeningClicked})(Ques);
+export default connect(mapStateToProps, {listeningClicked})(Ques1);

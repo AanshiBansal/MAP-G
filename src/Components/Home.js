@@ -15,6 +15,7 @@ class Home extends Component {
         const id = event.target.id;
         if(this.props.disable[id])
             event.preventDefault();
+            alert("You have already played this game.");
         }
     };
     render() {

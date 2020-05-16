@@ -1,27 +1,18 @@
 import React, {Component} from 'react';
-import {Button, Header,Icon, Modal, Card} from 'semantic-ui-react'
-import ReactStopwatch from 'react-stopwatch';
-import Game2 from "./Game2";
+import {Button, Header,Icon, Modal} from 'semantic-ui-react'
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {listeningGame,disable} from "../Actions";
+import {listeningClicked} from "../Actions";
+import soundFile from "../Content/audio_record.mp3";
+import AudioPlayer from "react-h5-audio-player";
 
 class ListeningGame extends Component{
     state = {
         modalStartOpen: false,
-        stopWatch:false,
-        modalEndOpen: false,
-        redirectHome: false
+        redirectQues: false
     };
     handleStartOpen = () => this.setState({ modalStartOpen: true });
-    handleStartClose = () => this.setState({ modalStartOpen: false,stopWatch:true });
-    handleEndOpen = () => this.setState({ modalEndOpen: true });
-    handleEndClose = () => {
-        const id = 1;
-        this.props.disable({id:id});
-        this.setState({ redirectHome: true, isSubmit: true });
-        this.props.listeningGame();
-    };
+    handleStartClose = () => this.setState({ modalStartOpen: false });
 
     componentDidMount() {
         this.handleStartOpen();
@@ -48,46 +39,19 @@ class ListeningGame extends Component{
                         </Button>
                     </Modal.Actions>
                 </Modal>
-                <ReactStopwatch
-                    seconds={0}
-                    minutes={0}
-                    hours={0}
-                    limit="00:00:10"
-                    onCallback={this.handleEndOpen}
-                    render={({minutes, seconds}) => {
-                        const sec = 60*minutes + seconds;
-                        return (
-                            <div style={{float:'right'}}>
-                                <Card header = {'Time spent : '+ sec + ' seconds'} meta ='Total time : 120 seconds' />
-                            </div>
-                        );
-                    }}
+                <AudioPlayer ref={c => (this.player = c)}
+                             autoPlay = {false}
+                             src={soundFile}
+                             onPlay={e => { this.props.listeningClicked({a:new Date().toLocaleString(),b:0});console.log("Audio started playing : "+new Date().toLocaleTimeString())}}
+                             onPause={e => { this.props.listeningClicked({a:new Date().toLocaleString(),b:1});console.log("Audio is paused : "+new Date().toLocaleTimeString())}}
+                             onEnded={e => { this.props.listeningClicked({a:new Date().toLocaleString(),b:2});console.log("Audio ended : "+new Date().toLocaleTimeString()); this.setState({redirectQues:true}); }}
+                             onDragMove={e =>{this.props.listeningClicked({a:new Date().toLocaleString(),b:3}); console.log("Audio is being adjusted : "+new Date().toLocaleTimeString())}}
                 />
-                <Modal
-                    open={this.state.modalEndOpen}
-                    onClose={this.handleEndClose}
-                    basic
-                    size='small'
-                >
-                    <Header icon='browser' content='Information'/>
-                    <Modal.Content>
-                        <h3>
-                            Game Complete.
-                        </h3>
-                    </Modal.Content>
-                    <Modal.Actions>
-                        <Button color='green' onClick={this.handleEndClose} inverted>
-                            <Icon name='checkmark'/> Got it
-                        </Button>
-                    </Modal.Actions>
-                </Modal>
-                { (this.state.redirectHome) ? <Redirect to="/"/> : null }
-                <Game2 />
+                { (this.state.redirectQues) ? <Redirect to="/listening-questions"/> : null }
             </div>
         )
     }
 }
-
-export default connect(null, { listeningGame,disable })(ListeningGame);
+export default connect(null, { listeningClicked })(ListeningGame);
 
 

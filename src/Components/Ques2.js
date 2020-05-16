@@ -8,9 +8,9 @@ class Ques2 extends Component{
     handleChange = (e, { value }) => {
         console.log("Question 2: Option " + value.toUpperCase() + " is selected at "+ new Date().toLocaleTimeString());
         this.setState({ value });
-        const timeAnswer = new Date().toLocaleTimeString();
-        const ema=this.props.userInfo.email;
-        this.props.onSelectAnswer2(ema,timeAnswer, value.toUpperCase());
+        const time = new Date().toLocaleTimeString();
+        const email=this.props.userInfo.email;
+        this.props.onSelectAnswer2(email,value.toUpperCase(),time);
     };
     render() {
         return (
