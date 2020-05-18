@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Header,Icon, Modal, Card} from 'semantic-ui-react'
+import {Button, Header, Icon, Modal, Card, Segment} from 'semantic-ui-react'
 import ReactStopwatch from 'react-stopwatch';
 import Emotion1 from './EmotionQues/Emotion1'
 import {connect} from "react-redux";
@@ -23,6 +23,11 @@ class EmotionGame extends Component{
     render() {
         return(
             <div>
+                <Segment clearing>
+                    <Header as='h1' floated='left'>
+                        Emotion Predictor
+                    </Header>
+                </Segment>
                 <Modal
                     //trigger={<Button onClick={this.handleOpen}>Show Modal</Button>}
                     open={this.state.modalOpen}

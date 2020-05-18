@@ -12,11 +12,6 @@ class Music extends Component {
             pause: true
 
         };
-
-        //this.url = "http://streaming.tdiradio.com:8000/house.mp3";
-
-        //this.url = "C:\\Users\\aansh\\Desktop\\test.mp4"
-       // this.url =
         this.audio = new Audio(soundfile);
         this.play = this.play.bind(this);
         this.pause = this.pause.bind(this);

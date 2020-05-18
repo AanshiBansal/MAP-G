@@ -202,6 +202,7 @@ export const disable = (disable,id) => {
 };
 
 export const listeningClicked = (data) => {
+    console.log(data);
     return {
         type: LISTENING_CLICKED,
         payload : data,
@@ -219,6 +220,7 @@ export const listeningGame = () => {
     return (dispatch,getState) => {
         const store = getState();
         const data = store.list.listeningData;
+        console.log("listenig data");
         console.log(data);
         dispatch(addListening());
         axios

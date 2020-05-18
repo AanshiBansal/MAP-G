@@ -13,9 +13,10 @@ class Home extends Component {
         }
         else{
         const id = event.target.id;
-        if(this.props.disable[id])
+        if(this.props.disable[id]) {
             event.preventDefault();
             alert("You have already played this game.");
+        }
         }
     };
     render() {

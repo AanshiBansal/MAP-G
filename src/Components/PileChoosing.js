@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Header,Icon, Modal, Card} from 'semantic-ui-react'
+import {Button, Header, Icon, Modal, Card, Segment} from 'semantic-ui-react'
 import ReactStopwatch from 'react-stopwatch';
 import Piles from './Piles'
 import {Redirect} from "react-router-dom";
@@ -38,6 +38,11 @@ class PileChoosing extends Component{
     render() {
         return(
             <div>
+                <Segment clearing>
+                    <Header as='h1' floated='left'>
+                        Choose The Pile
+                    </Header>
+                </Segment>
                 <Modal
                     //trigger={<Button onClick={this.handleOpen}>Show Modal</Button>}
                     open={this.state.modalOpen}
@@ -59,14 +64,14 @@ class PileChoosing extends Component{
                     seconds={0}
                     minutes={0}
                     hours={0}
-                    limit="00:00:10"
+                    limit="00:00:30"
                     onChange={({hours, minutes, seconds}) => {
                     }}
                     onCallback={() => this.openClose()}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
                             <div style={{float:'right'}}>
-                                <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 60 seconds'/>
+                                <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 30 seconds'/>
                             </div>
                         );
                     }}

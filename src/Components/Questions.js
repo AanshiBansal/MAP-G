@@ -31,7 +31,7 @@ class Questions extends React.Component{
                     seconds={0}
                     minutes={0}
                     hours={0}
-                    limit="00:00:10"
+                    limit="00:00:30"
                     onCallback={this.handleModelOpen}
                     render={({minutes, seconds}) => {
                         const sec = 60*minutes + seconds;
