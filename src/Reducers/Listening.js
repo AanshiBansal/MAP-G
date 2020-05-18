@@ -7,7 +7,7 @@ const INITIAL_STATE = {
         audioPause:["0"],
         audioEnd:["0"],
         audioAdjust:["0"],
-        answers:[]},
+        answers:[["0"],["0"],["0"],["0"]]},
     loading: false,
     error: null
 };
@@ -31,8 +31,13 @@ export default function (state = INITIAL_STATE, action) {
         }
         case LISTENING_ANS:{
             state.listeningData.emailId = action.payload.emailId;
-            state.listeningData.answers.push( [action.payload.b, action.payload.a, action.payload.c ]);
-            return {...state};
+          //  state.listeningData.answers.push( [action.payload.b, action.payload.a, action.payload.c ]);
+            let data = [];
+            for (let i = 0; i < state.listeningData.answers.length; i++)
+                data.push(state.listeningData.answers[i]);
+            data[action.payload.id] = [action.payload.b, action.payload.a, action.payload.c ];
+            console.log(data);
+             return {...state,listeningData: {answers: data}};
         }
 
         case LISTENING_CHOOSEN:

@@ -24,8 +24,8 @@ import {
     REGISTER_USER
 } from '../Actions/types';
 import axios from 'axios';
-//const baseUrl = 'http://127.0.0.1:8000';
-const baseUrl = 'http://18.215.251.109';
+const baseUrl = 'http://127.0.0.1:8000';
+//const baseUrl = 'http://18.215.251.109';
 const addPile = () => ({
     type: PILE_CHOOSEN
 });

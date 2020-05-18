@@ -43,11 +43,11 @@ class Questions extends React.Component{
                     }}
                 />
                 <br/>
-                <Ques1 onSelectAnswer={(email,ans,time)=>{this.props.listeningAns({emailId:email,a:ans,b:"1",c:time})}} />
+                <Ques1 onSelectAnswer={(email,ans,time)=>{this.props.listeningAns({id:1,emailId:email,a:ans,b:"1",c:time})}} />
                 <br />
-                <Ques2 onSelectAnswer2={(email,ans,time)=>{this.props.listeningAns({emailId:email,a:ans,b:"2",c:time})}}/>
+                <Ques2 onSelectAnswer2={(email,ans,time)=>{this.props.listeningAns({id:2,emailId:email,a:ans,b:"2",c:time})}}/>
                 <br />
-                <Ques3 onSelectAnswer3={(email,ans,time)=>{this.props.listeningAns({emailId:email,a:ans,b:"3",c:time})}}/>
+                <Ques3 onSelectAnswer3={(email,ans,time)=>{this.props.listeningAns({id:3,emailId:email,a:ans,b:"3",c:time})}}/>
                 <br />
                 <Button primary floated="right" onClick={this.handleModelOpen}>SUBMIT</Button>
                 <Modal
