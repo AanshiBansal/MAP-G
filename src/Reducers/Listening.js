@@ -7,7 +7,7 @@ const INITIAL_STATE = {
         audioPause:["0"],
         audioEnd:["0"],
         audioAdjust:["0"],
-        answers:[["0","0","0"],["0"],["0"],["0"]]},
+        answers:[["0","0","0"],["0","0","0"],["0","0","0"],["0","0","0"]]},
     loading: false,
     error: null
 };
