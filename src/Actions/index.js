@@ -166,7 +166,7 @@ export const balloonGame = () => {
     return (dispatch,getState) => {
         const store = getState();
         const data = store.bal.balloonData;
-        //console.log(data);
+        console.log(data);
         dispatch(addBalloon());
         axios
             .post(`${baseUrl}/balloonGameballoonGame/`,data)
