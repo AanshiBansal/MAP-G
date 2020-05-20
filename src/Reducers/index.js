@@ -5,6 +5,7 @@ import Listening from "./Listening";
 import BalloonBlowing from "./BalloonBlowing";
 import EmotionChoosing from "./EmotionChoosing";
 import Home from "./Home";
+import GenReport from "./GenReport";
 
 const rootReducer = combineReducers({
     pile: PileChoosing,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     list: Listening,
     bal: BalloonBlowing,
     emo: EmotionChoosing,
-    home:Home
+    home:Home,
+    rep:GenReport
 });
 
 export default rootReducer;

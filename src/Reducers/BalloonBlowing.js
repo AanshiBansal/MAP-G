@@ -16,7 +16,6 @@ export default function (state = {INITIAL_STATE}, action) {
                 loading: true
             };
         case BALLOON_CHOOSEN_SUCCESS:
-            console.log(action.payload);
             return {
                 ...state,
                 loading: false,
@@ -24,7 +23,6 @@ export default function (state = {INITIAL_STATE}, action) {
                 balloonData: action.payload
             };
         case BALLOON_CHOOSEN_FAILURE:
-            console.log(action.payload);
             return {
                 ...state,
                 loading: false,

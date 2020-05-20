@@ -21,7 +21,8 @@ import {
     DISABLE,
     REGISTRATION,
     GAMES_PLAYED,
-    REGISTER_USER
+    REGISTER_USER,
+    GEN_REPORT
 } from '../Actions/types';
 import axios from 'axios';
 const baseUrl = 'http://127.0.0.1:8000';
@@ -111,11 +112,29 @@ export const signIn = (userInfo) => {
             .then(res => {
                 //debugger
                  dispatch(checkRegistration(res.data.emailToCheck));
-
                 dispatch(gamesPlayed(res.data.games_played));
             })
             .catch(err => {
 
+            });
+    };
+
+};
+
+export const genReport = (userInfo) => {
+    return (dispatch) => {
+        dispatch({
+            type: GEN_REPORT,
+            payload: userInfo
+        });
+        axios
+            .get(`${baseUrl}/generateReport/?emailToCheck=${userInfo.email}`)
+            .then(res => {
+                //debugger
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
             });
     };
 

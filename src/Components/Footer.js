@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Button} from 'semantic-ui-react';
 import {connect} from "react-redux";
+import { genReport } from '../Actions';
 
 class Footer extends Component{
     checkDisable=()=>{
@@ -10,18 +11,25 @@ class Footer extends Component{
             check=false;
         return check;
     };
+    handleReport = () => {
+        alert("Kindly check your registered email. The report has been mailed to you.");
+        this.props.genReport({
+            email:this.props.userInfo.email,
+        });
+    };
     render(){
         const check=this.checkDisable();
         return(
-            <Button primary floated='right' style={{margin:'20px'}} disabled={check}>Generate Report</Button>
+            <Button primary floated='right' style={{margin:'20px'}} disabled={check} onClick={this.handleReport}>Generate Report</Button>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    return { disable:state.home.disable};
+    return { disable:state.home.disable, isReport: state.rep.isReport, userInfo: state.auth.userInfo };
+
 };
 
 export default connect(
-    mapStateToProps,null
+    mapStateToProps,{genReport}
 )(Footer);
