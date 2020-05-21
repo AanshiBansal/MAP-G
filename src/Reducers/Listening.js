@@ -15,6 +15,7 @@ const INITIAL_STATE = {
 export default function (state = INITIAL_STATE, action) {
     switch(action.type) {
         case LISTENING_CLICKED:{
+            state.listeningData.emailId = action.payload.emailId;
             if(action.payload.b===0) {
                 console.log("hello audio started");
                 state.listeningData.audioStart.push(action.payload.a);
