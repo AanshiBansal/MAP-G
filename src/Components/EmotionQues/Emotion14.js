@@ -21,11 +21,11 @@ class Emotion14 extends Component {
         console.log("Emotion detected for picture 14 " + event.target.id + " at " + new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
         const timeAnswer = new Date().toLocaleTimeString();
         this.props.emotionAns({a:event.target.id,b:"14",c:timeAnswer,emailId:this.props.userInfo.email});
+        this.props.disable({id:4});
+        this.props.emotionGame();
         this.setState({ modalOpen: true })
     };
     handleClose = (event) => {
-        this.props.disable({id:4});
-        this.props.emotionGame();
         this.setState({ redirecthome: true });
     };
 
