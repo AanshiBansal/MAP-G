@@ -62,7 +62,7 @@ class BalloonBlow extends Component{
                         </Button>
                     </Modal.Actions>
                 </Modal>
-                <ReactStopwatch
+                { (this.state.stopWatch) ? <ReactStopwatch
                     seconds={0}
                     minutes={0}
                     hours={0}
@@ -77,7 +77,7 @@ class BalloonBlow extends Component{
                             </div>
                         );
                     }}
-                />
+                /> :null}
                 <Modal
                     //trigger={<Button onClick={this.handleOpen}>Show Modal</Button>}
                     open={this.state.modalOpe}

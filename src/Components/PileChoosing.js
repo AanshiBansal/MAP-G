@@ -15,7 +15,7 @@ class PileChoosing extends Component{
     };
 
     handleOpen = () => this.setState({ modalOpen: true });
-    handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
+    handleClose = () => this.setState({ modalOpen: false, stopWatch:true });
     openClose = () => {
         this.props.disable({id:2});
         this.props.pileGame();
@@ -60,7 +60,7 @@ class PileChoosing extends Component{
                         </Button>
                     </Modal.Actions>
                 </Modal>
-                <ReactStopwatch
+                { (this.state.stopWatch) ?  <ReactStopwatch
                     seconds={0}
                     minutes={0}
                     hours={0}
@@ -75,7 +75,7 @@ class PileChoosing extends Component{
                             </div>
                         );
                     }}
-                />
+                /> : null }
 
                 <Modal
                     //trigger={<Button onClick={this.handleOpen}>Show Modal</Button>}

@@ -63,7 +63,7 @@ class EmotionGame extends Component{
                         </Button>
                     </Modal.Actions>
                 </Modal>
-                <ReactStopwatch
+                { (this.state.stopWatch) ? <ReactStopwatch
                     seconds={0}
                     minutes={0}
                     hours={0}
@@ -78,7 +78,7 @@ class EmotionGame extends Component{
                             </div>
                         );
                     }}
-                />
+                /> :null }
                 { (this.state.showComponent) ? <Redirect to="/emotion2"/> : null }
                 <Emotion1 />
             </div>
