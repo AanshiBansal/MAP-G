@@ -37,7 +37,7 @@ class BalloonBlow extends Component{
             <div>
                 <Segment clearing>
                     <Header as='h1' floated='left'>
-                        Baloon Blow
+                        Balloon Blow
                     </Header>
                 </Segment>
                 <Modal

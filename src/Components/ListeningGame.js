@@ -23,7 +23,7 @@ class ListeningGame extends Component{
             <div>
                 <Segment clearing>
                     <Header as='h1' floated='left'>
-                        Listening game
+                        Listening Game
                     </Header>
                 </Segment>
                 <Modal
