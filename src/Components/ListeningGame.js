@@ -50,16 +50,19 @@ class ListeningGame extends Component{
                 <AudioPlayer ref={c => (this.player = c)}
                              autoPlay = {false}
                              src={soundFile}
-                             onPlay={e => { this.props.listeningClicked({a:new Date().toLocaleTimeString(),b:0}); console.log("Audio started playing : "+new Date().toLocaleTimeString())}}
-                             onPause={e => { this.props.listeningClicked({a:new Date().toLocaleTimeString(),b:1});console.log("Audio is paused : "+new Date().toLocaleTimeString())}}
-                             onEnded={e => { this.props.listeningClicked({a:new Date().toLocaleTimeString(),b:2});console.log("Audio ended : "+new Date().toLocaleTimeString()); this.setState({redirectQues:true}); }}
-                             onDragMove={e =>{this.props.listeningClicked({a:new Date().toLocaleTimeString(),b:3}); console.log("Audio is being adjusted : "+new Date().toLocaleTimeString())}}
+                             onPlay={e => { this.props.listeningClicked({a:new Date().toLocaleTimeString(),b:0,emailId:this.props.userInfo.email}); console.log("Audio started playing : "+new Date().toLocaleTimeString())}}
+                             onPause={e => { this.props.listeningClicked({a:new Date().toLocaleTimeString(),b:1,emailId:this.props.userInfo.email});console.log("Audio is paused : "+new Date().toLocaleTimeString())}}
+                             onEnded={e => { this.props.listeningClicked({a:new Date().toLocaleTimeString(),b:2,emailId:this.props.userInfo.email});console.log("Audio ended : "+new Date().toLocaleTimeString()); this.setState({redirectQues:true}); }}
+                             onDragMove={e =>{this.props.listeningClicked({a:new Date().toLocaleTimeString(),b:3,emailId:this.props.userInfo.email}); console.log("Audio is being adjusted : "+new Date().toLocaleTimeString())}}
                 />
                 { (this.state.redirectQues) ? <Redirect to="/listening-questions"/> : null }
             </div>
         )
     }
 }
-export default connect(null, { listeningClicked })(ListeningGame);
+const mapStateToProps = (state) => {
+    return { userInfo: state.auth.userInfo};
+};
+export default connect(mapStateToProps, { listeningClicked })(ListeningGame);
 
 
