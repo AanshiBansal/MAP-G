@@ -25,8 +25,8 @@ import {
     GEN_REPORT
 } from '../Actions/types';
 import axios from 'axios';
-// const baseUrl = 'http://127.0.0.1:8000';
-const baseUrl = 'http://34.227.84.157';
+ const baseUrl = 'http://127.0.0.1:8000';
+//const baseUrl = 'http://34.227.84.157';
 const addPile = () => ({
     type: PILE_CHOOSEN
 });

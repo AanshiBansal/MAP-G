@@ -37,7 +37,7 @@ export default function (state = INITIAL_STATE, action) {
                 data.push(state.listeningData.answers[i]);
             data[action.payload.id] = [action.payload.b, action.payload.a, action.payload.c ];
             console.log(data);
-             return {...state,listeningData: { emailId:state.listeningData.emailId, audioStart:state.listeningData.audioStart,audioEnd:state.listeningData.audioEnd,audioPause: state.listeningData.audioPause,audioAdjust: state.listeningData.audioAdjust ,answers: data}};
+             return {...state,listeningData: { emailId:action.payload.emailId, audioStart:state.listeningData.audioStart,audioEnd:state.listeningData.audioEnd,audioPause: state.listeningData.audioPause,audioAdjust: state.listeningData.audioAdjust ,answers: data}};
         }
 
         case LISTENING_CHOOSEN:
