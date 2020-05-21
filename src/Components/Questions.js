@@ -17,11 +17,11 @@ class Questions extends React.Component{
         };
     }
     handleModelOpen = () => {
+        this.props.disable({id:1});
+        this.props.listeningGame();
         this.setState({ modalOpen: true });
     };
     handleModelClose = () => {
-        this.props.disable({id:1});
-        this.props.listeningGame();
         this.setState({ redirectHome: true });
     };
     render() {

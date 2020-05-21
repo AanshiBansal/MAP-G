@@ -20,6 +20,7 @@ class Home extends Component {
         }
     };
     render() {
+        console.log(this.props.disable);
         return (
             <div>
                 <HeaderBar/>
