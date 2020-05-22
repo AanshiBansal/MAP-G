@@ -19,9 +19,9 @@ class SignUp extends Component{
         name:this.props.userInfo.name,
         age:null,
         teachingExp:null,
-        teachingField:null,
+        teachingField:2,
         openID:this.props.userInfo.openID,
-        gender:null,
+        gender:1,
         games_played:[false,false,false,false,false],
         loading:false
     };
