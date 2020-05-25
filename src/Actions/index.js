@@ -26,7 +26,7 @@ import {
 } from '../Actions/types';
 import axios from 'axios';
  //const baseUrl = 'http://127.0.0.1:8000';
-const baseUrl = 'http://54.83.124.61';
+const baseUrl = 'http://54.224.51.29';
 const addPile = () => ({
     type: PILE_CHOOSEN
 });
