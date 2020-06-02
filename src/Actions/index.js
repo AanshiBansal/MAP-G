@@ -25,7 +25,8 @@ import {
     GEN_REPORT
 } from '../Actions/types';
 import axios from 'axios';
- //const baseUrl = 'http://127.0.0.1:8000';
+
+//const baseUrl = 'http://127.0.0.1:8000';
 const baseUrl = 'http://54.224.51.29';
 const addPile = () => ({
     type: PILE_CHOOSEN
@@ -145,9 +146,6 @@ export const signOut = () => {
         type: SIGN_OUT
     };
 };
-
-// const baseUrl = 'http://127.0.0.1:8000';
-const baseUrl = 'http://18.215.251.109';
 
 export const pileClicked = (data) => {
     return {
