@@ -21,3 +21,4 @@ export const REGISTRATION = 'REGISTRATION';
 export const GAMES_PLAYED = 'GAMES_PLAYED';
 export const DISABLE = 'DISABLE';
 export const REGISTER_USER = 'REGISTER_USER';
+export const GEN_REPORT = 'GEN_REPORT';

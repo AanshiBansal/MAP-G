@@ -3,26 +3,25 @@ import { Form, Radio } from 'semantic-ui-react'
 import {connect} from "react-redux";
 import {listeningClicked} from "../Actions";
 
-class Ques extends Component{
+class Ques1 extends Component{
         state = {};
     handleChange = (e, { value }) =>
     {
         console.log("Question 1: Option " + value.toUpperCase() + " is selected at "+ new Date().toLocaleTimeString());
         this.setState({ value });
-        const timeAnswer = new Date().toLocaleTimeString();
-        const ema=this.props.userInfo.email;
-        this.props.onSelectAnswer(ema,timeAnswer,value.toUpperCase());
+        const time = new Date().toLocaleTimeString();
+        const email=this.props.userInfo.email;
+        this.props.onSelectAnswer(email,value.toUpperCase(),time);
     };
-
     render() {
         return (
             <Form>
                 <Form.Field>
-                    <b>Question 1 : Where is the man?</b>
+                    <b>Question 1 : How many vegetarian dishes did the waiter list?</b>
                 </Form.Field>
                 <Form.Field>
                     <Radio
-                        label='Near a school'
+                        label='One'
                         name='radioGroup'
                         value='a'
                         checked={this.state.value === 'a'}
@@ -31,7 +30,7 @@ class Ques extends Component{
                 </Form.Field>
                 <Form.Field>
                     <Radio
-                        label='Near a museum'
+                        label='Three'
                         name='radioGroup'
                         value='b'
                         checked={this.state.value === 'b'}
@@ -41,7 +40,7 @@ class Ques extends Component{
                 </Form.Field>
                 <Form.Field>
                     <Radio
-                        label='Near townhall'
+                        label='Five'
                         name='radioGroup'
                         value='c'
                         checked={this.state.value === 'c'}
@@ -57,4 +56,4 @@ const mapStateToProps = (state) => {
     return {  listeningData: state.list.listeningData, userInfo:state.auth.userInfo };
 };
 
-export default connect(mapStateToProps, {listeningClicked})(Ques);
+export default connect(mapStateToProps, {listeningClicked})(Ques1);

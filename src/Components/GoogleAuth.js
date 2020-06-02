@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {Redirect} from "react-router-dom";
 import { signIn, signOut } from '../Actions';
@@ -34,7 +34,10 @@ class GoogleAuth extends Component{
         }
     };
 
-    onSignOutClick =() => this.auth.signOut();
+    onSignOutClick =() => {
+        window.location.reload();
+        this.auth.signOut();
+    };
 
     onSignInClick = () => this.auth.signIn();
 
@@ -63,7 +66,8 @@ class GoogleAuth extends Component{
         return (
             <div>
                 {this.renderAuthButton()}
-                { (this.props.registered === false) ? <Redirect to="/sign-up" /> : <Redirect to="/" /> }
+                { (this.props.registered === false) ? <Redirect to="/sign-up" /> : <Redirect to="/" />
+                    }
             </div>
         );
     }

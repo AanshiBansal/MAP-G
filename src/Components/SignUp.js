@@ -19,9 +19,9 @@ class SignUp extends Component{
         name:this.props.userInfo.name,
         age:null,
         teachingExp:null,
-        teachingField:null,
+        teachingField:2,
         openID:this.props.userInfo.openID,
-        gender:null,
+        gender:1,
         games_played:[false,false,false,false,false],
         loading:false
     };
@@ -60,6 +60,7 @@ class SignUp extends Component{
 
                 <Form.Group width='equal'>
                     <Form.Field
+                        required
                         id='gender'
                         control={Select}
                         options={genderOptions}
@@ -69,6 +70,7 @@ class SignUp extends Component{
                         onChange={this.handleChange}
                     />
                     <Form.Input
+                        required
                         id='age'
                         label='Age'
                         placeholder='Age'
@@ -78,7 +80,7 @@ class SignUp extends Component{
 
                 </Form.Group>
                 <Form.Group>
-                    <Form.Field
+                    <Form.Field required
                         id={'teachingField'}
                         control={Select}
                         options={experienceOptions}
@@ -88,6 +90,7 @@ class SignUp extends Component{
                         onChange={this.handleChange}
                     />
                     <Form.Field
+                        required
                         id='teachingExp'
                         control={Input}
                         label='Teaching Experience'

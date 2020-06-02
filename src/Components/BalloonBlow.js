@@ -1,6 +1,6 @@
 import React,{Component}  from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import {Button, Modal, Header, Icon, Card} from 'semantic-ui-react'
+import {Button, Modal, Header, Icon, Card, Segment} from 'semantic-ui-react'
 import ReactStopwatch from "react-stopwatch";
 import Balloon from "./Balloon";
 import {Redirect} from "react-router-dom";
@@ -35,6 +35,11 @@ class BalloonBlow extends Component{
     render() {
         return(
             <div>
+                <Segment clearing>
+                    <Header as='h1' floated='left'>
+                        Balloon Blow
+                    </Header>
+                </Segment>
                 <Modal
                     //trigger={<Button onClick={this.handleOpen}>Show Modal</Button>}
                     open={this.state.modalOpen}
@@ -57,22 +62,22 @@ class BalloonBlow extends Component{
                         </Button>
                     </Modal.Actions>
                 </Modal>
-                <ReactStopwatch
+                { (this.state.stopWatch) ? <ReactStopwatch
                     seconds={0}
                     minutes={0}
                     hours={0}
-                    limit="00:00:10"
+                    limit="00:00:30"
                     onChange={({hours, minutes, seconds}) => {
                     }}
                     onCallback={() => this.openClose()}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
                             <div style={{float:'right'}}>
-                                <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 60 seconds'/>
+                                <Card header = {'Time spent '+ seconds + ' seconds'} meta ='Total time : 30 seconds'/>
                             </div>
                         );
                     }}
-                />
+                /> :null}
                 <Modal
                     //trigger={<Button onClick={this.handleOpen}>Show Modal</Button>}
                     open={this.state.modalOpe}

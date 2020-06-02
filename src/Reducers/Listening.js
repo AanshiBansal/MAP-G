@@ -7,7 +7,7 @@ const INITIAL_STATE = {
         audioPause:["0"],
         audioEnd:["0"],
         audioAdjust:["0"],
-        answers:[]},
+        answers:[["0","0","0"],["0","0","0"],["0","0","0"],["0","0","0"]]},
     loading: false,
     error: null
 };
@@ -15,7 +15,9 @@ const INITIAL_STATE = {
 export default function (state = INITIAL_STATE, action) {
     switch(action.type) {
         case LISTENING_CLICKED:{
+            state.listeningData.emailId = action.payload.emailId;
             if(action.payload.b===0) {
+                console.log("hello audio started");
                 state.listeningData.audioStart.push(action.payload.a);
             }
             if(action.payload.b===1) {
@@ -31,8 +33,12 @@ export default function (state = INITIAL_STATE, action) {
         }
         case LISTENING_ANS:{
             state.listeningData.emailId = action.payload.emailId;
-            state.listeningData.answers.push( [action.payload.b, action.payload.a, action.payload.c ]);
-            return {...state};
+            let data = [];
+            for (let i = 0; i < state.listeningData.answers.length; i++)
+                data.push(state.listeningData.answers[i]);
+            data[action.payload.id] = [action.payload.b, action.payload.a, action.payload.c ];
+            console.log(data);
+             return {...state,listeningData: { emailId:action.payload.emailId, audioStart:state.listeningData.audioStart,audioEnd:state.listeningData.audioEnd,audioPause: state.listeningData.audioPause,audioAdjust: state.listeningData.audioAdjust ,answers: data}};
         }
 
         case LISTENING_CHOOSEN:

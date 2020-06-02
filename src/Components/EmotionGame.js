@@ -1,15 +1,29 @@
 import React, {Component} from 'react';
-import {Button, Header,Icon, Modal, Card} from 'semantic-ui-react'
+import {Button, Header, Icon, Modal, Card, Segment} from 'semantic-ui-react'
 import ReactStopwatch from 'react-stopwatch';
-import Emotion1 from './EmotionQues/Emotion1'
 import {connect} from "react-redux";
 import {emotionAns, emotionGame} from "../Actions";
+import {Redirect} from "react-router-dom";
+import Emotion1 from "./EmotionQues/Emotion1";
 
 class EmotionGame extends Component{
-    state = {
-        modalOpen: false,
-        stopWatch:false
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            showComponent: false,
+            redirectstate: false,
+            modalOpen: false,
+            stopWatch:false
+        };
+        this._onButtonClick = this._onButtonClick.bind(this);
+    }
+
+    _onButtonClick() {
+        this.setState({
+            showComponent: true,
+
+        });
+    }
 
     handleOpen = () => this.setState({ modalOpen: true });
     handleClose = () => this.setState({ modalOpen: false,stopWatch:true });
@@ -23,6 +37,11 @@ class EmotionGame extends Component{
     render() {
         return(
             <div>
+                <Segment clearing>
+                    <Header as='h1' floated='left'>
+                        Emotion Predictor
+                    </Header>
+                </Segment>
                 <Modal
                     //trigger={<Button onClick={this.handleOpen}>Show Modal</Button>}
                     open={this.state.modalOpen}
@@ -44,14 +63,14 @@ class EmotionGame extends Component{
                         </Button>
                     </Modal.Actions>
                 </Modal>
-                <ReactStopwatch
+                { (this.state.stopWatch) ? <ReactStopwatch
                     seconds={0}
                     minutes={0}
                     hours={0}
                     limit="00:00:30"
                     onChange={({hours, minutes, seconds}) => {
                     }}
-                    onCallback={() => console.log('Finish')}
+                    onCallback={() => this._onButtonClick()}
                     render={({formatted, hours, minutes, seconds}) => {
                         return (
                             <div style={{float:'right'}}>
@@ -59,8 +78,8 @@ class EmotionGame extends Component{
                             </div>
                         );
                     }}
-                />
-
+                /> :null }
+                { (this.state.showComponent) ? <Redirect to="/emotion2"/> : null }
                 <Emotion1 />
             </div>
         )

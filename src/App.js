@@ -4,6 +4,7 @@ import Home from "./Components/Home";
 import PileChoosing from './Components/PileChoosing';
 import BalloonBlow from "./Components/BalloonBlow";
 import ListeningGame from "./Components/ListeningGame";
+import Game2 from "./Components/Questions";
 import EmotionGame from "./Components/EmotionGame";
 import SignUp from "./Components/SignUp"
 import Emotion2 from "./Components/EmotionQues/Emotion2";
@@ -19,7 +20,6 @@ import Emotion11 from "./Components/EmotionQues/Emotion11";
 import Emotion12 from "./Components/EmotionQues/Emotion12";
 import Emotion13 from "./Components/EmotionQues/Emotion13";
 import Emotion14 from "./Components/EmotionQues/Emotion14";
-import {RedirectPage} from "./Components/RedirectPage";
 
 class App extends Component {
     render() {
@@ -31,6 +31,7 @@ class App extends Component {
                         <Route exact path="/sign-up" component={SignUp}/>
                         <Route exact path="/pile-choosing" component={PileChoosing}/>
                         <Route exact path="/listening" component={ListeningGame}/>
+                        <Route exact path="/listening-questions" component={Game2}/>
                         <Route exact path="/balloon-blow" component={BalloonBlow}/>
                         <Route exact path="/emotion-sensing" component={EmotionGame}/>
                         <Route exact path="/emotion2" component={Emotion2}/>
@@ -46,7 +47,6 @@ class App extends Component {
                         <Route exact path="/emotion12" component={Emotion12}/>
                         <Route exact path="/emotion13" component={Emotion13}/>
                         <Route exact path="/emotion14" component={Emotion14}/>
-                        <Route exact path="/red" component={RedirectPage}/>
                     </div>
                 </Switch>
             </BrowserRouter>

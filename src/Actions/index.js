@@ -21,10 +21,12 @@ import {
     DISABLE,
     REGISTRATION,
     GAMES_PLAYED,
-    REGISTER_USER
+    REGISTER_USER,
+    GEN_REPORT
 } from '../Actions/types';
 import axios from 'axios';
-
+ //const baseUrl = 'http://127.0.0.1:8000';
+const baseUrl = 'http://54.224.51.29';
 const addPile = () => ({
     type: PILE_CHOOSEN
 });
@@ -108,18 +110,31 @@ export const signIn = (userInfo) => {
         axios
             .get(`${baseUrl}/userExist/?emailToCheck=${userInfo.email}`)
             .then(res => {
-                console.log(res);
                 //debugger
                  dispatch(checkRegistration(res.data.emailToCheck));
-                 console.log(res.data.emailToCheck);
-                // // debugger
-                // if(res.data.emailToCheck===false){
-                //     this.props.history.push('/sign-up');
-                // }
                 dispatch(gamesPlayed(res.data.games_played));
             })
             .catch(err => {
-                 console.log(err);
+
+            });
+    };
+
+};
+
+export const genReport = (userInfo) => {
+    return (dispatch) => {
+        dispatch({
+            type: GEN_REPORT,
+            payload: userInfo
+        });
+        axios
+            .get(`${baseUrl}/generateReport/?emailToCheck=${userInfo.email}`)
+            .then(res => {
+                //debugger
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
             });
     };
 
@@ -130,6 +145,7 @@ export const signOut = () => {
         type: SIGN_OUT
     };
 };
+
 // const baseUrl = 'http://127.0.0.1:8000';
 const baseUrl = 'http://18.215.251.109';
 
@@ -171,7 +187,7 @@ export const balloonGame = () => {
     return (dispatch,getState) => {
         const store = getState();
         const data = store.bal.balloonData;
-        //console.log(data);
+        console.log(data);
         dispatch(addBalloon());
         axios
             .post(`${baseUrl}/balloonGameballoonGame/`,data)
@@ -194,11 +210,7 @@ export const disable = (disable,id) => {
         });
         const store = getState();
         const data={email:store.auth.userInfo.email,games_played:JSON.stringify(store.home.disable)};
-        //const data=JSON.stringify(data1);
-        console.log(data);
-        console.log(store.home.disable);
         axios
-            //.post(`${baseUrl}/updateGamesPlayed/?email=${store.auth.userInfo.email}&games_played=${store.home.disable}`)
             .post(`${baseUrl}/updateGamesPlayed/`,data)
             .then(res => {
                 //console.log(res);
@@ -211,6 +223,7 @@ export const disable = (disable,id) => {
 };
 
 export const listeningClicked = (data) => {
+    console.log(data);
     return {
         type: LISTENING_CLICKED,
         payload : data,
@@ -228,6 +241,7 @@ export const listeningGame = () => {
     return (dispatch,getState) => {
         const store = getState();
         const data = store.list.listeningData;
+        console.log("listenig data");
         console.log(data);
         dispatch(addListening());
         axios

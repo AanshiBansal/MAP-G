@@ -19,14 +19,18 @@ class Balloon extends Component{
         Balloon:[],
         balColor:[],
         clicksCollect:[],
+        clicksBurst:[],
         genScore:[],
-        amountCollected:[],
         total:0,
         src:red
     };
     imgSrc=[[red,blue,yellow],[redBlast,blueBlast,yellowBlast]];
     imgSize=['mini','tiny','small','medium','large','big'];
-    val=[[3,4,4,3,4,3,3,4,3,4,4,3],[5,6,6,5,6,5,5,6,5,6,6,5],[2,3,2,2,3,2,2,3,2,2,2,3]];
+    val=[
+        [3,4,4,3,4,3,3,4,3,4,4,3,3,4,4,3,4,3,3,4,3,4,4,3,3,4,4,3,4,3,3,4,3,4,4,3,3,4,4,3,4,3,3,4,3,4,4,3,3,4,4,3,4,3,3,4,3,4,4,3,3,4,4,3,4,3,3,4,3,4,4,3],
+        [5,6,6,5,6,5,5,6,5,6,6,5,5,6,6,5,6,5,5,6,5,6,6,5,5,6,6,5,6,5,5,6,5,6,6,5,5,6,6,5,6,5,5,6,5,6,6,5,5,6,6,5,6,5,5,6,5,6,6,5,5,6,6,5,6,5,5,6,5,6,6,5],
+        [2,3,2,2,3,2,2,3,2,2,2,3,2,3,2,2,3,2,2,3,2,2,2,3,2,3,2,2,3,2,2,3,2,2,2,3,2,3,2,2,3,2,2,3,2,2,2,3,2,3,2,2,3,2,2,3,2,2,2,3,2,3,2,2,3,2,2,3,2,2,2,3]
+    ];
     clickCount=0;
     clickLimit=3;
     handleBlow=()=>{
@@ -35,14 +39,16 @@ class Balloon extends Component{
         if(this.clickCount===this.clickLimit){
 
             //display blast for 2 secs
-            this.state.clicksCollect.push(this.clickCount);
+            this.state.clicksBurst.push(this.clickCount);
+            this.state.clicksCollect.push(0);
             this.state.balColor.push(this.state.balloonColour);
             this.state.genScore.push(0);
             this.props.balloonClicked({
                 emailId: this.props.userInfo.email,
                 color: this.state.balColor,
+                clicksBursted: this.state.clicksBurst,
                 clicksCollected: this.state.clicksCollect,
-                score:this.state.genScore,
+                amountCollected:this.state.genScore,
                 total: this.state.total
             });
             const balloonColour=(this.state.balloonColour+1)%3;
@@ -79,13 +85,15 @@ class Balloon extends Component{
         this.clickCount=0;
         this.clickLimit=this.val[balloonColour][counter[balloonColour]];
         this.state.clicksCollect.push(this.clickCount);
+        this.state.clicksBurst.push(0);
         this.state.balColor.push(this.state.balloonColour);
         this.state.genScore.push(current-this.state.total);
         this.props.balloonClicked({
             emailId: this.props.userInfo.email,
             color: this.state.balColor,
+            clicksBursted:this.state.clicksBurst,
             clicksCollected: this.state.clicksCollect,
-            score:this.state.genScore,
+            amountCollected:this.state.genScore,
             total: current
         });
         this.setState({balloonColour:balloonColour,count:this.state.count+1,src:this.imgSrc[0][balloonColour],Balloon:data,countBalloon:counter,total:current,size:0});
