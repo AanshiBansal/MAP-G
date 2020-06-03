@@ -4,5 +4,7 @@ Mindset Analysis using Psychometric Games (Map-G) is an application developed wi
 This is in line with the Psychometric tests and platforms that tech and other companies have started to employ to get a psychometric analysis of their prospective candidates. It was envisioned as a research project across the domains of Computer Science, Psychology and Software Engineering, and has since grown to become a fully functioning application.
 ### Application flow
 ![Flow Char](/MAP-G_flow_diagram.jpg)
+
 This repsoitory contains the code for the frontend of the application created using React and Redux.
+
 Backend: https://github.com/AanshiBansal/MAP-G-Backend
